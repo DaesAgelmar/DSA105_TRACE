@@ -660,40 +660,73 @@
     "href": "weeks/week03.html",
     "title": "Week 3 — How Does a Computer Represent Information?",
     "section": "",
-    "text": "Note\n\n\n\nThis module is part of the published 14-week course architecture.\nIts interactive notebook, evidence tasks, and homework package will be added as the module is finalized.",
+    "text": "TipThis week’s central question\n\n\n\nHow does Python represent different kinds of information, and how do names refer to those values?",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
     ]
   },
   {
-    "objectID": "weeks/week03.html#official-focus",
-    "href": "weeks/week03.html#official-focus",
+    "objectID": "weeks/week03.html#learning-goals",
+    "href": "weeks/week03.html#learning-goals",
     "title": "Week 3 — How Does a Computer Represent Information?",
-    "section": "Official focus",
-    "text": "Official focus\nData types and variables",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a value from the name used to refer to it;\ncreate and update simple Python variables;\nidentify common data types: int, float, str, and bool;\nuse type() to inspect how Python represents a value;\nexplain why \"120\" and 120 are not the same representation;\ntrace simple assignment and reassignment step by step.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
     ]
   },
   {
-    "objectID": "weeks/week03.html#weekly-structure",
-    "href": "weeks/week03.html#weekly-structure",
+    "objectID": "weeks/week03.html#connection-to-week-2",
+    "href": "weeks/week03.html#connection-to-week-2",
     "title": "Week 3 — How Does a Computer Represent Information?",
-    "section": "Weekly structure",
-    "text": "Weekly structure\nThis module will use the same recurring active-learning grammar:\n\nToday’s Problem\nPredict\nRun\nModify\nConcept\nGuided Practice\nPair Challenge\nDebug This\nDomain Application\nIndependent Check\nExit Ticket\nHomework",
+    "section": "Connection to Week 2",
+    "text": "Connection to Week 2\nLast week, we translated ordered algorithm steps into executable Python statements.\nThis week, we ask:\n\nWhat exactly are those Python statements working with?\n\nPrograms need representations for quantities, text, categories, and logical states. Before we can manipulate data, we need to understand how those values are stored and named.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
     ]
   },
   {
-    "objectID": "weeks/week03.html#evidence-model",
-    "href": "weeks/week03.html#evidence-model",
+    "objectID": "weeks/week03.html#in-class",
+    "href": "weeks/week03.html#in-class",
     "title": "Week 3 — How Does a Computer Represent Information?",
-    "section": "Evidence model",
-    "text": "Evidence model\n\nWeekly Quiz\nSelected Lab Evidence\nExit Ticket\nHomework Transfer Task",
+    "section": "In class",
+    "text": "In class\n\n1. Open the student notebook\nOpen Week 3 Student Notebook in Colab\nIf you want a local copy:\nDownload the notebook\n\n\n2. Work through the active cycle\nYou will repeatedly:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nretrieval from Week 2;\nvalue-versus-name reasoning;\nfirst systematic use of variables;\nint, float, str, and bool;\ninspecting values with type();\nassignment and reassignment tracing;\nrepresentation mismatches;\nvariable naming;\nindependent lab evidence.\n\n\n\n\n\n\n\nNoteScope for Week 3\n\n\n\nThis week is about representation.\nWe will not yet study operators and expressions systematically. That comes in Week 4. Our goal now is to understand what kinds of values a program can work with and how Python names them.\n\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 3 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 3 — How Does a Computer Represent Information?"
+    ]
+  },
+  {
+    "objectID": "weeks/week03.html#after-class",
+    "href": "weeks/week03.html#after-class",
+    "title": "Week 3 — How Does a Computer Represent Information?",
+    "section": "After class",
+    "text": "After class\n\nHomework\nOpen Week 3 Homework in Colab\nDownload the homework notebook\nThe homework follows:\n\nIdentify information → Predict representation → Assign → Inspect → Update → Explain\n\n\n\nHomework submission\nSubmit Week 3 Homework",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 3 — How Does a Computer Represent Information?"
+    ]
+  },
+  {
+    "objectID": "weeks/week03.html#concepts-to-keep",
+    "href": "weeks/week03.html#concepts-to-keep",
+    "title": "Week 3 — How Does a Computer Represent Information?",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nvalue;\nvariable;\nname;\nassignment;\nreassignment;\nint;\nfloat;\nstr;\nbool;\ntype();\nrepresentation;\ntracing.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 3 — How Does a Computer Represent Information?"
+    ]
+  },
+  {
+    "objectID": "weeks/week03.html#portfolio-evidence-this-week",
+    "href": "weeks/week03.html#portfolio-evidence-this-week",
+    "title": "Week 3 — How Does a Computer Represent Information?",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nREP — Representation\nTRC — Tracing\nPRECISION — Executable precision\nDBG — Representation/debug reasoning\nTRN — Domain transfer",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"

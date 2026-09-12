@@ -1,37 +1,136 @@
 ---
 title: "Week 3 — How Does a Computer Represent Information?"
-subtitle: "Data types and variables"
+subtitle: "Values, variables, data types, assignment, and representation"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+::: {.callout-tip}
+## This week's central question
+
+**How does Python represent different kinds of information, and how do names refer to those values?**
 :::
 
-## Official focus
+## Learning goals
 
-**Data types and variables**
+By the end of this week, you should be able to:
 
-## Weekly structure
+1. distinguish a **value** from the **name** used to refer to it;
+2. create and update simple Python variables;
+3. identify common data types: `int`, `float`, `str`, and `bool`;
+4. use `type()` to inspect how Python represents a value;
+5. explain why `"120"` and `120` are not the same representation;
+6. trace simple assignment and reassignment step by step.
 
-This module will use the same recurring active-learning grammar:
+## Connection to Week 2
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Last week, we translated ordered algorithm steps into executable Python statements.
 
-## Evidence model
+This week, we ask:
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+> **What exactly are those Python statements working with?**
+
+Programs need representations for quantities, text, categories, and logical states. Before we can manipulate data, we need to understand how those values are stored and named.
+
+## In class
+
+### 1. Open the student notebook
+
+[Open Week 3 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week03/DSA105_W03_Student.ipynb){.btn .btn-primary}
+
+If you want a local copy:
+
+[Download the notebook](../notebooks/week03/DSA105_W03_Student.ipynb)
+
+### 2. Work through the active cycle
+
+You will repeatedly:
+
+**Predict → Run → Modify → Explain → Build → Test**
+
+The class includes:
+
+- retrieval from Week 2;
+- value-versus-name reasoning;
+- first systematic use of variables;
+- `int`, `float`, `str`, and `bool`;
+- inspecting values with `type()`;
+- assignment and reassignment tracing;
+- representation mismatches;
+- variable naming;
+- independent lab evidence.
+
+::: {.callout-note}
+## Scope for Week 3
+
+This week is about **representation**.
+
+We will not yet study operators and expressions systematically. That comes in **Week 4**. Our goal now is to understand what kinds of values a program can work with and how Python names them.
+:::
+
+### 3. Evidence tasks
+
+::: {.action-grid}
+
+::: {.action-card}
+### Weekly Quiz
+
+Individual retrieval and diagnostic check.
+
+[Start Week 3 Quiz]({{< var forms.week03.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week03.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week03.exit >}}){.btn .btn-primary}
+:::
+
+:::
+
+## After class
+
+### Homework
+
+[Open Week 3 Homework in Colab]({{< var urls.colab >}}/notebooks/week03/DSA105_W03_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week03/DSA105_W03_Homework.ipynb)
+
+The homework follows:
+
+> **Identify information → Predict representation → Assign → Inspect → Update → Explain**
+
+### Homework submission
+
+[Submit Week 3 Homework]({{< var forms.week03.homework >}}){.btn .btn-primary}
+
+## Concepts to keep
+
+- value;
+- variable;
+- name;
+- assignment;
+- reassignment;
+- `int`;
+- `float`;
+- `str`;
+- `bool`;
+- `type()`;
+- representation;
+- tracing.
+
+## Portfolio evidence this week
+
+- `REP` — Representation
+- `TRC` — Tracing
+- `PRECISION` — Executable precision
+- `DBG` — Representation/debug reasoning
+- `TRN` — Domain transfer
