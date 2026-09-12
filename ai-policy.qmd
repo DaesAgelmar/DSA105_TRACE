@@ -1,0 +1,46 @@
+---
+title: "AI Use in DSA105"
+---
+
+## Principle
+
+AI tools may support learning, but they must not replace the student's first attempt at computational reasoning.
+
+The default rule is:
+
+> **Think first → produce something → ask AI → verify always**
+
+## Before using an AI assistant
+
+Produce at least one of the following yourself:
+
+- a problem representation;
+- pseudocode;
+- a prediction;
+- a partial implementation;
+- a test case;
+- an error diagnosis.
+
+## Acceptable learning roles
+
+AI may be used for:
+
+- explanation;
+- debugging support;
+- syntax/code completion;
+- alternative solutions;
+- comparison of implementations.
+
+When AI use is part of a homework task, you may be asked to state:
+
+- what you had produced before asking AI;
+- what you accepted;
+- what you rejected or changed;
+- how you verified the result.
+
+## Why verification matters
+
+A program can run and still be logically wrong.  
+An AI-generated solution can be syntactically correct and still misunderstand the problem.
+
+Your responsibility is therefore not only to obtain code, but to understand and test the computational behaviour.

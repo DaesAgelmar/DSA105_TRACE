@@ -1,0 +1,22 @@
+---
+title: "Resources"
+---
+
+## Official course document
+
+[Download the official DSA105 course content](resources/DSA105-CourseContent.pdf)
+
+## Primary references
+
+- Downey, A. — *Think Python: How to Think Like a Computer Scientist*
+- Sweigart, A. — *Automate the Boring Stuff with Python*
+- Miller, B. N. & Ranum, D. L. — *Problem Solving with Algorithms and Data Structures Using Python*
+
+## Course technology
+
+- Google Colab — executable notebooks
+- Google Forms — quizzes, exit tickets, and submission evidence
+- Google Meet — classroom screen mirroring when announced
+- GitHub / Quarto — course-material delivery
+
+Additional datasets and examples will be added during the semester.

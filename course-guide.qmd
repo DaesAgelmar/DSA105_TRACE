@@ -1,0 +1,98 @@
+---
+title: "Course Guide"
+---
+
+## What does TRACE mean?
+
+**TRACE** stands for:
+
+- **T**hinking
+- **R**easoning
+- **A**lgorithms
+- **C**oding
+- **E**xecution
+
+The name reflects the course logic: code is not the starting point. It is the executable form of a reasoning process that can be observed, tested, and improved.
+
+## The learning model
+
+DSA105 treats programming as a way of making reasoning **explicit, executable, and testable**.
+
+The recurring classroom cycle is:
+
+> **Do → Observe → Name → Explain → Do Again**
+
+You will rarely remain passive for long periods. Most class segments require a visible action: predict an output, modify code, explain a result, complete a partial implementation, debug a mistake, or build a small solution.
+
+## Why Python?
+
+Python is used because it turns abstract ideas into concrete outcomes that can be executed immediately.
+
+The relationship is:
+
+**Computational idea → Algorithm → Python representation → Output → Verification**
+
+Python is therefore both:
+- a programming language that you must learn to use; and
+- a concrete surface on which computational reasoning can be tested.
+
+## Class timing: 14:20–16:40
+
+DSA105 is scheduled as **three 40-minute class hours**. This gives **120 minutes of effective teaching time** within the 14:20–16:40 block.
+
+For TRACE Studio, the block is organized as two longer active-learning sessions:
+
+| Clock time | Duration | Phase | Typical student activity |
+|---|---:|---|---|
+| **14:20–15:20** | 60 min | **Session 1** | retrieval, problem framing, prediction, micro-lecture, guided coding |
+| **15:20–15:35** | 15 min | **Break** | — |
+| **15:35–16:35** | 60 min | **Session 2** | guided lab, pair challenge, debugging, domain application, evidence task |
+| **16:35–16:40** | 5 min | **Close / transition** | exit instruction, submission check, next-step reminder |
+
+The two 60-minute sessions preserve the full **120 minutes of instructional activity** while reducing fragmentation. The final five minutes are treated as a transition buffer rather than additional teaching time.
+
+### Internal rhythm of each 60-minute session
+
+A 60-minute session should still avoid long passive stretches. A typical internal rhythm is:
+
+- **10–15 min:** problem / prediction / retrieval;
+- **10–15 min:** focused explanation or live coding;
+- **15–20 min:** guided student action;
+- **10–15 min:** pair task, debugging, explanation, or evidence capture.
+
+The exact distribution can change by week, but students should normally be required to **do something observable at least every 10–15 minutes**.
+
+### Alternative view: official 40-minute class hours
+
+The same 14:20–16:40 block can also be understood as:
+
+- 14:20–15:00 — Class hour 1
+- 15:00–15:10 — Break
+- 15:10–15:50 — Class hour 2
+- 15:50–16:00 — Break
+- 16:00–16:40 — Class hour 3
+
+TRACE Studio uses the **60 + 15 + 60** delivery pattern operationally, while remaining equivalent to the same **120 minutes of effective teaching time**.
+
+## Class technology
+
+You will normally use:
+
+- a web browser;
+- Google Colab;
+- the DSA105 course site;
+- Google Forms;
+- Google Meet as a classroom screen mirror when needed.
+
+When the instructor shares the classroom computer through Google Meet, join with your microphone and speakers muted unless told otherwise.
+
+## Notebook rule
+
+When a notebook is opened from the course repository:
+
+1. Open it in Google Colab.
+2. Save your own copy to Drive.
+3. Work on your own copy.
+4. Submit only the requested evidence.
+
+You are **not** expected to use Git, forks, pull requests, or repository workflows in DSA105.

@@ -1,0 +1,123 @@
+---
+title: "Weekly Modules"
+toc: false
+---
+
+## Part I — Computational Grammar
+
+The first half of the course develops the basic structures needed to express computational reasoning.
+
+::: {.week-grid}
+::: {.week-card .current}
+<span class="label">Week 1</span>
+### How Do We Tell a Computer What to Do?
+Problem solving, algorithms, flowcharts, sequence, IPO.
+
+[Open module →](weeks/week01.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 2</span>
+### From Instructions to Executable Code
+Algorithm design and introduction to Python.
+
+[Open module →](weeks/week02.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 3</span>
+### How Does a Computer Represent Information?
+Data types and variables.
+
+[Open module →](weeks/week03.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 4</span>
+### Turning Data into New Information
+Operators and expressions.
+
+[Open module →](weeks/week04.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 5</span>
+### Programs That Interact
+Input and output.
+
+[Open module →](weeks/week05.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 6</span>
+### Programs That Make Decisions
+Conditional statements and decision structures.
+
+[Open module →](weeks/week06.qmd)
+:::
+:::
+
+## Checkpoint
+
+::: {.week-card}
+<span class="label">Week 7</span>
+### Checkpoint I
+Midterm and first diagnostic learning portfolio.
+
+[Open module →](weeks/week07.qmd)
+:::
+
+## Part II — Computational Composition
+
+The second half combines the grammar into increasingly independent problem solving.
+
+::: {.week-grid}
+::: {.week-card}
+<span class="label">Week 8</span>
+### Making Computers Repeat Work
+Loops and control flow.
+[Open module →](weeks/week08.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 9</span>
+### Patterns inside Patterns
+Nested loops and iteration.
+[Open module →](weeks/week09.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 10</span>
+### Breaking Problems into Reusable Pieces
+Functions, parameters, and return values.
+[Open module →](weeks/week10.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 11</span>
+### Working with Many Things at Once
+Lists and collections.
+[Open module →](weeks/week11.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 12</span>
+### Programs Meet Real Data
+File handling.
+[Open module →](weeks/week12.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 13</span>
+### When Programs Go Wrong
+Error handling and debugging.
+[Open module →](weeks/week13.qmd)
+:::
+
+::: {.week-card}
+<span class="label">Week 14</span>
+### Build, Test, Explain
+Integration and course review.
+[Open module →](weeks/week14.qmd)
+:::
+:::

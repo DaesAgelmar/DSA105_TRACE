@@ -1,0 +1,71 @@
+project:
+  type: website
+  output-dir: docs
+
+metadata-files:
+  - _variables.yml
+
+website:
+  title: "DSA105 · TRACE Studio"
+  site-url: "https://daesagelmar.github.io/DSA105_TRACE/"
+  repo-url: "https://github.com/DaesAgelmar/DSA105_TRACE"
+  repo-actions: [source, issue]
+
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: course-guide.qmd
+        text: Course Guide
+      - href: learning-path.qmd
+        text: Weekly Modules
+      - href: portfolio.qmd
+        text: Portfolio
+      - href: ai-policy.qmd
+        text: AI Use
+      - href: resources.qmd
+        text: Resources
+
+  sidebar:
+    - title: "Weekly Modules"
+      style: "docked"
+      search: true
+      contents:
+        - section: "Part I — Computational Grammar"
+          contents:
+            - weeks/week01.qmd
+            - weeks/week02.qmd
+            - weeks/week03.qmd
+            - weeks/week04.qmd
+            - weeks/week05.qmd
+            - weeks/week06.qmd
+        - section: "Checkpoint"
+          contents:
+            - weeks/week07.qmd
+        - section: "Part II — Computational Composition"
+          contents:
+            - weeks/week08.qmd
+            - weeks/week09.qmd
+            - weeks/week10.qmd
+            - weeks/week11.qmd
+            - weeks/week12.qmd
+            - weeks/week13.qmd
+            - weeks/week14.qmd
+
+  page-footer:
+    left: "DSA105 · TRACE Studio"
+    right: "Thinking, Reasoning, Algorithms, Coding & Execution"
+
+format:
+  html:
+    theme: cosmo
+    css: assets/styles.css
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    code-copy: true
+    code-overflow: wrap
+    anchor-sections: true
+
+execute:
+  freeze: auto

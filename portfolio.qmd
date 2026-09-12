@@ -1,0 +1,49 @@
+---
+title: "Learning Portfolio"
+---
+
+## Why a portfolio?
+
+Weekly activities produce evidence of how your computational reasoning develops. After the midterm, selected evidence will be combined into a diagnostic portfolio.
+
+The portfolio is designed to answer a more useful question than:
+
+> “What is my average score?”
+
+It asks:
+
+> “Which computational skills are becoming secure, and where do I still need deliberate practice?”
+
+## Core skill dimensions
+
+| Tag | Skill | What it means |
+|---|---|---|
+| **REP** | Representation | identifying data, state, input, output, and computational structure |
+| **TRC** | Code reading & tracing | predicting how code changes state and produces output |
+| **CTL** | Control flow | reasoning about sequence, conditions, and repetition |
+| **DEC** | Decomposition | breaking a larger problem into manageable parts |
+| **DBG** | Testing & debugging | locating errors and verifying behaviour |
+| **TRN** | Domain transfer | applying computational patterns to new economics/business/data contexts |
+
+## Evidence sources
+
+Your portfolio may include:
+
+- quiz responses;
+- selected lab evidence;
+- exit tickets;
+- homework tasks;
+- self-assessment;
+- recurring misconception patterns.
+
+## What feedback can look like
+
+A portfolio may identify:
+
+- **secure skills**;
+- **developing skills**;
+- **recurring misconceptions**;
+- **recommended next practice**;
+- differences between **self-perception and observed evidence**.
+
+Individual student data are **not published on this website**.

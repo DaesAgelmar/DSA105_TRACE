@@ -1,0 +1,9 @@
+github:
+  owner: "DaesAgelmar"
+  repo: "DSA105_TRACE"
+  branch: "main"
+
+urls:
+  repo: "https://github.com/DaesAgelmar/DSA105_TRACE"
+  site: "https://daesagelmar.github.io/DSA105_TRACE/"
+  colab: "https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main"

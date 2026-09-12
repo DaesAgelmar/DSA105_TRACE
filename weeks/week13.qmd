@@ -1,0 +1,37 @@
+---
+title: "Week 13 — When Programs Go Wrong"
+subtitle: "Error handling and debugging"
+---
+
+::: {.callout-note}
+This module is part of the published 14-week course architecture.  
+Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+:::
+
+## Official focus
+
+**Error handling and debugging**
+
+## Weekly structure
+
+This module will use the same recurring active-learning grammar:
+
+1. **Today's Problem**
+2. **Predict**
+3. **Run**
+4. **Modify**
+5. **Concept**
+6. **Guided Practice**
+7. **Pair Challenge**
+8. **Debug This**
+9. **Domain Application**
+10. **Independent Check**
+11. **Exit Ticket**
+12. **Homework**
+
+## Evidence model
+
+- Weekly Quiz
+- Selected Lab Evidence
+- Exit Ticket
+- Homework Transfer Task

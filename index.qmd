@@ -1,0 +1,120 @@
+---
+title: "DSA105 · TRACE Studio"
+page-layout: full
+toc: false
+---
+
+::: {.hero}
+<p class="course-meta"><strong>DSA105 · TRACE Studio</strong> · Thinking, Reasoning, Algorithms, Coding & Execution</p>
+
+<p class="course-meta">Official course: <strong>Fundamentals of Algorithms and Programming</strong> · BSc in Data Science and Analytics · English · Compulsory · 5 ECTS</p>
+
+## A computational learning studio
+
+DSA105 is the first course in a two-semester computational foundations sequence.
+
+Python is used as a **concrete, executable representation of computational ideas** while the course progressively develops problem solving, algorithm design, testing, debugging, and domain transfer.
+
+**Core learning cycle:** **Predict → Run → Modify → Explain → Build → Test**
+:::
+
+::: {.callout-important}
+### About this site
+**TRACE Studio** is the interactive learning environment used alongside DSA105.  
+It is not a replacement for the university's official course catalogue, regulations, or assessment announcements. When there is any discrepancy, the official university information takes precedence.
+:::
+
+## Official course objective
+
+The course aims to develop basic computer-based problem-solving skills by focusing on **algorithm development, flowcharting, and programming logic**. Python is used as the primary implementation language. Students work with data types, control structures, functions, and file operations, with examples connected to economics, business, and data analysis. Through hands-on exercises, students practice designing, implementing, testing, and debugging programs while building a foundation for advanced data structures and algorithmic thinking.
+
+## Learning outcomes
+
+By the end of DSA105, you should be able to:
+
+1. **Define computational problems.**
+2. **Design algorithms for problem solving.**
+3. **Translate algorithms into Python code.**
+4. **Test and debug programs effectively.**
+5. **Integrate programming with economics and business analytics contexts.**
+
+::: {.callout-note}
+### What this course is *not*
+This is not a course in memorizing Python commands. Python gives us a visible and executable way to test whether our reasoning is precise enough for a computer.
+:::
+
+## How the course works
+
+::: {.course-grid}
+::: {.card}
+### 1. Concept
+A problem, computational pattern, or domain scenario is introduced.
+:::
+
+::: {.card}
+### 2. Action
+You predict, trace, modify, complete, or build something in Colab.
+:::
+
+::: {.card}
+### 3. Evidence
+A short quiz, lab task, exit ticket, or homework records what you can do.
+:::
+
+::: {.card}
+### 4. Feedback
+Your evidence is combined into a learning portfolio after the midterm.
+:::
+:::
+
+## Current module
+
+::: {.week-card .current}
+<span class="label">Current module</span>
+
+### Week 1 — How Do We Tell a Computer What to Do?
+
+**Focus:** Problem solving, algorithms, sequence, Input → Process → Output, and basic flowcharts.
+
+[Open Week 1 →](weeks/week01.qmd){.btn .btn-primary}
+:::
+
+## Course journey
+
+| Week | Student-facing theme | Official focus |
+|---:|---|---|
+| 1 | **How Do We Tell a Computer What to Do?** | Problem solving, algorithms, flowcharts |
+| 2 | **From Instructions to Executable Code** | Algorithm design, introduction to Python |
+| 3 | **How Does a Computer Represent Information?** | Data types and variables |
+| 4 | **Turning Data into New Information** | Operators and expressions |
+| 5 | **Programs That Interact** | Input / output |
+| 6 | **Programs That Make Decisions** | Conditional statements |
+| 7 | **Checkpoint I** | Midterm |
+| 8 | **Making Computers Repeat Work** | Loops and control flow |
+| 9 | **Patterns inside Patterns** | Nested loops and iteration |
+| 10 | **Breaking Problems into Reusable Pieces** | Functions |
+| 11 | **Working with Many Things at Once** | Lists and collections |
+| 12 | **Programs Meet Real Data** | File handling |
+| 13 | **When Programs Go Wrong** | Error handling and debugging |
+| 14 | **Build, Test, Explain** | Review and course evaluation |
+
+[See all weekly modules →](learning-path.qmd)
+
+## Weekly evidence model
+
+Each teaching week uses a small number of recurring evidence points:
+
+- **Weekly Quiz** — short individual retrieval and diagnostic check.
+- **Lab Evidence** — one selected in-class production.
+- **Exit Ticket** — concept check, difficulty signal, and confidence rating.
+- **Homework** — a near-transfer problem using the week's computational pattern.
+
+Your portfolio emphasizes **development across skills**, not only raw scores.
+
+## Access
+
+- Course materials: this website
+- Executable notebooks: Google Colab
+- Quiz / exit ticket / homework submission: Google Forms
+- In-class screen mirror: Google Meet, when announced by the instructor
+- Official course information: [DSA105 Course Content PDF](resources/DSA105-CourseContent.pdf)
