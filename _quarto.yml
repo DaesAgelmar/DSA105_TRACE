@@ -2,6 +2,18 @@ project:
   type: website
   output-dir: docs
 
+  # Render only the website source pages.
+  # Student notebooks remain downloadable/openable in Colab,
+  # but are not converted into HTML pages.
+  render:
+    - "*.qmd"
+    - "weeks/*.qmd"
+
+  # Copy these files/directories into the published site.
+  resources:
+    - "notebooks/**"
+    - "resources/**"
+
 metadata-files:
   - _variables.yml
 
@@ -10,6 +22,8 @@ website:
   site-url: "https://daesagelmar.github.io/DSA105_TRACE/"
   repo-url: "https://github.com/DaesAgelmar/DSA105_TRACE"
   repo-actions: [source, issue]
+
+  page-navigation: true
 
   navbar:
     left:
@@ -39,9 +53,11 @@ website:
             - weeks/week04.qmd
             - weeks/week05.qmd
             - weeks/week06.qmd
+
         - section: "Checkpoint"
           contents:
             - weeks/week07.qmd
+
         - section: "Part II — Computational Composition"
           contents:
             - weeks/week08.qmd
