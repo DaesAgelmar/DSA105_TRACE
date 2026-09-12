@@ -336,97 +336,6 @@
     "text": "Course technology\n\nGoogle Colab — executable notebooks\nGoogle Forms — quizzes, exit tickets, and submission evidence\nGoogle Meet — classroom screen mirroring when announced\nGitHub / Quarto — course-material delivery\n\nAdditional datasets and examples will be added during the semester."
   },
   {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html",
-    "href": "notebooks/week01/DSA105_W01_Student.html",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "",
-    "text": "Today’s theme: Problem solving, algorithms, sequence, input–process–output, and basic flowcharts\n\n\n\ndistinguish a problem, an algorithm, and a program;\ndescribe a simple problem using Input → Process → Output;\nwrite a precise sequence of steps;\nread a basic flowchart;\nconnect an algorithm to a small executable Python example.\n\n\nClass rule: No concept without action. For each section, you will predict, run, modify, explain, or build something."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#week-1-how-do-we-tell-a-computer-what-to-do",
-    "href": "notebooks/week01/DSA105_W01_Student.html#week-1-how-do-we-tell-a-computer-what-to-do",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "",
-    "text": "Today’s theme: Problem solving, algorithms, sequence, input–process–output, and basic flowcharts\n\n\n\ndistinguish a problem, an algorithm, and a program;\ndescribe a simple problem using Input → Process → Output;\nwrite a precise sequence of steps;\nread a basic flowchart;\nconnect an algorithm to a small executable Python example.\n\n\nClass rule: No concept without action. For each section, you will predict, run, modify, explain, or build something."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#warm-up-what-counts-as-a-precise-instruction",
-    "href": "notebooks/week01/DSA105_W01_Student.html#warm-up-what-counts-as-a-precise-instruction",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "0. Warm-up — What counts as a precise instruction?",
-    "text": "0. Warm-up — What counts as a precise instruction?\nImagine you are giving instructions to a computer.\nWhich instruction is more executable?\nA. “Calculate the total sales.”\nB. “Add Monday, Tuesday, and Wednesday sales and store the result as total_sales.”\n\nYour task\nWrite one reason why B is more suitable for a computer.\nYour answer:\n…"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#todays-domain-problem",
-    "href": "notebooks/week01/DSA105_W01_Student.html#todays-domain-problem",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "1. Today’s Domain Problem",
-    "text": "1. Today’s Domain Problem\nA small store records sales for three days:\n\nMonday: 1,250 TL\nTuesday: 1,480 TL\nWednesday: 1,320 TL\n\nWe want to calculate:\n\nthe total sales;\nthe average daily sales.\n\nBefore touching Python, identify the computational structure.\n\nACTIVITY 1 — Input → Process → Output\nComplete the table in your own notes.\n\n\n\nElement\nWhat belongs here?\n\n\n\n\nInput\n?\n\n\nProcess\n?\n\n\nOutput\n?\n\n\n\nPair check (2 minutes): Compare your answers with the person next to you."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#algorithm-a-precise-sequence",
-    "href": "notebooks/week01/DSA105_W01_Student.html#algorithm-a-precise-sequence",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "2. Algorithm = A Precise Sequence",
-    "text": "2. Algorithm = A Precise Sequence\nAn algorithm is a finite and unambiguous sequence of steps for solving a problem.\nA useful beginner checklist:\n\nInput: What information enters the solution?\nProcess: What operations transform the information?\nOutput: What result must be produced?\nOrder: In which sequence must the steps happen?\nTermination: Does the procedure end?\n\n\nACTIVITY 2 — Put the algorithm in order\nThe following steps are mixed.\nA. Display the total and average.\nB. Read the three daily sales values.\nC. Start.\nD. Calculate the average as total / 3.\nE. Calculate the total of the three sales values.\nF. End.\nWrite the correct order:\n___ → ___ → ___ → ___ → ___ → ___\n\n\nACTIVITY 3 — Find the ambiguity\nConsider this instruction:\n\n“Take the sales numbers, do the necessary calculation, and show the result.”\n\nIdentify two things that are unclear.\n\n…\n…"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#first-executable-object-do-not-worry-about-python-grammar-yet",
-    "href": "notebooks/week01/DSA105_W01_Student.html#first-executable-object-do-not-worry-about-python-grammar-yet",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "3. First Executable Object — Do not worry about Python grammar yet",
-    "text": "3. First Executable Object — Do not worry about Python grammar yet\nThe code below is simply an executable representation of the algorithm.\n\nPREDICT BEFORE YOU RUN\nWhat values do you expect for total_sales and average_sales?\n\nmonday_sales = 1250\ntuesday_sales = 1480\nwednesday_sales = 1320\n\ntotal_sales = monday_sales + tuesday_sales + wednesday_sales\naverage_sales = total_sales / 3\n\nprint(\"Total sales:\", total_sales)\nprint(\"Average daily sales:\", average_sales)\n\n\n\nACTIVITY 4 — Run and compare\n\nRun the cell.\nCompare the result with your prediction.\nIf your prediction was wrong, identify which step in your reasoning was wrong.\n\nOne-sentence explanation:\n…\n\n\nACTIVITY 5 — Modify\nChange the data:\n\nMonday: 900\nTuesday: 1,100\nWednesday: 1,300\n\nBefore running the code, predict the new total and average.\nThen modify the code cell below and test your prediction.\n\nmonday_sales = 900\ntuesday_sales = 1100\nwednesday_sales = 1300\n\n# Complete these two lines:\ntotal_sales = ...\naverage_sales = ...\n\nprint(\"Total sales:\", total_sales)\nprint(\"Average daily sales:\", average_sales)"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#from-algorithm-to-flowchart",
-    "href": "notebooks/week01/DSA105_W01_Student.html#from-algorithm-to-flowchart",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "4. From Algorithm to Flowchart",
-    "text": "4. From Algorithm to Flowchart\nFor Week 1 we will use four basic flowchart elements:\n\nStart / End\nInput / Output\nProcess\nArrow / flow direction\n\nWe will introduce decision symbols later when we study conditional logic.\nThe store-sales algorithm can be represented as:\nStart → Read sales → Calculate total → Calculate average → Display results → End\n\nACTIVITY 6 — Match the step to the flowchart role\nFor each step, decide whether it is Start/End, Input/Output, or Process.\n\nRead Monday, Tuesday, Wednesday sales → ______\nCalculate total_sales → ______\nDisplay average_sales → ______\nEnd → ______"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#human-cpu-challenge",
-    "href": "notebooks/week01/DSA105_W01_Student.html#human-cpu-challenge",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "5. Human CPU Challenge",
-    "text": "5. Human CPU Challenge\nWork in pairs.\n\nStudent A — Programmer\nWrite an algorithm for this task:\n\nA shop knows the unit price and quantity sold. Calculate total revenue.\n\n\n\nStudent B — Computer\nFollow the instructions literally. Do not repair unclear instructions.\nThen switch roles.\n\n\nDebrief\nWhat kind of instruction caused the most confusion?"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#faded-example-complete-dont-copy",
-    "href": "notebooks/week01/DSA105_W01_Student.html#faded-example-complete-dont-copy",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "6. Faded Example — Complete, Don’t Copy",
-    "text": "6. Faded Example — Complete, Don’t Copy\nA café sold 42 coffees at 75 TL each.\nComplete the missing parts.\n\nunit_price = 75\nquantity = 42\n\nrevenue = ____________________\n\nprint(\"Revenue:\", ____________________)\n\n\nACTIVITY 7 — Explain\nWithout using the words “because Python says so,” explain:\n\nWhy must revenue be calculated after unit_price and quantity are known?\n\nYour answer:\n…"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#debug-the-algorithm-not-the-syntax",
-    "href": "notebooks/week01/DSA105_W01_Student.html#debug-the-algorithm-not-the-syntax",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "7. Debug the Algorithm, Not the Syntax",
-    "text": "7. Debug the Algorithm, Not the Syntax\nA student wrote:\n\nDisplay total revenue.\nRead unit price.\nEnd.\nRead quantity.\nCalculate revenue = unit price × quantity.\nStart.\n\n\nYour task\nRewrite the algorithm in a valid order.\nThen answer:\n\nIs this a syntax problem or an algorithmic sequencing problem?"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#independent-build-lab-evidence-task",
-    "href": "notebooks/week01/DSA105_W01_Student.html#independent-build-lab-evidence-task",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "8. Independent Build — Lab Evidence Task",
-    "text": "8. Independent Build — Lab Evidence Task\n\nScenario\nA company sold three products today:\n\nProduct A revenue: 2,400 TL\nProduct B revenue: 3,150 TL\nProduct C revenue: 1,950 TL\n\n\n\nYour job\n\nIdentify Input → Process → Output.\nWrite a 5–7 step algorithm.\nImplement the total revenue calculation in Python.\nPredict the output before running.\nRun and verify.\n\nUse the cell below.\n\n# Write your implementation here\n\nproduct_a = 2400\nproduct_b = 3150\nproduct_c = 1950\n\n# TODO: calculate total revenue\n\n\n\nLAB EVIDENCE\nSubmit the requested Week 1 lab evidence through the class Google Form.\nYou will submit: - your predicted output; - your actual output; - one sentence explaining whether they matched; - your algorithm in 5–7 steps.\nInstructor will provide the form link."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#exit-reflection",
-    "href": "notebooks/week01/DSA105_W01_Student.html#exit-reflection",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "9. Exit Reflection",
-    "text": "9. Exit Reflection\nBefore leaving class, be ready to answer:\n\nWhat is the difference between an algorithm and a program?\nWhich part was most difficult today: defining input, defining process, defining output, ordering steps, or reading code?\nConfidence (1–5): “I can convert a simple problem into an ordered algorithm.”\n\nSubmit these in the Week 1 Exit Ticket Form."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Student.html#homework-preview",
-    "href": "notebooks/week01/DSA105_W01_Student.html#homework-preview",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "10. Homework Preview",
-    "text": "10. Homework Preview\nYou will receive a separate Week 1 homework notebook.\nThe goal is not to write complex Python.\nThe goal is to show that you can move through:\nProblem → IPO → Algorithm → Executable representation → Verification"
-  },
-  {
     "objectID": "learning-path.html",
     "href": "learning-path.html",
     "title": "Weekly Modules",
@@ -602,62 +511,6 @@
     "text": "Access\n\nCourse materials: this website\nExecutable notebooks: Google Colab\nQuiz / exit ticket / homework submission: Google Forms\nIn-class screen mirror: Google Meet, when announced by the instructor\nOfficial course information: DSA105 Course Content PDF"
   },
   {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html",
-    "href": "notebooks/week01/DSA105_W01_Homework.html",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "",
-    "text": "Submit your Colab link and short answers through the Week 1 Homework Google Form.\n\n\n\nYou may use AI only after you have produced your own IPO description and algorithm draft."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html#week-1-homework-from-problem-to-executable-representation",
-    "href": "notebooks/week01/DSA105_W01_Homework.html#week-1-homework-from-problem-to-executable-representation",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "",
-    "text": "Submit your Colab link and short answers through the Week 1 Homework Google Form.\n\n\n\nYou may use AI only after you have produced your own IPO description and algorithm draft."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html#scenario-daily-delivery-revenue",
-    "href": "notebooks/week01/DSA105_W01_Homework.html#scenario-daily-delivery-revenue",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "Scenario — Daily Delivery Revenue",
-    "text": "Scenario — Daily Delivery Revenue\nA delivery service completed three delivery batches:\n\nMorning revenue: 1,875 TL\nAfternoon revenue: 2,460 TL\nEvening revenue: 1,665 TL\n\nThe manager wants: 1. total daily revenue; 2. average revenue per batch.\n\nTask 1 — IPO\nWrite:\nInput: …\nProcess: …\nOutput: …"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html#task-2-algorithm",
-    "href": "notebooks/week01/DSA105_W01_Homework.html#task-2-algorithm",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "Task 2 — Algorithm",
-    "text": "Task 2 — Algorithm\nWrite a precise 6–8 step algorithm.\n\n…\n…\n…"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html#task-3-prediction",
-    "href": "notebooks/week01/DSA105_W01_Homework.html#task-3-prediction",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "Task 3 — Prediction",
-    "text": "Task 3 — Prediction\nBefore running Python:\nPredicted total: …\nPredicted average: …\n\nmorning_revenue = 1875\nafternoon_revenue = 2460\nevening_revenue = 1665\n\n# Complete the solution below.\ntotal_revenue = ...\naverage_revenue = ...\n\nprint(\"Total revenue:\", total_revenue)\nprint(\"Average revenue:\", average_revenue)"
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html#task-4-verification",
-    "href": "notebooks/week01/DSA105_W01_Homework.html#task-4-verification",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "Task 4 — Verification",
-    "text": "Task 4 — Verification\nAfter running:\nActual total: …\nActual average: …\nDid your prediction match?\nIf not, identify the reasoning error."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html#task-5-transfer",
-    "href": "notebooks/week01/DSA105_W01_Homework.html#task-5-transfer",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "Task 5 — Transfer",
-    "text": "Task 5 — Transfer\nA different business records four sales periods instead of three.\nWithout writing full code, explain what must change in: 1. the input; 2. the process; 3. the calculation of the average."
-  },
-  {
-    "objectID": "notebooks/week01/DSA105_W01_Homework.html#task-6-ai-use-reflection",
-    "href": "notebooks/week01/DSA105_W01_Homework.html#task-6-ai-use-reflection",
-    "title": "DSA105 — Fundamentals of Algorithms and Programming",
-    "section": "Task 6 — AI Use Reflection",
-    "text": "Task 6 — AI Use Reflection\nDid you use an AI coding assistant?\n\nNo\nYes — explanation\nYes — debugging\nYes — syntax/code completion\nYes — alternative solution\nYes — full solution generation\n\nIf yes:\nWhat had you already produced before asking AI?\n…\nWhat did you accept, reject, or change in the AI response?\n…"
-  },
-  {
     "objectID": "portfolio.html",
     "href": "portfolio.html",
     "title": "Learning Portfolio",
@@ -719,7 +572,7 @@
     "href": "weeks/week01.html#before-class",
     "title": "Week 1 — How Do We Tell a Computer What to Do?",
     "section": "Before class",
-    "text": "Before class\nThink about one everyday process that seems simple to a human but would require very precise instructions for a computer.\nExamples: - calculating a receipt; - determining a discount; - finding an average; - processing an order.\nBring one example to class.",
+    "text": "Before class\nThink about one everyday process that seems simple to a human but would require very precise instructions for a computer.\nExamples:\n\ncalculating a receipt;\ndetermining a discount;\nfinding an average;\nprocessing an order.\n\nBring one example to class.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 1 — How Do We Tell a Computer What to Do?"
@@ -730,7 +583,7 @@
     "href": "weeks/week01.html#in-class",
     "title": "Week 1 — How Do We Tell a Computer What to Do?",
     "section": "In class",
-    "text": "In class\n\n1. Open the student notebook\nOpen Week 1 Student Notebook in Colab\nIf you want a local copy:\nDownload the notebook\n\n\n2. Work through the active cycle\nYou will repeatedly:\nPredict → Run → Modify → Explain → Build\nThe class includes:\n\nprecision challenge;\nInput–Process–Output analysis;\nalgorithm ordering;\nfirst executable Python object;\nflowchart classification;\nHuman CPU pair activity;\nfaded-code completion;\nalgorithm debugging;\nindependent lab evidence.\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nIndividual diagnostic check.\nGoogle Form link will be published here.\n\n\nLab Evidence\nSubmit one selected in-class production.\nGoogle Form link will be published here.\n\n\nExit Ticket\nConcept check + difficulty + confidence.\nGoogle Form link will be published here.",
+    "text": "In class\n\n1. Open the student notebook\nOpen Week 1 Student Notebook in Colab\nIf you want a local copy:\nDownload the notebook\n\n\n2. Work through the active cycle\nYou will repeatedly:\nPredict → Run → Modify → Explain → Build\nThe class includes:\n\nprecision challenge;\nInput–Process–Output analysis;\nalgorithm ordering;\nfirst executable Python object;\nflowchart classification;\nHuman CPU pair activity;\nfaded-code completion;\nalgorithm debugging;\nindependent lab evidence.\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 1 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 1 — How Do We Tell a Computer What to Do?"
@@ -741,7 +594,7 @@
     "href": "weeks/week01.html#after-class",
     "title": "Week 1 — How Do We Tell a Computer What to Do?",
     "section": "After class",
-    "text": "After class\n\nHomework\nOpen Week 1 Homework in Colab\nDownload the homework notebook\nThe homework follows:\n\nProblem → IPO → Algorithm → Prediction → Python → Verification → Transfer\n\n\n\nHomework submission\nGoogle Form link will be published here.",
+    "text": "After class\n\nHomework\nOpen Week 1 Homework in Colab\nDownload the homework notebook\nThe homework follows:\n\nProblem → IPO → Algorithm → Prediction → Python → Verification → Transfer\n\n\n\nHomework submission\nSubmit Week 1 Homework",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 1 — How Do We Tell a Computer What to Do?"

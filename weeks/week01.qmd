@@ -1,4 +1,4 @@
----
+﻿---
 title: "Week 1 — How Do We Tell a Computer What to Do?"
 subtitle: "Problem solving, algorithms, sequence, Input → Process → Output, and basic flowcharts"
 ---
@@ -24,6 +24,7 @@ By the end of this week, you should be able to:
 Think about one everyday process that seems simple to a human but would require very precise instructions for a computer.
 
 Examples:
+
 - calculating a receipt;
 - determining a discount;
 - finding an average;
@@ -35,7 +36,7 @@ Bring one example to class.
 
 ### 1. Open the student notebook
 
-[Open Week 1 Student Notebook in Colab]({{< var colab_base >}}/notebooks/week01/DSA105_W01_Student.ipynb){.btn .btn-primary}
+[Open Week 1 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week01/DSA105_W01_Student.ipynb){.btn .btn-primary}
 
 If you want a local copy:
 
@@ -62,33 +63,38 @@ The class includes:
 ### 3. Evidence tasks
 
 ::: {.action-grid}
+
 ::: {.action-card}
 ### Weekly Quiz
-Individual diagnostic check.
 
-**Google Form link will be published here.**
+Individual retrieval and diagnostic check.
+
+[Start Week 1 Quiz]({{< var forms.week01.quiz >}}){.btn .btn-primary}
 :::
 
 ::: {.action-card}
 ### Lab Evidence
-Submit one selected in-class production.
 
-**Google Form link will be published here.**
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week01.lab >}}){.btn .btn-primary}
 :::
 
 ::: {.action-card}
 ### Exit Ticket
-Concept check + difficulty + confidence.
 
-**Google Form link will be published here.**
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week01.exit >}}){.btn .btn-primary}
 :::
+
 :::
 
 ## After class
 
 ### Homework
 
-[Open Week 1 Homework in Colab]({{< var colab_base >}}/notebooks/week01/DSA105_W01_Homework.ipynb){.btn .btn-primary}
+[Open Week 1 Homework in Colab]({{< var urls.colab >}}/notebooks/week01/DSA105_W01_Homework.ipynb){.btn .btn-primary}
 
 [Download the homework notebook](../notebooks/week01/DSA105_W01_Homework.ipynb)
 
@@ -98,7 +104,7 @@ The homework follows:
 
 ### Homework submission
 
-**Google Form link will be published here.**
+[Submit Week 1 Homework]({{< var forms.week01.homework >}}){.btn .btn-primary}
 
 ## Concepts to keep
 

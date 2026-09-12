@@ -7,3 +7,10 @@ urls:
   repo: "https://github.com/DaesAgelmar/DSA105_TRACE"
   site: "https://daesagelmar.github.io/DSA105_TRACE/"
   colab: "https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main"
+
+forms:
+  week01:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSdU0BcWIRipjTtdyBj9xXta309L6IyqxA5k8i2sTEAGiBGTVw/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSfvkWsBDP4hEsVCX1TQGuCGTcCcPeYPz_tS-odeQAB7U1du6g/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLSfM4slkVuytB_wtUzndE0kQyMiaQLogiwufXBR-GeGoROB-_A/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSfA5_1VtWP-RB3CZLu8W9cN12Kz8pzfU8JjstWy35rrpMyciA/viewform"

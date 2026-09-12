@@ -1,10 +1,10 @@
-# DSA105 · TRACE Studio
+﻿# DSA105 Â· TRACE Studio
 
 TRACE = **Thinking, Reasoning, Algorithms, Coding & Execution**.
 
 This scaffold is designed for the existing public repository:
 
-`DaesAgelmar/DSA105_FoAP`
+`DaesAgelmar/DSA105_TRACE`
 
 ## Local preview
 
@@ -32,12 +32,12 @@ Recommended simple setup:
 2. Run `quarto render`.
 3. Commit the generated `docs/` directory.
 4. Push to `main`.
-5. In GitHub open **Settings → Pages**.
+5. In GitHub open **Settings â†’ Pages**.
 6. Choose **Deploy from a branch**.
 7. Choose branch `main` and folder `/docs`.
 8. The course site will be served from:
 
-`https://daesagelmar.github.io/DSA105_FoAP/`
+`https://daesagelmar.github.io/DSA105_TRACE/`
 
 ## Public repository
 
@@ -95,3 +95,4 @@ Included:
 - `resources/DSA105-CourseContent.pdf`
 
 The Week 1 lecturer notebook intentionally remains outside the public site package.
+
