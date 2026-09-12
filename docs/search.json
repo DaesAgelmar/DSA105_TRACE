@@ -268,40 +268,73 @@
     "href": "weeks/week02.html",
     "title": "Week 2 — From Instructions to Executable Code",
     "section": "",
-    "text": "Note\n\n\n\nThis module is part of the published 14-week course architecture.\nIts interactive notebook, evidence tasks, and homework package will be added as the module is finalized.",
+    "text": "TipThis week’s central question\n\n\n\nHow do we turn a precise algorithm into instructions that Python can actually execute?",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
     ]
   },
   {
-    "objectID": "weeks/week02.html#official-focus",
-    "href": "weeks/week02.html#official-focus",
+    "objectID": "weeks/week02.html#learning-goals",
+    "href": "weeks/week02.html#learning-goals",
     "title": "Week 2 — From Instructions to Executable Code",
-    "section": "Official focus",
-    "text": "Official focus\nAlgorithm design and introduction to Python",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nmap simple algorithm steps to Python statements;\npredict the order in which a sequential program executes;\nuse print() to make program output visible;\ndistinguish an algorithmic idea from its Python representation;\nidentify simple execution failures caused by imprecise code;\nmodify and build a short sequential Python program.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
     ]
   },
   {
-    "objectID": "weeks/week02.html#weekly-structure",
-    "href": "weeks/week02.html#weekly-structure",
+    "objectID": "weeks/week02.html#connection-to-week-1",
+    "href": "weeks/week02.html#connection-to-week-1",
     "title": "Week 2 — From Instructions to Executable Code",
-    "section": "Weekly structure",
-    "text": "Weekly structure\nThis module will use the same recurring active-learning grammar:\n\nToday’s Problem\nPredict\nRun\nModify\nConcept\nGuided Practice\nPair Challenge\nDebug This\nDomain Application\nIndependent Check\nExit Ticket\nHomework",
+    "section": "Connection to Week 1",
+    "text": "Connection to Week 1\nLast week, the main question was:\n\nHow precise must an instruction be before a computer can execute it?\n\nThis week we go one step further:\n\nWhat does that precise instruction look like when it becomes executable Python code?\n\nThe focus is still reasoning first. Python is the executable representation.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
     ]
   },
   {
-    "objectID": "weeks/week02.html#evidence-model",
-    "href": "weeks/week02.html#evidence-model",
+    "objectID": "weeks/week02.html#in-class",
+    "href": "weeks/week02.html#in-class",
     "title": "Week 2 — From Instructions to Executable Code",
-    "section": "Evidence model",
-    "text": "Evidence model\n\nWeekly Quiz\nSelected Lab Evidence\nExit Ticket\nHomework Transfer Task",
+    "section": "In class",
+    "text": "In class\n\n1. Open the student notebook\nOpen Week 2 Student Notebook in Colab\nIf you want a local copy:\nDownload the notebook\n\n\n2. Work through the active cycle\nYou will repeatedly:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nWeek 1 retrieval;\nalgorithm-to-code matching;\nsequential execution tracing;\nvisible output with print();\ncode ordering;\nprecision and syntax checks;\nfaded-code completion;\npair explanation;\nindependent build and test.\n\n\n\n\n\n\n\nNoteScope for Week 2\n\n\n\nWe will use a few Python names, values, and arithmetic expressions when needed, but we will study variables and data representation systematically in Week 3 and operators/expressions in Week 4.\nThis week is about translation and execution order.\n\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 2 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 2 — From Instructions to Executable Code"
+    ]
+  },
+  {
+    "objectID": "weeks/week02.html#after-class",
+    "href": "weeks/week02.html#after-class",
+    "title": "Week 2 — From Instructions to Executable Code",
+    "section": "After class",
+    "text": "After class\n\nHomework\nOpen Week 2 Homework in Colab\nDownload the homework notebook\nThe homework follows:\n\nAlgorithm → Prediction → Code → Run → Verification → Transfer\n\n\n\nHomework submission\nSubmit Week 2 Homework",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 2 — From Instructions to Executable Code"
+    ]
+  },
+  {
+    "objectID": "weeks/week02.html#concepts-to-keep",
+    "href": "weeks/week02.html#concepts-to-keep",
+    "title": "Week 2 — From Instructions to Executable Code",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nalgorithm;\nprogram;\nPython statement;\nexecution order;\nsequential execution;\noutput;\nprint();\nprediction;\ntracing;\ntranslation from algorithm to code.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 2 — From Instructions to Executable Code"
+    ]
+  },
+  {
+    "objectID": "weeks/week02.html#portfolio-evidence-this-week",
+    "href": "weeks/week02.html#portfolio-evidence-this-week",
+    "title": "Week 2 — From Instructions to Executable Code",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nREP — Representation\nTRC — Code reading and tracing\nSEQ — Sequencing\nPRECISION — Executable precision\nALG_VS_CODE — Algorithm vs code\nTRN — Transfer",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"

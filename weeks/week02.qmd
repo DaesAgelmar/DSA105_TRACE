@@ -1,37 +1,137 @@
 ---
 title: "Week 2 — From Instructions to Executable Code"
-subtitle: "Algorithm design and introduction to Python"
+subtitle: "Translating algorithms into Python statements, execution order, and code tracing"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+::: {.callout-tip}
+## This week's central question
+
+**How do we turn a precise algorithm into instructions that Python can actually execute?**
 :::
 
-## Official focus
+## Learning goals
 
-**Algorithm design and introduction to Python**
+By the end of this week, you should be able to:
 
-## Weekly structure
+1. map simple algorithm steps to Python statements;
+2. predict the order in which a sequential program executes;
+3. use `print()` to make program output visible;
+4. distinguish an algorithmic idea from its Python representation;
+5. identify simple execution failures caused by imprecise code;
+6. modify and build a short sequential Python program.
 
-This module will use the same recurring active-learning grammar:
+## Connection to Week 1
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Last week, the main question was:
 
-## Evidence model
+> **How precise must an instruction be before a computer can execute it?**
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+This week we go one step further:
+
+> **What does that precise instruction look like when it becomes executable Python code?**
+
+The focus is still **reasoning first**. Python is the executable representation.
+
+## In class
+
+### 1. Open the student notebook
+
+[Open Week 2 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week02/DSA105_W02_Student.ipynb){.btn .btn-primary}
+
+If you want a local copy:
+
+[Download the notebook](../notebooks/week02/DSA105_W02_Student.ipynb)
+
+### 2. Work through the active cycle
+
+You will repeatedly:
+
+**Predict → Run → Modify → Explain → Build → Test**
+
+The class includes:
+
+- Week 1 retrieval;
+- algorithm-to-code matching;
+- sequential execution tracing;
+- visible output with `print()`;
+- code ordering;
+- precision and syntax checks;
+- faded-code completion;
+- pair explanation;
+- independent build and test.
+
+::: {.callout-note}
+## Scope for Week 2
+
+We will use a few Python names, values, and arithmetic expressions when needed, but we will study **variables and data representation systematically in Week 3** and **operators/expressions in Week 4**.
+
+This week is about **translation and execution order**.
+:::
+
+### 3. Evidence tasks
+
+::: {.action-grid}
+
+::: {.action-card}
+### Weekly Quiz
+
+Individual retrieval and diagnostic check.
+
+[Start Week 2 Quiz]({{< var forms.week02.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week02.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week02.exit >}}){.btn .btn-primary}
+:::
+
+:::
+
+## After class
+
+### Homework
+
+[Open Week 2 Homework in Colab]({{< var urls.colab >}}/notebooks/week02/DSA105_W02_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week02/DSA105_W02_Homework.ipynb)
+
+The homework follows:
+
+> **Algorithm → Prediction → Code → Run → Verification → Transfer**
+
+### Homework submission
+
+[Submit Week 2 Homework]({{< var forms.week02.homework >}}){.btn .btn-primary}
+
+## Concepts to keep
+
+- algorithm;
+- program;
+- Python statement;
+- execution order;
+- sequential execution;
+- output;
+- `print()`;
+- prediction;
+- tracing;
+- translation from algorithm to code.
+
+## Portfolio evidence this week
+
+- `REP` — Representation
+- `TRC` — Code reading and tracing
+- `SEQ` — Sequencing
+- `PRECISION` — Executable precision
+- `ALG_VS_CODE` — Algorithm vs code
+- `TRN` — Transfer

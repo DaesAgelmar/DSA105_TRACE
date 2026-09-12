@@ -280,9 +280,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#connection-to-week-1" id="toc-connection-to-week-1" class="nav-link" data-scroll-target="#connection-to-week-1">Connection to Week 1</a></li>
+  <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class">In class</a>
+  <ul class="collapse">
+  <li><a href="#open-the-student-notebook" id="toc-open-the-student-notebook" class="nav-link" data-scroll-target="#open-the-student-notebook">1. Open the student notebook</a></li>
+  <li><a href="#work-through-the-active-cycle" id="toc-work-through-the-active-cycle" class="nav-link" data-scroll-target="#work-through-the-active-cycle">2. Work through the active cycle</a></li>
+  <li><a href="#evidence-tasks" id="toc-evidence-tasks" class="nav-link" data-scroll-target="#evidence-tasks">3. Evidence tasks</a></li>
+  </ul></li>
+  <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class">After class</a>
+  <ul class="collapse">
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
+  <li><a href="#homework-submission" id="toc-homework-submission" class="nav-link" data-scroll-target="#homework-submission">Homework submission</a></li>
+  </ul></li>
+  <li><a href="#concepts-to-keep" id="toc-concepts-to-keep" class="nav-link" data-scroll-target="#concepts-to-keep">Concepts to keep</a></li>
+  <li><a href="#portfolio-evidence-this-week" id="toc-portfolio-evidence-this-week" class="nav-link" data-scroll-target="#portfolio-evidence-this-week">Portfolio evidence this week</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week02.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week01.html">Part I — Computational Grammar</a></li><li class="breadcrumb-item"><a href="../weeks/week02.html">Week 2 — From Instructions to Executable Code</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 2 — From Instructions to Executable Code</h1>
-<p class="subtitle lead">Algorithm design and introduction to Python</p>
+<p class="subtitle lead">Translating algorithms into Python statements, execution order, and code tracing</p>
 </div>
 
 
@@ -309,49 +321,143 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>This week’s central question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>How do we turn a precise algorithm into instructions that Python can actually execute?</strong></p>
+</div>
+</div>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of this week, you should be able to:</p>
+<ol type="1">
+<li>map simple algorithm steps to Python statements;</li>
+<li>predict the order in which a sequential program executes;</li>
+<li>use <code>print()</code> to make program output visible;</li>
+<li>distinguish an algorithmic idea from its Python representation;</li>
+<li>identify simple execution failures caused by imprecise code;</li>
+<li>modify and build a short sequential Python program.</li>
+</ol>
+</section>
+<section id="connection-to-week-1" class="level2">
+<h2 class="anchored" data-anchor-id="connection-to-week-1">Connection to Week 1</h2>
+<p>Last week, the main question was:</p>
+<blockquote class="blockquote">
+<p><strong>How precise must an instruction be before a computer can execute it?</strong></p>
+</blockquote>
+<p>This week we go one step further:</p>
+<blockquote class="blockquote">
+<p><strong>What does that precise instruction look like when it becomes executable Python code?</strong></p>
+</blockquote>
+<p>The focus is still <strong>reasoning first</strong>. Python is the executable representation.</p>
+</section>
+<section id="in-class" class="level2">
+<h2 class="anchored" data-anchor-id="in-class">In class</h2>
+<section id="open-the-student-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="open-the-student-notebook">1. Open the student notebook</h3>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week02/DSA105_W02_Student.ipynb" class="btn btn-primary">Open Week 2 Student Notebook in Colab</a></p>
+<p>If you want a local copy:</p>
+<p><a href="../notebooks/week02/DSA105_W02_Student.ipynb">Download the notebook</a></p>
+</section>
+<section id="work-through-the-active-cycle" class="level3">
+<h3 class="anchored" data-anchor-id="work-through-the-active-cycle">2. Work through the active cycle</h3>
+<p>You will repeatedly:</p>
+<p><strong>Predict → Run → Modify → Explain → Build → Test</strong></p>
+<p>The class includes:</p>
+<ul>
+<li>Week 1 retrieval;</li>
+<li>algorithm-to-code matching;</li>
+<li>sequential execution tracing;</li>
+<li>visible output with <code>print()</code>;</li>
+<li>code ordering;</li>
+<li>precision and syntax checks;</li>
+<li>faded-code completion;</li>
+<li>pair explanation;</li>
+<li>independent build and test.</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Scope for Week 2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
+<p>We will use a few Python names, values, and arithmetic expressions when needed, but we will study <strong>variables and data representation systematically in Week 3</strong> and <strong>operators/expressions in Week 4</strong>.</p>
+<p>This week is about <strong>translation and execution order</strong>.</p>
 </div>
 </div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>Algorithm design and introduction to Python</strong></p>
 </section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
-<ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
-</ol>
+<section id="evidence-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="evidence-tasks">3. Evidence tasks</h3>
 </section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<div class="action-grid">
+<section id="weekly-quiz" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="weekly-quiz">Weekly Quiz</h3>
+<p>Individual retrieval and diagnostic check.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeHg1SeePDd1ahHUirYZbFSJuBJqUsAsimfWvEGLYZIt6NVIQ/viewform" class="btn btn-primary">Start Week 2 Quiz</a></p>
+</section>
+<section id="lab-evidence" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="lab-evidence">Lab Evidence</h3>
+<p>Submit the selected in-class evidence task.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLScKq5v6IYGqlKkQ0Fk3-XQTBKala6UaJ9zp-RAMW2baFLC2uA/viewform" class="btn btn-primary">Submit Lab Evidence</a></p>
+</section>
+<section id="exit-ticket" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="exit-ticket">Exit Ticket</h3>
+<p>Concept check, difficulty signal, and confidence rating.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdvf5CFLSqgrMDPRwdUuk9Cd3zhzXyRnkcbFUsxEACJJozQ_A/viewform" class="btn btn-primary">Complete Exit Ticket</a></p>
+</section>
+</div>
+</section>
+<section id="after-class" class="level2">
+<h2 class="anchored" data-anchor-id="after-class">After class</h2>
+<section id="homework" class="level3">
+<h3 class="anchored" data-anchor-id="homework">Homework</h3>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week02/DSA105_W02_Homework.ipynb" class="btn btn-primary">Open Week 2 Homework in Colab</a></p>
+<p><a href="../notebooks/week02/DSA105_W02_Homework.ipynb">Download the homework notebook</a></p>
+<p>The homework follows:</p>
+<blockquote class="blockquote">
+<p><strong>Algorithm → Prediction → Code → Run → Verification → Transfer</strong></p>
+</blockquote>
+</section>
+<section id="homework-submission" class="level3">
+<h3 class="anchored" data-anchor-id="homework-submission">Homework submission</h3>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLScdScebZkwqopmZeTnGtftsYpy3f1Y6zD_yl75BEM6zRfsz_Q/viewform" class="btn btn-primary">Submit Week 2 Homework</a></p>
+</section>
+</section>
+<section id="concepts-to-keep" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-keep">Concepts to keep</h2>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li>algorithm;</li>
+<li>program;</li>
+<li>Python statement;</li>
+<li>execution order;</li>
+<li>sequential execution;</li>
+<li>output;</li>
+<li><code>print()</code>;</li>
+<li>prediction;</li>
+<li>tracing;</li>
+<li>translation from algorithm to code.</li>
+</ul>
+</section>
+<section id="portfolio-evidence-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="portfolio-evidence-this-week">Portfolio evidence this week</h2>
+<ul>
+<li><code>REP</code> — Representation</li>
+<li><code>TRC</code> — Code reading and tracing</li>
+<li><code>SEQ</code> — Sequencing</li>
+<li><code>PRECISION</code> — Executable precision</li>
+<li><code>ALG_VS_CODE</code> — Algorithm vs code</li>
+<li><code>TRN</code> — Transfer</li>
 </ul>
 
 
