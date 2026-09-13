@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -279,9 +314,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#final-problem" id="toc-final-problem" class="nav-link active" data-scroll-target="#final-problem">Final problem</a>
+  <ul class="collapse">
+  <li><a href="#integration-goals" id="toc-integration-goals" class="nav-link" data-scroll-target="#integration-goals">Integration goals</a></li>
+  </ul></li>
+  <li><a href="#open-the-notebooks" id="toc-open-the-notebooks" class="nav-link" data-scroll-target="#open-the-notebooks">Open the notebooks</a></li>
+  <li><a href="#part-a-integration-challenge" id="toc-part-a-integration-challenge" class="nav-link" data-scroll-target="#part-a-integration-challenge">Part A — Integration challenge</a></li>
+  <li><a href="#explain-before-optimizing" id="toc-explain-before-optimizing" class="nav-link" data-scroll-target="#explain-before-optimizing">Explain before optimizing</a></li>
+  <li><a href="#debug-this" id="toc-debug-this" class="nav-link" data-scroll-target="#debug-this">Debug This</a></li>
+  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a></li>
+  <li><a href="#pair-verification-discussion" id="toc-pair-verification-discussion" class="nav-link" data-scroll-target="#pair-verification-discussion">Pair verification discussion</a></li>
+  <li><a href="#independent-integration-lab-evidence" id="toc-independent-integration-lab-evidence" class="nav-link" data-scroll-target="#independent-integration-lab-evidence">Independent integration / Lab Evidence</a></li>
+  <li><a href="#weekly-evidence" id="toc-weekly-evidence" class="nav-link" data-scroll-target="#weekly-evidence">Weekly evidence</a></li>
+  <li><a href="#exit-reflection" id="toc-exit-reflection" class="nav-link" data-scroll-target="#exit-reflection">Exit reflection</a></li>
+  <li><a href="#homework-portfolio-close" id="toc-homework-portfolio-close" class="nav-link" data-scroll-target="#homework-portfolio-close">Homework / Portfolio close</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week14.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -291,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week08.html">Part II — Computational Composition</a></li><li class="breadcrumb-item"><a href="../weeks/week14.html">Week 14 — Build, Test, Explain</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 14 — Build, Test, Explain</h1>
-<p class="subtitle lead">General review and course evaluation</p>
+<p class="subtitle lead">Integration · Testing · Explanation · AI Verification</p>
 </div>
 
 
@@ -308,50 +354,152 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="final-problem" class="level2">
+<h2 class="anchored" data-anchor-id="final-problem">Final problem</h2>
+<p>This week introduces no new programming structure.</p>
+<p>Instead, you must demonstrate that you can move through the full TRACE cycle:</p>
+<blockquote class="blockquote">
+<p><strong>Think → Reason → Algorithm → Code → Execute → Verify → Explain</strong></p>
+</blockquote>
+<section id="integration-goals" class="level3">
+<h3 class="anchored" data-anchor-id="integration-goals">Integration goals</h3>
+<ul>
+<li>decompose a small domain problem;</li>
+<li>choose appropriate representations;</li>
+<li>combine loops, functions, lists, files, and decisions when needed;</li>
+<li>design tests before trusting output;</li>
+<li>diagnose more than one logic defect;</li>
+<li>explain why a solution is credible.</li>
+</ul>
+</section>
+</section>
+<section id="open-the-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-notebooks">Open the notebooks</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Student.ipynb" class="btn btn-primary">Open Week 14 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week14/DSA105_W14_Student.ipynb" class="btn btn-outline-primary">Download Student Notebook</a></p>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Homework.ipynb" class="btn btn-secondary">Open Week 14 Homework Notebook in Colab</a></p>
+<p><a href="../notebooks/week14/DSA105_W14_Homework.ipynb" class="btn btn-outline-secondary">Download Homework Notebook</a></p>
+</section>
+<section id="part-a-integration-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-integration-challenge">Part A — Integration challenge</h2>
+<p>Build a small analysis program from the following requirements:</p>
+<blockquote class="blockquote">
+<p>A shop has a list of transaction values. Transactions above a threshold receive a configurable discount. The program should calculate the average final transaction value.</p>
+</blockquote>
+<p>Before code:</p>
+<ol type="1">
+<li>define inputs;</li>
+<li>define the transformation;</li>
+<li>decide whether a function is useful;</li>
+<li>identify at least three test cases.</li>
+</ol>
+</section>
+<section id="explain-before-optimizing" class="level2">
+<h2 class="anchored" data-anchor-id="explain-before-optimizing">Explain before optimizing</h2>
+<p>A correct solution that you can trace and defend is more valuable than a compact solution you cannot explain.</p>
+</section>
+<section id="debug-this" class="level2">
+<h2 class="anchored" data-anchor-id="debug-this">Debug This</h2>
+<p>Find the conceptual problem:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average(values):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="dv">7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When is this correct? When is it silently wrong?</p>
+</section>
+<section id="ai-verify" class="level2">
+<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Warning</span>Verification rule
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
+<p>The code below is syntactically valid and produces plausible output.<br>
+<strong>Do not run it immediately.</strong> First decide what you expect it to do.</p>
 </div>
 </div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>General review and course evaluation</strong></p>
-</section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
+<p><strong>Scenario:</strong> A function should apply a percentage discount only to prices above a threshold, then return the average adjusted price.</p>
+<p><strong>An AI assistant wrote:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average_adjusted_price(prices, threshold, discount_rate):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    adjusted <span class="op">=</span> []</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> price <span class="kw">in</span> prices:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> price <span class="op">&gt;=</span> threshold:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            adjusted.append(price <span class="op">-</span> discount_rate)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            adjusted.append(price)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(adjusted) <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> adjusted[i]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total <span class="op">/</span> <span class="bu">len</span>(adjusted)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Sample case:</strong> <code>prices = [80, 120, 200, 100]</code>, <code>threshold = 100</code>, <code>discount_rate = 0.10</code>. Intended rule: discount only values strictly above 100 by 10%.</p>
+<p>Your verification sequence:</p>
 <ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
+<li><strong>Predict</strong> — Predict which values should be discounted and what conceptual operations are required.</li>
+<li><strong>Run</strong> — Run the AI code and compare its result with a hand-worked result.</li>
+<li><strong>Diagnose</strong> — Identify <strong>two independent logic defects</strong>: one in discount logic/meaning and one in accumulation.</li>
+<li><strong>Fix &amp; verify</strong> — Repair both defects and verify using a second case that includes a value exactly equal to the threshold.</li>
 </ol>
+<p>This is not a prompting exercise. The target skill is <strong>verification of executable logic</strong>.</p>
 </section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<section id="pair-verification-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="pair-verification-discussion">Pair verification discussion</h2>
+<p>Compare repair strategies with a partner:</p>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li>Did you detect the same defects?</li>
+<li>Which test case exposed each defect?</li>
+<li>Could one test case miss a defect?</li>
+<li>What evidence makes the corrected program trustworthy?</li>
 </ul>
+</section>
+<section id="independent-integration-lab-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="independent-integration-lab-evidence">Independent integration / Lab Evidence</h2>
+<p>Create a small <strong>transaction analysis</strong> program that:</p>
+<ul>
+<li>uses at least one function;</li>
+<li>processes a collection;</li>
+<li>contains at least one decision;</li>
+<li>produces a summary value;</li>
+<li>includes three tests;</li>
+<li>explains one potential silent logic error;</li>
+<li>includes the Week 14 AI Verify diagnosis.</li>
+</ul>
+</section>
+<section id="weekly-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-evidence">Weekly evidence</h2>
+<p>Complete these after the corresponding activities:</p>
+<ul>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe9NDU6-kponUKs5i8jjDsVCuAzZy7kn3BSyjQJP4tTctkzHg/viewform">Weekly Quiz</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe9ckfPlbDrgnE1HJgPg7c8E5KAhwwKGbfH_3mFx0o8tjZ8aQ/viewform">Lab Evidence</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfoUpqgoX4b5vrxKjHyu_VbzhqRMpVYIh3zoVEu0639oKYOUg/viewform">Exit Ticket</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfgt3IdelWJcUFijNId2Gp8VWCCZ4IukIiAz7Ouj12zRZFrxA/viewform">Homework Submission</a></li>
+</ul>
+</section>
+<section id="exit-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="exit-reflection">Exit reflection</h2>
+<p>Complete:</p>
+<blockquote class="blockquote">
+<p>“I do not trust a program merely because it runs. I trust it more when …”</p>
+</blockquote>
+</section>
+<section id="homework-portfolio-close" class="level2">
+<h2 class="anchored" data-anchor-id="homework-portfolio-close">Homework / Portfolio close</h2>
+<p>Submit one revised program from Weeks 8–14 with:</p>
+<ul>
+<li>the original problem;</li>
+<li>the algorithm;</li>
+<li>the final code;</li>
+<li>one bug or weakness you found;</li>
+<li>the test that exposed it;</li>
+<li>the corrected version;</li>
+<li>a 100–150 word verification reflection.</li>
+</ul>
+<p>This is the final TRACE evidence package for the course.</p>
 
 
 </section>

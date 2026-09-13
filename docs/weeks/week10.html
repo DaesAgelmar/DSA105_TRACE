@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -280,9 +315,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#todays-problem" id="toc-todays-problem" class="nav-link active" data-scroll-target="#todays-problem">Today’s problem</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
+  <li><a href="#open-the-notebooks" id="toc-open-the-notebooks" class="nav-link" data-scroll-target="#open-the-notebooks">Open the notebooks</a></li>
+  <li><a href="#part-a-core-concept" id="toc-part-a-core-concept" class="nav-link" data-scroll-target="#part-a-core-concept">Part A — Core concept</a></li>
+  <li><a href="#parameters-are-part-of-the-contract" id="toc-parameters-are-part-of-the-contract" class="nav-link" data-scroll-target="#parameters-are-part-of-the-contract">Parameters are part of the contract</a></li>
+  <li><a href="#debug-this" id="toc-debug-this" class="nav-link" data-scroll-target="#debug-this">Debug This</a></li>
+  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a></li>
+  <li><a href="#domain-application" id="toc-domain-application" class="nav-link" data-scroll-target="#domain-application">Domain application</a></li>
+  <li><a href="#independent-check-lab-evidence" id="toc-independent-check-lab-evidence" class="nav-link" data-scroll-target="#independent-check-lab-evidence">Independent check / Lab Evidence</a></li>
+  <li><a href="#weekly-evidence" id="toc-weekly-evidence" class="nav-link" data-scroll-target="#weekly-evidence">Weekly evidence</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week10.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week08.html">Part II — Computational Composition</a></li><li class="breadcrumb-item"><a href="../weeks/week10.html">Week 10 — Breaking Problems into Reusable Pieces</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 10 — Breaking Problems into Reusable Pieces</h1>
-<p class="subtitle lead">Functions: definition, parameters, and return values</p>
+<p class="subtitle lead">Functions · Parameters · Return Values</p>
 </div>
 
 
@@ -309,50 +354,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="todays-problem" class="level2">
+<h2 class="anchored" data-anchor-id="todays-problem">Today’s problem</h2>
+<p>Repeated code is not always repeated by a loop. Sometimes we need the <strong>same operation</strong> in different parts of a program.</p>
+<blockquote class="blockquote">
+<p><strong>How can we package one computational responsibility so that it can be reused and tested independently?</strong></p>
+</blockquote>
+<section id="learning-goals" class="level3">
+<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
+<ul>
+<li>define and call a function;</li>
+<li>distinguish parameters from arguments;</li>
+<li>return a result;</li>
+<li>separate calculation from display;</li>
+<li>test a function with multiple cases;</li>
+<li>identify hard-coded logic that ignores a parameter.</li>
+</ul>
+</section>
+</section>
+<section id="open-the-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-notebooks">Open the notebooks</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week10/DSA105_W10_Student.ipynb" class="btn btn-primary">Open Week 10 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week10/DSA105_W10_Student.ipynb" class="btn btn-outline-primary">Download Student Notebook</a></p>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week10/DSA105_W10_Homework.ipynb" class="btn btn-secondary">Open Week 10 Homework Notebook in Colab</a></p>
+<p><a href="../notebooks/week10/DSA105_W10_Homework.ipynb" class="btn btn-outline-secondary">Download Homework Notebook</a></p>
+</section>
+<section id="part-a-core-concept" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-core-concept">Part A — Core concept</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_revenue(quantity, unit_price):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    revenue <span class="op">=</span> quantity <span class="op">*</span> unit_price</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> revenue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Before running:</p>
+<ul>
+<li>What information enters the function?</li>
+<li>What value leaves the function?</li>
+<li>What changes if the arguments change?</li>
+</ul>
+</section>
+<section id="parameters-are-part-of-the-contract" class="level2">
+<h2 class="anchored" data-anchor-id="parameters-are-part-of-the-contract">Parameters are part of the contract</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> apply_discount(price, rate):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> price <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> rate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Test:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(apply_discount(<span class="dv">500</span>, <span class="fl">0.10</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(apply_discount(<span class="dv">500</span>, <span class="fl">0.25</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="debug-this" class="level2">
+<h2 class="anchored" data-anchor-id="debug-this">Debug This</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_area(width, height):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    area <span class="op">=</span> width <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> area</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code runs. What did the function fail to respect?</p>
+</section>
+<section id="ai-verify" class="level2">
+<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Warning</span>Verification rule
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
+<p>The code below is syntactically valid and produces plausible output.<br>
+<strong>Do not run it immediately.</strong> First decide what you expect it to do.</p>
 </div>
 </div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>Functions: definition, parameters, and return values</strong></p>
-</section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
+<p><strong>Scenario:</strong> A product price should be increased using the tax rate passed to the function.</p>
+<p><strong>An AI assistant wrote:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> apply_tax(price, tax_rate<span class="op">=</span><span class="fl">0.18</span>):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    final_price <span class="op">=</span> price <span class="op">*</span> <span class="fl">1.18</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> final_price</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Sample case:</strong> <code>apply_tax(200, 0.08)</code> should return <code>216.0</code>.</p>
+<p>Your verification sequence:</p>
 <ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
+<li><strong>Predict</strong> — What result will the function return, and why?</li>
+<li><strong>Run</strong> — Run <code>apply_tax(200, 0.08)</code>.</li>
+<li><strong>Diagnose</strong> — Explain what the function signature promises and what the body actually does.</li>
+<li><strong>Fix &amp; verify</strong> — Repair the function so the parameter controls the calculation; verify with two tax rates.</li>
 </ol>
+<p>This is not a prompting exercise. The target skill is <strong>verification of executable logic</strong>.</p>
 </section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<section id="domain-application" class="level2">
+<h2 class="anchored" data-anchor-id="domain-application">Domain application</h2>
+<p>Write a function:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_invoice(hours, hourly_rate):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It must <strong>return</strong> the fee. Display should happen outside the function.</p>
+</section>
+<section id="independent-check-lab-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="independent-check-lab-evidence">Independent check / Lab Evidence</h2>
+<p>Build three small functions:</p>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li><code>calculate_revenue(quantity, unit_price)</code></li>
+<li><code>calculate_profit(revenue, cost)</code></li>
+<li><code>profit_margin(profit, revenue)</code></li>
 </ul>
+<p>Then compose them in a short program.</p>
+<p>Submit:</p>
+<ul>
+<li>one prediction;</li>
+<li>one test case for each function;</li>
+<li>AI Verify diagnosis.</li>
+</ul>
+</section>
+<section id="weekly-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-evidence">Weekly evidence</h2>
+<p>Complete these after the corresponding activities:</p>
+<ul>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdRULj6tqum22yhm2qatnkN3AX00ga7qvYO15Z1zsVSN_R_0Q/viewform">Weekly Quiz</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfSH0IPd74n17WPrIBOJoU2w4rzCynzayuZ_kG0gVyUzkLy_g/viewform">Lab Evidence</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSejMU1iWPMOJGPjj7KbiK_jczBKmpS1D-jzGV6T5jzhhvdcnA/viewform">Exit Ticket</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfLN3hl98nvlPR07zOJvgaJhYODu7tI6Z4WFHmq-RWj_O3i1g/viewform">Homework Submission</a></li>
+</ul>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<p>Create a reusable delivery-price calculator with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delivery_cost(distance_km, rate_per_km):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add at least three test cases, including <code>distance_km = 0</code>.</p>
 
 
 </section>

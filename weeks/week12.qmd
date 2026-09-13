@@ -1,37 +1,149 @@
 ---
 title: "Week 12 — Programs Meet Real Data"
-subtitle: "File handling"
+subtitle: "Files · Persistent Data · Cleaning Text Input"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+## Today’s problem
+
+Programs often receive data from outside the code itself.
+
+> **How do we move from temporary variables to data that already exists in a file?**
+
+### Learning goals
+
+- open text files safely;
+- read line-based data;
+- write output;
+- use `with open(...)`;
+- clean newline characters;
+- test file-derived values before trusting downstream comparisons.
+
+
+## Open the notebooks
+
+[Open Week 12 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Student.ipynb){.btn .btn-primary}
+
+[Download Student Notebook](../notebooks/week12/DSA105_W12_Student.ipynb){.btn .btn-outline-primary}
+
+[Open Week 12 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Homework.ipynb){.btn .btn-secondary}
+
+[Download Homework Notebook](../notebooks/week12/DSA105_W12_Homework.ipynb){.btn .btn-outline-secondary}
+
+
+## Part A — Core concept
+
+```python
+with open("customers.txt", "r", encoding="utf-8") as file:
+    lines = file.readlines()
+
+print(lines)
+```
+
+A file line usually contains a newline character. That character is data.
+
+## Clean line data
+
+```python
+names = []
+
+for line in lines:
+    names.append(line.strip())
+```
+
+Explain what `.strip()` changes.
+
+## Write output
+
+```python
+with open("summary.txt", "w", encoding="utf-8") as file:
+    file.write("Processing complete\n")
+```
+
+## Debug This
+
+Why can this comparison fail?
+
+```python
+name_from_file = "Ayşe\n"
+print(name_from_file == "Ayşe")
+```
+
+
+## AI Verify
+
+::: {.callout-warning}
+### Verification rule
+
+The code below is syntactically valid and produces plausible output.  
+**Do not run it immediately.** First decide what you expect it to do.
 :::
 
-## Official focus
+**Scenario:** A text file contains a header followed by one customer name per line. The program should return clean names.
 
-**File handling**
+**An AI assistant wrote:**
 
-## Weekly structure
+```python
+def load_customer_names(filepath):
+    with open(filepath, "r", encoding="utf-8") as file:
+        lines = file.readlines()
 
-This module will use the same recurring active-learning grammar:
+    names = []
+    for line in lines[1:]:
+        names.append(line)
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+    return names
+```
 
-## Evidence model
+**Sample case:** A file containing `name\nAyşe\nMert\n` should produce `['Ayşe', 'Mert']`.
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+Your verification sequence:
+
+1. **Predict** — What exact strings do you think are stored in the returned list?
+2. **Run** — Create a small file and inspect `repr()` of each returned value.
+3. **Diagnose** — Explain why the data looks correct when printed but can fail in later equality checks.
+4. **Fix & verify** — Repair with explicit cleaning and verify by comparing a returned name with `'Ayşe'`.
+
+This is not a prompting exercise. The target skill is **verification of executable logic**.
+
+
+## Domain application
+
+Create a text file containing five daily revenue values, one per line. Read the file, convert the lines to numbers, and calculate the total.
+
+## Independent check / Lab Evidence
+
+Create `expenses.txt` with a header and five expense values.
+
+Your program must:
+
+- skip the header;
+- clean each line;
+- convert to `float`;
+- calculate total and average;
+- verify one value using `repr()` before conversion;
+- complete AI Verify evidence.
+
+
+## Weekly evidence
+
+Complete these after the corresponding activities:
+
+- [Weekly Quiz]({{< var forms.week12.quiz >}})
+- [Lab Evidence]({{< var forms.week12.lab >}})
+- [Exit Ticket]({{< var forms.week12.exit >}})
+- [Homework Submission]({{< var forms.week12.homework >}})
+
+
+## Exit question
+
+Why can whitespace be a **data-quality** problem rather than merely a display problem?
+
+## Homework
+
+Read a simple `transactions.txt` file containing one numeric amount per line and write a second file containing:
+
+- transaction count;
+- total;
+- average.
+
+Include one paragraph explaining why `with open(...)` is preferable to leaving file handles unmanaged.

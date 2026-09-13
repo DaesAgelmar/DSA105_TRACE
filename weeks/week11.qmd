@@ -1,37 +1,160 @@
 ---
 title: "Week 11 — Working with Many Things at Once"
-subtitle: "Lists and collections"
+subtitle: "Lists · Collections · Iteration over Many Values"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+## Today’s problem
+
+Until now, many values were stored in separate variables.
+
+> **What if the program needs to treat many related values as one collection?**
+
+### Learning goals
+
+- create and inspect a list;
+- use indexes;
+- append new values;
+- iterate over a list;
+- compute aggregate information;
+- explain why mutating a list while iterating can skip data.
+
+
+## Open the notebooks
+
+[Open Week 11 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week11/DSA105_W11_Student.ipynb){.btn .btn-primary}
+
+[Download Student Notebook](../notebooks/week11/DSA105_W11_Student.ipynb){.btn .btn-outline-primary}
+
+[Open Week 11 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week11/DSA105_W11_Homework.ipynb){.btn .btn-secondary}
+
+[Download Homework Notebook](../notebooks/week11/DSA105_W11_Homework.ipynb){.btn .btn-outline-secondary}
+
+
+## Part A — Core concept
+
+```python
+sales = [120, 95, 130, 80]
+
+print(sales[0])
+print(len(sales))
+```
+
+Predict each output before running.
+
+## Iterate over values
+
+```python
+total = 0
+
+for sale in sales:
+    total += sale
+
+print(total)
+```
+
+Compare this with Week 8's counter-controlled loop.
+
+## Modify a collection
+
+```python
+sales.append(105)
+```
+
+What changed: the variable name, the list object, or both?
+
+## Debug This
+
+```python
+scores = [40, 75, 55, 90]
+for score in scores:
+    if score < 60:
+        scores.remove(score)
+```
+
+Do not repair it yet. First decide whether changing the collection during iteration is safe.
+
+
+## AI Verify
+
+::: {.callout-warning}
+### Verification rule
+
+The code below is syntactically valid and produces plausible output.  
+**Do not run it immediately.** First decide what you expect it to do.
 :::
 
-## Official focus
+**Scenario:** A customer-feedback list should remove all scores below 5 before later analysis.
 
-**Lists and collections**
+**An AI assistant wrote:**
 
-## Weekly structure
+```python
+def remove_low_scores(scores, threshold):
+    for score in scores:
+        if score < threshold:
+            scores.remove(score)
+    return scores
+```
 
-This module will use the same recurring active-learning grammar:
+**Sample case:** `scores = [2, 3, 8, 9, 7, 9]`, `threshold = 5`. Correct cleaned list: `[8, 9, 7, 9]`.
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Your verification sequence:
 
-## Evidence model
+1. **Predict** — Which values do you expect to remain?
+2. **Run** — Run the function on a copy of the sample list.
+3. **Diagnose** — Explain why removing `2` changes what the loop sees next.
+4. **Fix & verify** — Repair without mutating the list during iteration and verify with adjacent low values.
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+This is not a prompting exercise. The target skill is **verification of executable logic**.
+
+
+## Domain application
+
+Given:
+
+```python
+daily_sales = [420, 510, 390, 610, 570]
+```
+
+produce:
+
+- total;
+- average;
+- highest value;
+- a new list containing values at least 500.
+
+## Independent check / Lab Evidence
+
+Create a list-based satisfaction analysis:
+
+```python
+scores = [7, 4, 9, 6, 3, 8, 10]
+```
+
+Produce:
+
+- count;
+- average;
+- high-score list (`>= 8`);
+- one explicit manual verification;
+- AI Verify evidence.
+
+
+## Weekly evidence
+
+Complete these after the corresponding activities:
+
+- [Weekly Quiz]({{< var forms.week11.quiz >}})
+- [Lab Evidence]({{< var forms.week11.lab >}})
+- [Exit Ticket]({{< var forms.week11.exit >}})
+- [Homework Submission]({{< var forms.week11.homework >}})
+
+
+## Homework
+
+Build a simple inventory list application:
+
+- start with five stock counts;
+- append a sixth;
+- compute total units;
+- create a new list of counts below a reorder threshold;
+- explain why building a new filtered list is safer than removing while iterating.

@@ -1,37 +1,157 @@
 ---
 title: "Week 13 — When Programs Go Wrong"
-subtitle: "Error handling and debugging"
+subtitle: "Errors · Exceptions · Debugging and Verification"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+## Today’s problem
+
+A program can fail in several different ways:
+
+- it may not parse;
+- it may crash while running;
+- it may run and produce the wrong result.
+
+> **How do we identify the failure mode before trying to repair it?**
+
+### Learning goals
+
+- distinguish syntax, runtime, and logic errors;
+- read an exception message;
+- use targeted `try/except`;
+- avoid hiding programming errors;
+- verify that error handling preserves useful failure information.
+
+
+## Open the notebooks
+
+[Open Week 13 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week13/DSA105_W13_Student.ipynb){.btn .btn-primary}
+
+[Download Student Notebook](../notebooks/week13/DSA105_W13_Student.ipynb){.btn .btn-outline-primary}
+
+[Open Week 13 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week13/DSA105_W13_Homework.ipynb){.btn .btn-secondary}
+
+[Download Homework Notebook](../notebooks/week13/DSA105_W13_Homework.ipynb){.btn .btn-outline-secondary}
+
+
+## Part A — Classify the failure
+
+For each case, decide:
+
+- syntax error;
+- runtime error;
+- logic error.
+
+```python
+print("Hello"
+```
+
+```python
+value = int("twelve")
+```
+
+```python
+average = total / 4   # but there are five observations
+```
+
+## Targeted exception handling
+
+```python
+try:
+    quantity = int(input("Quantity: "))
+except ValueError:
+    print("Please enter a whole number.")
+```
+
+The exception type is part of the program's reasoning.
+
+## Debug This
+
+```python
+try:
+    result = 10 / user_value
+except:
+    result = 0
+```
+
+What useful information might this hide?
+
+
+## AI Verify
+
+::: {.callout-warning}
+### Verification rule
+
+The code below is syntactically valid and produces plausible output.  
+**Do not run it immediately.** First decide what you expect it to do.
 :::
 
-## Official focus
+**Scenario:** A helper function should handle division by zero without hiding unrelated programming errors.
 
-**Error handling and debugging**
+**An AI assistant wrote:**
 
-## Weekly structure
+```python
+def safe_divide(a, b):
+    try:
+        return a / b
+    except:
+        return 0
+```
 
-This module will use the same recurring active-learning grammar:
+**Sample case:** Test `safe_divide(10, 2)`, `safe_divide(10, 0)`, and `safe_divide(10, 'two')`.
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Your verification sequence:
 
-## Evidence model
+1. **Predict** — What should each test reveal about the function?
+2. **Run** — Run all three calls.
+3. **Diagnose** — Explain why returning `0` for every exception can make a real programming error look like a valid result.
+4. **Fix & verify** — Catch only the intended exception and verify that the wrong-type case is no longer silently swallowed.
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+This is not a prompting exercise. The target skill is **verification of executable logic**.
+
+
+## Domain application
+
+Build a small numeric-input function that:
+
+- requests a quantity;
+- converts it to an integer;
+- handles invalid integer text;
+- does **not** use a bare `except`.
+
+## Independent check / Lab Evidence
+
+You are given three broken programs:
+
+1. one syntax failure;
+2. one runtime conversion failure;
+3. one silent logic failure.
+
+For each:
+
+- classify;
+- diagnose;
+- repair;
+- verify.
+
+Include the AI Verify evidence in your submission.
+
+
+## Weekly evidence
+
+Complete these after the corresponding activities:
+
+- [Weekly Quiz]({{< var forms.week13.quiz >}})
+- [Lab Evidence]({{< var forms.week13.lab >}})
+- [Exit Ticket]({{< var forms.week13.exit >}})
+- [Homework Submission]({{< var forms.week13.homework >}})
+
+
+## Homework
+
+Build a robust unit-price calculator that:
+
+- requests quantity and unit price;
+- handles invalid numeric input using targeted exception types;
+- calculates total when inputs are valid;
+- includes three test cases;
+- explains why “does not crash” is not the same as “correctly handles errors.”

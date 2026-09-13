@@ -1,37 +1,180 @@
 ---
 title: "Week 8 — Making Computers Repeat Work"
-subtitle: "Loops and control flow"
+subtitle: "Loops · Repetition · Accumulation"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+## Today’s problem
+
+A business has the same kind of information arriving repeatedly: daily sales, hourly traffic, item counts, or transaction values.
+
+> **How can one precise instruction be executed repeatedly without losing control of what changes?**
+
+### Learning goals
+
+By the end of this week, you should be able to:
+
+- explain why repetition is an algorithmic structure;
+- trace a `for` loop before running it;
+- use `range()` to control repetition;
+- distinguish a **counter** from an **accumulator**;
+- identify loop-bound errors;
+- test repeated logic using boundary cases.
+
+
+## Open the notebooks
+
+[Open Week 8 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week08/DSA105_W08_Student.ipynb){.btn .btn-primary}
+
+[Download Student Notebook](../notebooks/week08/DSA105_W08_Student.ipynb){.btn .btn-outline-primary}
+
+[Open Week 8 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week08/DSA105_W08_Homework.ipynb){.btn .btn-secondary}
+
+[Download Homework Notebook](../notebooks/week08/DSA105_W08_Homework.ipynb){.btn .btn-outline-secondary}
+
+
+## Part A — Core concept
+
+Use **Predict → Run → Modify → Explain** to study repetition.
+
+```python
+total = 0
+
+for day in range(1, 5):
+    sale = float(input("Enter daily sales: "))
+    total += sale
+
+print("Four-day total:", total)
+```
+
+Before running:
+
+- How many times will the loop body execute?
+- Which value changes on every iteration?
+- Which value carries information from one iteration to the next?
+
+## Trace before execution
+
+```python
+for i in range(1, 5):
+    print(i)
+```
+
+Write the exact output before you run the cell.
+
+## Counter vs accumulator
+
+A **counter** tracks how many times something happened.
+
+```python
+count = 0
+for _ in range(4):
+    count += 1
+```
+
+An **accumulator** combines values across repetitions.
+
+```python
+total = 0
+for _ in range(4):
+    value = float(input("Value: "))
+    total += value
+```
+
+## Debug This
+
+A shop wants five daily values, but this code asks for only four:
+
+```python
+total = 0
+
+for day in range(1, 5):
+    sale = float(input("Sale: "))
+    total += sale
+
+print(total)
+```
+
+Explain the error before fixing it.
+
+
+## AI Verify
+
+::: {.callout-warning}
+### Verification rule
+
+The code below is syntactically valid and produces plausible output.  
+**Do not run it immediately.** First decide what you expect it to do.
 :::
 
-## Official focus
+**Scenario:** A small shop wants the total revenue for four days.
 
-**Loops and control flow**
+**An AI assistant wrote:**
 
-## Weekly structure
+```python
+total = 0
 
-This module will use the same recurring active-learning grammar:
+for day in range(1, 4):
+    sale = float(input("Enter daily sales: "))
+    total += sale
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+print("Four-day total:", total)
+```
 
-## Evidence model
+**Sample case:** Enter `120`, `95`, `130`, `80` as the four intended daily values. Correct total: `425`.
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+Your verification sequence:
+
+1. **Predict** — How many values will the program actually request, and what total do you expect?
+2. **Run** — Run it. Does it ever ask for the fourth value?
+3. **Diagnose** — Explain why the loop bound encodes the wrong number of repetitions.
+4. **Fix & verify** — Repair the range and verify with a second four-day case of your own.
+
+This is not a prompting exercise. The target skill is **verification of executable logic**.
+
+
+## Domain application
+
+Create a program that asks for **six hourly customer counts**, accumulates the total, and prints the average customers per hour.
+
+Do not begin with code. First write:
+
+1. what repeats;
+2. what must be remembered across repetitions;
+3. the loop boundary.
+
+## Independent check / Lab Evidence
+
+Build a **five-day expense tracker**:
+
+- ask for five daily expenses;
+- compute total expense;
+- compute average daily expense;
+- print both;
+- provide one hand-computed test case;
+- complete the AI Verify evidence in the Lab Form.
+
+
+## Weekly evidence
+
+Complete these after the corresponding activities:
+
+- [Weekly Quiz]({{< var forms.week08.quiz >}})
+- [Lab Evidence]({{< var forms.week08.lab >}})
+- [Exit Ticket]({{< var forms.week08.exit >}})
+- [Homework Submission]({{< var forms.week08.homework >}})
+
+
+## Exit question
+
+In one sentence: why can code run without error and still repeat the wrong number of times?
+
+## Homework
+
+Build a weekly production tracker for **7 days**. Your notebook must include:
+
+- an algorithm in plain English;
+- a loop;
+- an accumulator;
+- total and average output;
+- one predicted test case;
+- one verification statement comparing predicted and actual output.

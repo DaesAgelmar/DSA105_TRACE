@@ -40,4 +40,45 @@ forms:
     quiz: "https://docs.google.com/forms/d/e/1FAIpQLSdkIxnCX3jNRkCQbFv7PgkSsJPDfaNOHsYxrLQfJgl4Kx-sFA/viewform"
     lab: "https://docs.google.com/forms/d/e/1FAIpQLSd3XCtaojwuKOBxDQO1MYysc5b2z3rhZ_Qjmd2Ywk1l38J3yA/viewform"
     exit: "https://docs.google.com/forms/d/e/1FAIpQLSdpn39eqxucKf726iB5BU-c0IpGWTdlL28FNzsd2-BRpQdC-g/viewform"
-    homework: "https://docs.google.com/forms/d/e/1FAIpQLSefcqIifnQX9h4eACdh1usQ2J-jFGytcJQZjIBiWwcE0eOp5A/viewform"  
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSefcqIifnQX9h4eACdh1usQ2J-jFGytcJQZjIBiWwcE0eOp5A/viewform"
+  week08:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSeSadwm81JoGd2T33qKsxauQLOTj9GczxdGdbDqOnsAyj74wg/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSda-tJ1dXrbRFkeOhQF_c_jRm40gzjvhojpA9zXBWbgrIc4LQ/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLSff0cpzbjMQIHOQVr2-WZqvlPE4FZNY0rOtEiBgnk9-_I3guw/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSfxIy8_xo_4he7Tj4NeTnyMQjdOqe8Eu8O_AfTC24ph0-A00Q/viewform"
+
+  week09:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSeHSD5uF2BGf9szy1yWfik5ifNMU8relTxKMtahID2ofoCXNA/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSdCIW70TRpAnBCJIsjyEIQGTkV2uilro3vpdoMJra4Q9_cT6A/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLSdEUUl_l7hOtW4mv_LuHaRAjWD2j5JQi-X_OQF6yTjKrmIjLg/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSd26_30DFqtCTDxbNdYqT-0VK5PEsqvdoS6hOBoDsuC4NH5JQ/viewform"
+
+  week10:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSdRULj6tqum22yhm2qatnkN3AX00ga7qvYO15Z1zsVSN_R_0Q/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSfSH0IPd74n17WPrIBOJoU2w4rzCynzayuZ_kG0gVyUzkLy_g/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLSejMU1iWPMOJGPjj7KbiK_jczBKmpS1D-jzGV6T5jzhhvdcnA/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSfLN3hl98nvlPR07zOJvgaJhYODu7tI6Z4WFHmq-RWj_O3i1g/viewform"
+
+  week11:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSdvGCba7Pru_7InAFsoi_3greRuqvK_uCA-ySu7hJQe88Cs7Q/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSfZAKZ7psHvEYfGPY5PHzxnuxvmLum8wMZN-h8kjvkFKXLmCA/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLScS_ld32pyIxypg-zkcHoavpR3cr96HygBxI-BYr939Imjvpw/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSe9FLEQSo53XpM5uMhXWP_WCYetA0D-G4FZB6bIYtT9xdoLOA/viewform"
+
+  week12:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSd6v-bKyDM-jhCdVBpHKgNEpLMDFAVDlkvWuVf2M33QSpGHeg/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSepk6VF_XG_UgiPeFmgpnwiXvA-o4l1DSv5zHXe_Q-d-zqMUA/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLScrQqBWHtld9IwWREV2LTg5AQu67W-MQetmPLMxu6Db9OPgUQ/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSfKHfrx0_zwwbTnQZSrPBCy0GV7kk2EytEOpIF-kxXaa-UBCA/viewform"
+
+  week13:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSfA7aWjYsoQGKzfWqNl_IPESCnZvZwUHxSxBJCBhnYNNCPtcw/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSdRSL8Vi84XwD0rc8f61IpsJahzezwiRCfWiK3h_9bO9sWEMA/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLSeGdu59e0TM4HYSUAzFP_mq5TKUTTCSNv3Jnf2ZbPb4UBEDdA/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSdjS806S73cT3EozfyBzh7NXII5N3hLDI-EJv1Y9uKAEtriow/viewform"
+
+  week14:
+    quiz: "https://docs.google.com/forms/d/e/1FAIpQLSe9NDU6-kponUKs5i8jjDsVCuAzZy7kn3BSyjQJP4tTctkzHg/viewform"
+    lab: "https://docs.google.com/forms/d/e/1FAIpQLSe9ckfPlbDrgnE1HJgPg7c8E5KAhwwKGbfH_3mFx0o8tjZ8aQ/viewform"
+    exit: "https://docs.google.com/forms/d/e/1FAIpQLSfoUpqgoX4b5vrxKjHyu_VbzhqRMpVYIh3zoVEu0639oKYOUg/viewform"
+    homework: "https://docs.google.com/forms/d/e/1FAIpQLSfgt3IdelWJcUFijNId2Gp8VWCCZ4IukIiAz7Ouj12zRZFrxA/viewform"   

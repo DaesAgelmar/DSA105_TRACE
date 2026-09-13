@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -280,9 +315,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#todays-problem" id="toc-todays-problem" class="nav-link active" data-scroll-target="#todays-problem">Today’s problem</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
+  <li><a href="#open-the-notebooks" id="toc-open-the-notebooks" class="nav-link" data-scroll-target="#open-the-notebooks">Open the notebooks</a></li>
+  <li><a href="#part-a-core-concept" id="toc-part-a-core-concept" class="nav-link" data-scroll-target="#part-a-core-concept">Part A — Core concept</a></li>
+  <li><a href="#iterate-over-values" id="toc-iterate-over-values" class="nav-link" data-scroll-target="#iterate-over-values">Iterate over values</a></li>
+  <li><a href="#modify-a-collection" id="toc-modify-a-collection" class="nav-link" data-scroll-target="#modify-a-collection">Modify a collection</a></li>
+  <li><a href="#debug-this" id="toc-debug-this" class="nav-link" data-scroll-target="#debug-this">Debug This</a></li>
+  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a></li>
+  <li><a href="#domain-application" id="toc-domain-application" class="nav-link" data-scroll-target="#domain-application">Domain application</a></li>
+  <li><a href="#independent-check-lab-evidence" id="toc-independent-check-lab-evidence" class="nav-link" data-scroll-target="#independent-check-lab-evidence">Independent check / Lab Evidence</a></li>
+  <li><a href="#weekly-evidence" id="toc-weekly-evidence" class="nav-link" data-scroll-target="#weekly-evidence">Weekly evidence</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week11.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week08.html">Part II — Computational Composition</a></li><li class="breadcrumb-item"><a href="../weeks/week11.html">Week 11 — Working with Many Things at Once</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 11 — Working with Many Things at Once</h1>
-<p class="subtitle lead">Lists and collections</p>
+<p class="subtitle lead">Lists · Collections · Iteration over Many Values</p>
 </div>
 
 
@@ -309,49 +355,139 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="todays-problem" class="level2">
+<h2 class="anchored" data-anchor-id="todays-problem">Today’s problem</h2>
+<p>Until now, many values were stored in separate variables.</p>
+<blockquote class="blockquote">
+<p><strong>What if the program needs to treat many related values as one collection?</strong></p>
+</blockquote>
+<section id="learning-goals" class="level3">
+<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
+<ul>
+<li>create and inspect a list;</li>
+<li>use indexes;</li>
+<li>append new values;</li>
+<li>iterate over a list;</li>
+<li>compute aggregate information;</li>
+<li>explain why mutating a list while iterating can skip data.</li>
+</ul>
+</section>
+</section>
+<section id="open-the-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-notebooks">Open the notebooks</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week11/DSA105_W11_Student.ipynb" class="btn btn-primary">Open Week 11 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week11/DSA105_W11_Student.ipynb" class="btn btn-outline-primary">Download Student Notebook</a></p>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week11/DSA105_W11_Homework.ipynb" class="btn btn-secondary">Open Week 11 Homework Notebook in Colab</a></p>
+<p><a href="../notebooks/week11/DSA105_W11_Homework.ipynb" class="btn btn-outline-secondary">Download Homework Notebook</a></p>
+</section>
+<section id="part-a-core-concept" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-core-concept">Part A — Core concept</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> [<span class="dv">120</span>, <span class="dv">95</span>, <span class="dv">130</span>, <span class="dv">80</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sales[<span class="dv">0</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sales))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Predict each output before running.</p>
+</section>
+<section id="iterate-over-values" class="level2">
+<h2 class="anchored" data-anchor-id="iterate-over-values">Iterate over values</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sale <span class="kw">in</span> sales:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> sale</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compare this with Week 8’s counter-controlled loop.</p>
+</section>
+<section id="modify-a-collection" class="level2">
+<h2 class="anchored" data-anchor-id="modify-a-collection">Modify a collection</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sales.append(<span class="dv">105</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>What changed: the variable name, the list object, or both?</p>
+</section>
+<section id="debug-this" class="level2">
+<h2 class="anchored" data-anchor-id="debug-this">Debug This</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> [<span class="dv">40</span>, <span class="dv">75</span>, <span class="dv">55</span>, <span class="dv">90</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> score <span class="kw">in</span> scores:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> score <span class="op">&lt;</span> <span class="dv">60</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        scores.remove(score)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Do not repair it yet. First decide whether changing the collection during iteration is safe.</p>
+</section>
+<section id="ai-verify" class="level2">
+<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Warning</span>Verification rule
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
+<p>The code below is syntactically valid and produces plausible output.<br>
+<strong>Do not run it immediately.</strong> First decide what you expect it to do.</p>
 </div>
 </div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>Lists and collections</strong></p>
-</section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
+<p><strong>Scenario:</strong> A customer-feedback list should remove all scores below 5 before later analysis.</p>
+<p><strong>An AI assistant wrote:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> remove_low_scores(scores, threshold):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> score <span class="kw">in</span> scores:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> score <span class="op">&lt;</span> threshold:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            scores.remove(score)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> scores</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Sample case:</strong> <code>scores = [2, 3, 8, 9, 7, 9]</code>, <code>threshold = 5</code>. Correct cleaned list: <code>[8, 9, 7, 9]</code>.</p>
+<p>Your verification sequence:</p>
 <ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
+<li><strong>Predict</strong> — Which values do you expect to remain?</li>
+<li><strong>Run</strong> — Run the function on a copy of the sample list.</li>
+<li><strong>Diagnose</strong> — Explain why removing <code>2</code> changes what the loop sees next.</li>
+<li><strong>Fix &amp; verify</strong> — Repair without mutating the list during iteration and verify with adjacent low values.</li>
 </ol>
+<p>This is not a prompting exercise. The target skill is <strong>verification of executable logic</strong>.</p>
 </section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<section id="domain-application" class="level2">
+<h2 class="anchored" data-anchor-id="domain-application">Domain application</h2>
+<p>Given:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>daily_sales <span class="op">=</span> [<span class="dv">420</span>, <span class="dv">510</span>, <span class="dv">390</span>, <span class="dv">610</span>, <span class="dv">570</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>produce:</p>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li>total;</li>
+<li>average;</li>
+<li>highest value;</li>
+<li>a new list containing values at least 500.</li>
+</ul>
+</section>
+<section id="independent-check-lab-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="independent-check-lab-evidence">Independent check / Lab Evidence</h2>
+<p>Create a list-based satisfaction analysis:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> [<span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Produce:</p>
+<ul>
+<li>count;</li>
+<li>average;</li>
+<li>high-score list (<code>&gt;= 8</code>);</li>
+<li>one explicit manual verification;</li>
+<li>AI Verify evidence.</li>
+</ul>
+</section>
+<section id="weekly-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-evidence">Weekly evidence</h2>
+<p>Complete these after the corresponding activities:</p>
+<ul>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdvGCba7Pru_7InAFsoi_3greRuqvK_uCA-ySu7hJQe88Cs7Q/viewform">Weekly Quiz</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfZAKZ7psHvEYfGPY5PHzxnuxvmLum8wMZN-h8kjvkFKXLmCA/viewform">Lab Evidence</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLScS_ld32pyIxypg-zkcHoavpR3cr96HygBxI-BYr939Imjvpw/viewform">Exit Ticket</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe9FLEQSo53XpM5uMhXWP_WCYetA0D-G4FZB6bIYtT9xdoLOA/viewform">Homework Submission</a></li>
+</ul>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<p>Build a simple inventory list application:</p>
+<ul>
+<li>start with five stock counts;</li>
+<li>append a sixth;</li>
+<li>compute total units;</li>
+<li>create a new list of counts below a reorder threshold;</li>
+<li>explain why building a new filtered list is safer than removing while iterating.</li>
 </ul>
 
 

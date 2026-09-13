@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -280,9 +315,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#todays-problem" id="toc-todays-problem" class="nav-link active" data-scroll-target="#todays-problem">Today’s problem</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
+  <li><a href="#open-the-notebooks" id="toc-open-the-notebooks" class="nav-link" data-scroll-target="#open-the-notebooks">Open the notebooks</a></li>
+  <li><a href="#part-a-classify-the-failure" id="toc-part-a-classify-the-failure" class="nav-link" data-scroll-target="#part-a-classify-the-failure">Part A — Classify the failure</a></li>
+  <li><a href="#targeted-exception-handling" id="toc-targeted-exception-handling" class="nav-link" data-scroll-target="#targeted-exception-handling">Targeted exception handling</a></li>
+  <li><a href="#debug-this" id="toc-debug-this" class="nav-link" data-scroll-target="#debug-this">Debug This</a></li>
+  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a></li>
+  <li><a href="#domain-application" id="toc-domain-application" class="nav-link" data-scroll-target="#domain-application">Domain application</a></li>
+  <li><a href="#independent-check-lab-evidence" id="toc-independent-check-lab-evidence" class="nav-link" data-scroll-target="#independent-check-lab-evidence">Independent check / Lab Evidence</a></li>
+  <li><a href="#weekly-evidence" id="toc-weekly-evidence" class="nav-link" data-scroll-target="#weekly-evidence">Weekly evidence</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week13.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week08.html">Part II — Computational Composition</a></li><li class="breadcrumb-item"><a href="../weeks/week13.html">Week 13 — When Programs Go Wrong</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 13 — When Programs Go Wrong</h1>
-<p class="subtitle lead">Error handling and debugging</p>
+<p class="subtitle lead">Errors · Exceptions · Debugging and Verification</p>
 </div>
 
 
@@ -309,49 +354,142 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="todays-problem" class="level2">
+<h2 class="anchored" data-anchor-id="todays-problem">Today’s problem</h2>
+<p>A program can fail in several different ways:</p>
+<ul>
+<li>it may not parse;</li>
+<li>it may crash while running;</li>
+<li>it may run and produce the wrong result.</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>How do we identify the failure mode before trying to repair it?</strong></p>
+</blockquote>
+<section id="learning-goals" class="level3">
+<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
+<ul>
+<li>distinguish syntax, runtime, and logic errors;</li>
+<li>read an exception message;</li>
+<li>use targeted <code>try/except</code>;</li>
+<li>avoid hiding programming errors;</li>
+<li>verify that error handling preserves useful failure information.</li>
+</ul>
+</section>
+</section>
+<section id="open-the-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-notebooks">Open the notebooks</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week13/DSA105_W13_Student.ipynb" class="btn btn-primary">Open Week 13 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week13/DSA105_W13_Student.ipynb" class="btn btn-outline-primary">Download Student Notebook</a></p>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week13/DSA105_W13_Homework.ipynb" class="btn btn-secondary">Open Week 13 Homework Notebook in Colab</a></p>
+<p><a href="../notebooks/week13/DSA105_W13_Homework.ipynb" class="btn btn-outline-secondary">Download Homework Notebook</a></p>
+</section>
+<section id="part-a-classify-the-failure" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-classify-the-failure">Part A — Classify the failure</h2>
+<p>For each case, decide:</p>
+<ul>
+<li>syntax error;</li>
+<li>runtime error;</li>
+<li>logic error.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>value <span class="op">=</span> <span class="bu">int</span>(<span class="st">"twelve"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>average <span class="op">=</span> total <span class="op">/</span> <span class="dv">4</span>   <span class="co"># but there are five observations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="targeted-exception-handling" class="level2">
+<h2 class="anchored" data-anchor-id="targeted-exception-handling">Targeted exception handling</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    quantity <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Quantity: "</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Please enter a whole number."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The exception type is part of the program’s reasoning.</p>
+</section>
+<section id="debug-this" class="level2">
+<h2 class="anchored" data-anchor-id="debug-this">Debug This</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> user_value</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>What useful information might this hide?</p>
+</section>
+<section id="ai-verify" class="level2">
+<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Warning</span>Verification rule
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
+<p>The code below is syntactically valid and produces plausible output.<br>
+<strong>Do not run it immediately.</strong> First decide what you expect it to do.</p>
 </div>
 </div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>Error handling and debugging</strong></p>
-</section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
+<p><strong>Scenario:</strong> A helper function should handle division by zero without hiding unrelated programming errors.</p>
+<p><strong>An AI assistant wrote:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> safe_divide(a, b):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> a <span class="op">/</span> b</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Sample case:</strong> Test <code>safe_divide(10, 2)</code>, <code>safe_divide(10, 0)</code>, and <code>safe_divide(10, 'two')</code>.</p>
+<p>Your verification sequence:</p>
 <ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
+<li><strong>Predict</strong> — What should each test reveal about the function?</li>
+<li><strong>Run</strong> — Run all three calls.</li>
+<li><strong>Diagnose</strong> — Explain why returning <code>0</code> for every exception can make a real programming error look like a valid result.</li>
+<li><strong>Fix &amp; verify</strong> — Catch only the intended exception and verify that the wrong-type case is no longer silently swallowed.</li>
 </ol>
+<p>This is not a prompting exercise. The target skill is <strong>verification of executable logic</strong>.</p>
 </section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<section id="domain-application" class="level2">
+<h2 class="anchored" data-anchor-id="domain-application">Domain application</h2>
+<p>Build a small numeric-input function that:</p>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li>requests a quantity;</li>
+<li>converts it to an integer;</li>
+<li>handles invalid integer text;</li>
+<li>does <strong>not</strong> use a bare <code>except</code>.</li>
+</ul>
+</section>
+<section id="independent-check-lab-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="independent-check-lab-evidence">Independent check / Lab Evidence</h2>
+<p>You are given three broken programs:</p>
+<ol type="1">
+<li>one syntax failure;</li>
+<li>one runtime conversion failure;</li>
+<li>one silent logic failure.</li>
+</ol>
+<p>For each:</p>
+<ul>
+<li>classify;</li>
+<li>diagnose;</li>
+<li>repair;</li>
+<li>verify.</li>
+</ul>
+<p>Include the AI Verify evidence in your submission.</p>
+</section>
+<section id="weekly-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-evidence">Weekly evidence</h2>
+<p>Complete these after the corresponding activities:</p>
+<ul>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfA7aWjYsoQGKzfWqNl_IPESCnZvZwUHxSxBJCBhnYNNCPtcw/viewform">Weekly Quiz</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdRSL8Vi84XwD0rc8f61IpsJahzezwiRCfWiK3h_9bO9sWEMA/viewform">Lab Evidence</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeGdu59e0TM4HYSUAzFP_mq5TKUTTCSNv3Jnf2ZbPb4UBEDdA/viewform">Exit Ticket</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdjS806S73cT3EozfyBzh7NXII5N3hLDI-EJv1Y9uKAEtriow/viewform">Homework Submission</a></li>
+</ul>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<p>Build a robust unit-price calculator that:</p>
+<ul>
+<li>requests quantity and unit price;</li>
+<li>handles invalid numeric input using targeted exception types;</li>
+<li>calculates total when inputs are valid;</li>
+<li>includes three test cases;</li>
+<li>explains why “does not crash” is not the same as “correctly handles errors.”</li>
 </ul>
 
 

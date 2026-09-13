@@ -1,37 +1,150 @@
 ---
 title: "Week 10 — Breaking Problems into Reusable Pieces"
-subtitle: "Functions: definition, parameters, and return values"
+subtitle: "Functions · Parameters · Return Values"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+## Today’s problem
+
+Repeated code is not always repeated by a loop. Sometimes we need the **same operation** in different parts of a program.
+
+> **How can we package one computational responsibility so that it can be reused and tested independently?**
+
+### Learning goals
+
+- define and call a function;
+- distinguish parameters from arguments;
+- return a result;
+- separate calculation from display;
+- test a function with multiple cases;
+- identify hard-coded logic that ignores a parameter.
+
+
+## Open the notebooks
+
+[Open Week 10 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week10/DSA105_W10_Student.ipynb){.btn .btn-primary}
+
+[Download Student Notebook](../notebooks/week10/DSA105_W10_Student.ipynb){.btn .btn-outline-primary}
+
+[Open Week 10 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week10/DSA105_W10_Homework.ipynb){.btn .btn-secondary}
+
+[Download Homework Notebook](../notebooks/week10/DSA105_W10_Homework.ipynb){.btn .btn-outline-secondary}
+
+
+## Part A — Core concept
+
+```python
+def calculate_revenue(quantity, unit_price):
+    revenue = quantity * unit_price
+    return revenue
+```
+
+Before running:
+
+- What information enters the function?
+- What value leaves the function?
+- What changes if the arguments change?
+
+## Parameters are part of the contract
+
+```python
+def apply_discount(price, rate):
+    return price * (1 - rate)
+```
+
+Test:
+
+```python
+print(apply_discount(500, 0.10))
+print(apply_discount(500, 0.25))
+```
+
+## Debug This
+
+```python
+def calculate_area(width, height):
+    area = width * 10
+    return area
+```
+
+The code runs. What did the function fail to respect?
+
+
+## AI Verify
+
+::: {.callout-warning}
+### Verification rule
+
+The code below is syntactically valid and produces plausible output.  
+**Do not run it immediately.** First decide what you expect it to do.
 :::
 
-## Official focus
+**Scenario:** A product price should be increased using the tax rate passed to the function.
 
-**Functions: definition, parameters, and return values**
+**An AI assistant wrote:**
 
-## Weekly structure
+```python
+def apply_tax(price, tax_rate=0.18):
+    final_price = price * 1.18
+    return final_price
+```
 
-This module will use the same recurring active-learning grammar:
+**Sample case:** `apply_tax(200, 0.08)` should return `216.0`.
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Your verification sequence:
 
-## Evidence model
+1. **Predict** — What result will the function return, and why?
+2. **Run** — Run `apply_tax(200, 0.08)`.
+3. **Diagnose** — Explain what the function signature promises and what the body actually does.
+4. **Fix & verify** — Repair the function so the parameter controls the calculation; verify with two tax rates.
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+This is not a prompting exercise. The target skill is **verification of executable logic**.
+
+
+## Domain application
+
+Write a function:
+
+```python
+def calculate_invoice(hours, hourly_rate):
+    ...
+```
+
+It must **return** the fee. Display should happen outside the function.
+
+## Independent check / Lab Evidence
+
+Build three small functions:
+
+- `calculate_revenue(quantity, unit_price)`
+- `calculate_profit(revenue, cost)`
+- `profit_margin(profit, revenue)`
+
+Then compose them in a short program.
+
+Submit:
+
+- one prediction;
+- one test case for each function;
+- AI Verify diagnosis.
+
+
+## Weekly evidence
+
+Complete these after the corresponding activities:
+
+- [Weekly Quiz]({{< var forms.week10.quiz >}})
+- [Lab Evidence]({{< var forms.week10.lab >}})
+- [Exit Ticket]({{< var forms.week10.exit >}})
+- [Homework Submission]({{< var forms.week10.homework >}})
+
+
+## Homework
+
+Create a reusable delivery-price calculator with:
+
+```python
+def delivery_cost(distance_km, rate_per_km):
+    ...
+```
+
+Add at least three test cases, including `distance_km = 0`.

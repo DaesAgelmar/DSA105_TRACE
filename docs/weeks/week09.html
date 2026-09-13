@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -280,9 +315,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#todays-problem" id="toc-todays-problem" class="nav-link active" data-scroll-target="#todays-problem">Today’s problem</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  </ul></li>
+  <li><a href="#open-the-notebooks" id="toc-open-the-notebooks" class="nav-link" data-scroll-target="#open-the-notebooks">Open the notebooks</a></li>
+  <li><a href="#part-a-core-concept" id="toc-part-a-core-concept" class="nav-link" data-scroll-target="#part-a-core-concept">Part A — Core concept</a></li>
+  <li><a href="#state-at-two-levels" id="toc-state-at-two-levels" class="nav-link" data-scroll-target="#state-at-two-levels">State at two levels</a></li>
+  <li><a href="#debug-this" id="toc-debug-this" class="nav-link" data-scroll-target="#debug-this">Debug This</a></li>
+  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a></li>
+  <li><a href="#domain-application" id="toc-domain-application" class="nav-link" data-scroll-target="#domain-application">Domain application</a></li>
+  <li><a href="#independent-check-lab-evidence" id="toc-independent-check-lab-evidence" class="nav-link" data-scroll-target="#independent-check-lab-evidence">Independent check / Lab Evidence</a></li>
+  <li><a href="#weekly-evidence" id="toc-weekly-evidence" class="nav-link" data-scroll-target="#weekly-evidence">Weekly evidence</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week09.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week08.html">Part II — Computational Composition</a></li><li class="breadcrumb-item"><a href="../weeks/week09.html">Week 9 — Patterns inside Patterns</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 9 — Patterns inside Patterns</h1>
-<p class="subtitle lead">Nested loops and iteration</p>
+<p class="subtitle lead">Nested Loops · Repeated Structures inside Repeated Structures</p>
 </div>
 
 
@@ -309,50 +354,138 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="todays-problem" class="level2">
+<h2 class="anchored" data-anchor-id="todays-problem">Today’s problem</h2>
+<p>Some problems repeat at <strong>two levels</strong>: days inside branches, products inside categories, seats inside rows.</p>
+<blockquote class="blockquote">
+<p><strong>What changes when one repeated process contains another repeated process?</strong></p>
+</blockquote>
+<section id="learning-goals" class="level3">
+<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
+<ul>
+<li>trace nested loops;</li>
+<li>distinguish outer-loop state from inner-loop state;</li>
+<li>decide where an accumulator should be initialized;</li>
+<li>explain how overwrite and reset errors change results;</li>
+<li>verify multi-level repetition with a small hand-worked case.</li>
+</ul>
+</section>
+</section>
+<section id="open-the-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-notebooks">Open the notebooks</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week09/DSA105_W09_Student.ipynb" class="btn btn-primary">Open Week 9 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week09/DSA105_W09_Student.ipynb" class="btn btn-outline-primary">Download Student Notebook</a></p>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week09/DSA105_W09_Homework.ipynb" class="btn btn-secondary">Open Week 9 Homework Notebook in Colab</a></p>
+<p><a href="../notebooks/week09/DSA105_W09_Homework.ipynb" class="btn btn-outline-secondary">Download Homework Notebook</a></p>
+</section>
+<section id="part-a-core-concept" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-core-concept">Part A — Core concept</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> branch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Branch"</span>, branch)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> day <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"  Day"</span>, day)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Before running, predict how many times the inner <code>print()</code> runs.</p>
+</section>
+<section id="state-at-two-levels" class="level2">
+<h2 class="anchored" data-anchor-id="state-at-two-levels">State at two levels</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>company_total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> branch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    branch_total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> day <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        sale <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Sale: "</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        branch_total <span class="op">+=</span> sale</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    company_total <span class="op">+=</span> branch_total</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Company total:"</span>, company_total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Explain why <code>branch_total = 0</code> belongs <strong>inside</strong> the outer loop but <code>company_total = 0</code> belongs <strong>before</strong> it.</p>
+</section>
+<section id="debug-this" class="level2">
+<h2 class="anchored" data-anchor-id="debug-this">Debug This</h2>
+<p>What happens if <code>branch_total = 0</code> is moved above both loops? What information is lost?</p>
+</section>
+<section id="ai-verify" class="level2">
+<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Warning</span>Verification rule
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
+<p>The code below is syntactically valid and produces plausible output.<br>
+<strong>Do not run it immediately.</strong> First decide what you expect it to do.</p>
 </div>
 </div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>Nested loops and iteration</strong></p>
-</section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
+<p><strong>Scenario:</strong> A company has two branches. Each branch reports three daily sales values. The program should calculate the total across both branches.</p>
+<p><strong>An AI assistant wrote:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>company_total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> branch <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    branch_total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> day <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        sale <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Sale: "</span>))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        branch_total <span class="op">+=</span> sale</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    company_total <span class="op">=</span> branch_total</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Company total:"</span>, company_total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Sample case:</strong> Branch 1: <code>100, 120, 80</code>; Branch 2: <code>90, 110, 130</code>. Correct company total: <code>630</code>.</p>
+<p>Your verification sequence:</p>
 <ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
+<li><strong>Predict</strong> — What value do you think <code>company_total</code> will contain after the second branch?</li>
+<li><strong>Run</strong> — Run the code with the sample values.</li>
+<li><strong>Diagnose</strong> — Explain why assignment overwrites prior branch information.</li>
+<li><strong>Fix &amp; verify</strong> — Repair the outer accumulation and verify with a second two-branch case.</li>
 </ol>
+<p>This is not a prompting exercise. The target skill is <strong>verification of executable logic</strong>.</p>
 </section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<section id="domain-application" class="level2">
+<h2 class="anchored" data-anchor-id="domain-application">Domain application</h2>
+<p>Create a small <strong>2 departments × 4 weeks</strong> workload calculator. For each department:</p>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li>read four weekly workload values;</li>
+<li>print the department total;</li>
+<li>add it to an organization total.</li>
 </ul>
+</section>
+<section id="independent-check-lab-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="independent-check-lab-evidence">Independent check / Lab Evidence</h2>
+<p>Build a <strong>3 products × 2 months</strong> sales tracker.</p>
+<p>Required evidence:</p>
+<ul>
+<li>a trace for one product;</li>
+<li>correct placement of both accumulators;</li>
+<li>one manual total;</li>
+<li>AI Verify diagnosis and repaired code.</li>
+</ul>
+</section>
+<section id="weekly-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-evidence">Weekly evidence</h2>
+<p>Complete these after the corresponding activities:</p>
+<ul>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeHSD5uF2BGf9szy1yWfik5ifNMU8relTxKMtahID2ofoCXNA/viewform">Weekly Quiz</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdCIW70TRpAnBCJIsjyEIQGTkV2uilro3vpdoMJra4Q9_cT6A/viewform">Lab Evidence</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdEUUl_l7hOtW4mv_LuHaRAjWD2j5JQi-X_OQF6yTjKrmIjLg/viewform">Exit Ticket</a></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd26_30DFqtCTDxbNdYqT-0VK5PEsqvdoS6hOBoDsuC4NH5JQ/viewform">Homework Submission</a></li>
+</ul>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<p>Build a <strong>2 stores × 5 days</strong> transaction-count program. Print:</p>
+<ul>
+<li>each store total;</li>
+<li>company total;</li>
+<li>company average per store.</li>
+</ul>
+<p>Add a short explanation of why the two accumulators are initialized in different places.</p>
 
 
 </section>
