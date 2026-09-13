@@ -1,4 +1,4 @@
-﻿# Maintaining DSA105 · TRACE Studio
+# Maintaining DSA105 · TRACE Studio
 
 Internal notes for whoever maintains this repository. Not intended for the
 student-facing README — see `README.md` for the public-facing overview.
