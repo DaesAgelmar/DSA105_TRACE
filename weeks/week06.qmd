@@ -1,37 +1,124 @@
 ---
 title: "Week 6 — Programs That Make Decisions"
-subtitle: "Conditional statements and decision structures"
+subtitle: "Boolean conditions, comparisons, if/elif/else, and branching"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+::: {.callout-tip}
+## This week's central question
+
+**How can a program choose different actions for different situations?**
 :::
 
-## Official focus
+## Learning goals
 
-**Conditional statements and decision structures**
+By the end of this week, you should be able to:
 
-## Weekly structure
+1. evaluate simple comparison expressions;
+2. explain how a Boolean condition controls a branch;
+3. write basic `if`, `if/else`, and `if/elif/else` structures;
+4. predict which branch will execute before running code;
+5. connect decision rules to domain logic;
+6. identify unreachable or incorrectly ordered conditions.
 
-This module will use the same recurring active-learning grammar:
+## Connection to Week 5
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Last week, programs received data from users.
 
-## Evidence model
+This week, programs use that information to decide what should happen next.
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+## In class
+
+[Open Week 6 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week06/DSA105_W06_Student.ipynb){.btn .btn-primary}
+
+[Download the notebook](../notebooks/week06/DSA105_W06_Student.ipynb)
+
+**Predict → Run → Modify → Explain → Build → Test**
+
+### Evidence
+
+::: {.action-grid}
+
+::: {.action-card}
+### Weekly Quiz
+[Start Week 6 Quiz]({{< var forms.week06.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+[Submit Lab Evidence]({{< var forms.week06.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+[Complete Exit Ticket]({{< var forms.week06.exit >}}){.btn .btn-primary}
+:::
+
+:::
+
+## After class
+
+[Open Week 6 Homework in Colab]({{< var urls.colab >}}/notebooks/week06/DSA105_W06_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week06/DSA105_W06_Homework.ipynb)
+
+[Submit Week 6 Homework]({{< var forms.week06.homework >}}){.btn .btn-primary}
+
+
+::: {.callout-note}
+## Midterm connection
+
+This week develops two skills that may be assessed in the midterm:
+
+- translating a domain rule into branching logic;
+- analyzing branch order and boundary cases.
+:::
+
+
+## Before Week 7 — Short Midterm Review
+
+Week 7 is the **physical in-class midterm examination**. There is no normal TRACE activity in Week 7.
+
+Use this short review after completing Week 6 to connect the first six weeks:
+
+[Open the Midterm Review Notebook in Colab]({{< var urls.colab >}}/notebooks/week06/DSA105_W06_Midterm_Review.ipynb){.btn .btn-primary}
+
+[Download the review notebook](../notebooks/week06/DSA105_W06_Midterm_Review.ipynb)
+
+The review does not introduce new content and does not reproduce exam questions. It revisits:
+
+- problem → algorithm → executable representation;
+- variables and data types;
+- expressions;
+- input and conversion;
+- decision logic;
+- tracing, debugging, and boundary testing.
+
+::: {.callout-important}
+## Week 7
+
+**Physical midterm examination.**
+
+No weekly quiz, lab evidence, homework submission, or Colab activity is scheduled for Week 7.
+:::
+
+
+## Concepts to keep
+
+- condition;
+- comparison;
+- Boolean;
+- branch;
+- `if`;
+- `elif`;
+- `else`;
+- decision rule;
+- branch order;
+- test case.
+
+## Portfolio evidence this week
+
+- `CTL` — Control flow
+- `TRC` — Tracing
+- `PRECISION`
+- `DBG`
+- `TRN`

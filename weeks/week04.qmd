@@ -1,37 +1,111 @@
 ---
 title: "Week 4 — Turning Data into New Information"
-subtitle: "Operators and expressions"
+subtitle: "Operators, expressions, evaluation order, and computational transformation"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+::: {.callout-tip}
+## This week's central question
+
+**How does a program transform existing values into new information?**
 :::
 
-## Official focus
+## Learning goals
 
-**Operators and expressions**
+By the end of this week, you should be able to:
 
-## Weekly structure
+1. distinguish a **value**, an **operator**, and an **expression**;
+2. use arithmetic operators to transform numeric data;
+3. predict the result of simple expressions before running code;
+4. explain how assignment stores the result of an expression;
+5. use parentheses to make evaluation order explicit;
+6. identify and repair simple expression errors.
 
-This module will use the same recurring active-learning grammar:
+## Connection to Week 3
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Last week, we represented information using variables and data types.
 
-## Evidence model
+This week we ask:
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+> **How do we transform those represented values into new information?**
+
+## In class
+
+### 1. Open the student notebook
+
+[Open Week 4 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week04/DSA105_W04_Student.ipynb){.btn .btn-primary}
+
+[Download the notebook](../notebooks/week04/DSA105_W04_Student.ipynb)
+
+### 2. Active cycle
+
+**Predict → Run → Modify → Explain → Build → Test**
+
+The class includes:
+
+- retrieval from Week 3;
+- operators and expressions;
+- expression tracing;
+- assignment from expressions;
+- parentheses and precedence;
+- domain transformations;
+- debugging incorrect formulas;
+- independent lab evidence.
+
+### 3. Evidence tasks
+
+::: {.action-grid}
+
+::: {.action-card}
+### Weekly Quiz
+[Start Week 4 Quiz]({{< var forms.week04.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+[Submit Lab Evidence]({{< var forms.week04.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+[Complete Exit Ticket]({{< var forms.week04.exit >}}){.btn .btn-primary}
+:::
+
+:::
+
+## After class
+
+[Open Week 4 Homework in Colab]({{< var urls.colab >}}/notebooks/week04/DSA105_W04_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week04/DSA105_W04_Homework.ipynb)
+
+[Submit Week 4 Homework]({{< var forms.week04.homework >}}){.btn .btn-primary}
+
+
+::: {.callout-note}
+## Midterm connection
+
+This week develops two skills that may be assessed in the midterm:
+
+- translating a quantitative relationship into a correct Python expression;
+- diagnosing and repairing an incorrect formula or evaluation order.
+:::
+
+## Concepts to keep
+
+- operator;
+- operand;
+- expression;
+- evaluation;
+- precedence;
+- parentheses;
+- assignment from expression;
+- transformation;
+- verification.
+
+## Portfolio evidence this week
+
+- `REP` — Representation
+- `TRC` — Tracing
+- `PRECISION` — Executable precision
+- `DBG` — Debugging expressions
+- `TRN` — Domain transfer

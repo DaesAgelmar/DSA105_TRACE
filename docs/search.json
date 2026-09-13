@@ -180,40 +180,84 @@
     "href": "weeks/week06.html",
     "title": "Week 6 — Programs That Make Decisions",
     "section": "",
-    "text": "Note\n\n\n\nThis module is part of the published 14-week course architecture.\nIts interactive notebook, evidence tasks, and homework package will be added as the module is finalized.",
+    "text": "TipThis week’s central question\n\n\n\nHow can a program choose different actions for different situations?",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
     ]
   },
   {
-    "objectID": "weeks/week06.html#official-focus",
-    "href": "weeks/week06.html#official-focus",
+    "objectID": "weeks/week06.html#learning-goals",
+    "href": "weeks/week06.html#learning-goals",
     "title": "Week 6 — Programs That Make Decisions",
-    "section": "Official focus",
-    "text": "Official focus\nConditional statements and decision structures",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nevaluate simple comparison expressions;\nexplain how a Boolean condition controls a branch;\nwrite basic if, if/else, and if/elif/else structures;\npredict which branch will execute before running code;\nconnect decision rules to domain logic;\nidentify unreachable or incorrectly ordered conditions.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
     ]
   },
   {
-    "objectID": "weeks/week06.html#weekly-structure",
-    "href": "weeks/week06.html#weekly-structure",
+    "objectID": "weeks/week06.html#connection-to-week-5",
+    "href": "weeks/week06.html#connection-to-week-5",
     "title": "Week 6 — Programs That Make Decisions",
-    "section": "Weekly structure",
-    "text": "Weekly structure\nThis module will use the same recurring active-learning grammar:\n\nToday’s Problem\nPredict\nRun\nModify\nConcept\nGuided Practice\nPair Challenge\nDebug This\nDomain Application\nIndependent Check\nExit Ticket\nHomework",
+    "section": "Connection to Week 5",
+    "text": "Connection to Week 5\nLast week, programs received data from users.\nThis week, programs use that information to decide what should happen next.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
     ]
   },
   {
-    "objectID": "weeks/week06.html#evidence-model",
-    "href": "weeks/week06.html#evidence-model",
+    "objectID": "weeks/week06.html#in-class",
+    "href": "weeks/week06.html#in-class",
     "title": "Week 6 — Programs That Make Decisions",
-    "section": "Evidence model",
-    "text": "Evidence model\n\nWeekly Quiz\nSelected Lab Evidence\nExit Ticket\nHomework Transfer Task",
+    "section": "In class",
+    "text": "In class\nOpen Week 6 Student Notebook in Colab\nDownload the notebook\nPredict → Run → Modify → Explain → Build → Test\n\nEvidence\n\n\n\nWeekly Quiz\nStart Week 6 Quiz\n\n\nLab Evidence\nSubmit Lab Evidence\n\n\nExit Ticket\nComplete Exit Ticket",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 6 — Programs That Make Decisions"
+    ]
+  },
+  {
+    "objectID": "weeks/week06.html#after-class",
+    "href": "weeks/week06.html#after-class",
+    "title": "Week 6 — Programs That Make Decisions",
+    "section": "After class",
+    "text": "After class\nOpen Week 6 Homework in Colab\nDownload the homework notebook\nSubmit Week 6 Homework\n\n\n\n\n\n\nNoteMidterm connection\n\n\n\nThis week develops two skills that may be assessed in the midterm:\n\ntranslating a domain rule into branching logic;\nanalyzing branch order and boundary cases.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 6 — Programs That Make Decisions"
+    ]
+  },
+  {
+    "objectID": "weeks/week06.html#before-week-7-short-midterm-review",
+    "href": "weeks/week06.html#before-week-7-short-midterm-review",
+    "title": "Week 6 — Programs That Make Decisions",
+    "section": "Before Week 7 — Short Midterm Review",
+    "text": "Before Week 7 — Short Midterm Review\nWeek 7 is the physical in-class midterm examination. There is no normal TRACE activity in Week 7.\nUse this short review after completing Week 6 to connect the first six weeks:\nOpen the Midterm Review Notebook in Colab\nDownload the review notebook\nThe review does not introduce new content and does not reproduce exam questions. It revisits:\n\nproblem → algorithm → executable representation;\nvariables and data types;\nexpressions;\ninput and conversion;\ndecision logic;\ntracing, debugging, and boundary testing.\n\n\n\n\n\n\n\nImportantWeek 7\n\n\n\nPhysical midterm examination.\nNo weekly quiz, lab evidence, homework submission, or Colab activity is scheduled for Week 7.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 6 — Programs That Make Decisions"
+    ]
+  },
+  {
+    "objectID": "weeks/week06.html#concepts-to-keep",
+    "href": "weeks/week06.html#concepts-to-keep",
+    "title": "Week 6 — Programs That Make Decisions",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\ncondition;\ncomparison;\nBoolean;\nbranch;\nif;\nelif;\nelse;\ndecision rule;\nbranch order;\ntest case.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 6 — Programs That Make Decisions"
+    ]
+  },
+  {
+    "objectID": "weeks/week06.html#portfolio-evidence-this-week",
+    "href": "weeks/week06.html#portfolio-evidence-this-week",
+    "title": "Week 6 — Programs That Make Decisions",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nCTL — Control flow\nTRC — Tracing\nPRECISION\nDBG\nTRN",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
@@ -224,40 +268,73 @@
     "href": "weeks/week04.html",
     "title": "Week 4 — Turning Data into New Information",
     "section": "",
-    "text": "Note\n\n\n\nThis module is part of the published 14-week course architecture.\nIts interactive notebook, evidence tasks, and homework package will be added as the module is finalized.",
+    "text": "TipThis week’s central question\n\n\n\nHow does a program transform existing values into new information?",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
     ]
   },
   {
-    "objectID": "weeks/week04.html#official-focus",
-    "href": "weeks/week04.html#official-focus",
+    "objectID": "weeks/week04.html#learning-goals",
+    "href": "weeks/week04.html#learning-goals",
     "title": "Week 4 — Turning Data into New Information",
-    "section": "Official focus",
-    "text": "Official focus\nOperators and expressions",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a value, an operator, and an expression;\nuse arithmetic operators to transform numeric data;\npredict the result of simple expressions before running code;\nexplain how assignment stores the result of an expression;\nuse parentheses to make evaluation order explicit;\nidentify and repair simple expression errors.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
     ]
   },
   {
-    "objectID": "weeks/week04.html#weekly-structure",
-    "href": "weeks/week04.html#weekly-structure",
+    "objectID": "weeks/week04.html#connection-to-week-3",
+    "href": "weeks/week04.html#connection-to-week-3",
     "title": "Week 4 — Turning Data into New Information",
-    "section": "Weekly structure",
-    "text": "Weekly structure\nThis module will use the same recurring active-learning grammar:\n\nToday’s Problem\nPredict\nRun\nModify\nConcept\nGuided Practice\nPair Challenge\nDebug This\nDomain Application\nIndependent Check\nExit Ticket\nHomework",
+    "section": "Connection to Week 3",
+    "text": "Connection to Week 3\nLast week, we represented information using variables and data types.\nThis week we ask:\n\nHow do we transform those represented values into new information?",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
     ]
   },
   {
-    "objectID": "weeks/week04.html#evidence-model",
-    "href": "weeks/week04.html#evidence-model",
+    "objectID": "weeks/week04.html#in-class",
+    "href": "weeks/week04.html#in-class",
     "title": "Week 4 — Turning Data into New Information",
-    "section": "Evidence model",
-    "text": "Evidence model\n\nWeekly Quiz\nSelected Lab Evidence\nExit Ticket\nHomework Transfer Task",
+    "section": "In class",
+    "text": "In class\n\n1. Open the student notebook\nOpen Week 4 Student Notebook in Colab\nDownload the notebook\n\n\n2. Active cycle\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nretrieval from Week 3;\noperators and expressions;\nexpression tracing;\nassignment from expressions;\nparentheses and precedence;\ndomain transformations;\ndebugging incorrect formulas;\nindependent lab evidence.\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nStart Week 4 Quiz\n\n\nLab Evidence\nSubmit Lab Evidence\n\n\nExit Ticket\nComplete Exit Ticket",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 4 — Turning Data into New Information"
+    ]
+  },
+  {
+    "objectID": "weeks/week04.html#after-class",
+    "href": "weeks/week04.html#after-class",
+    "title": "Week 4 — Turning Data into New Information",
+    "section": "After class",
+    "text": "After class\nOpen Week 4 Homework in Colab\nDownload the homework notebook\nSubmit Week 4 Homework\n\n\n\n\n\n\nNoteMidterm connection\n\n\n\nThis week develops two skills that may be assessed in the midterm:\n\ntranslating a quantitative relationship into a correct Python expression;\ndiagnosing and repairing an incorrect formula or evaluation order.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 4 — Turning Data into New Information"
+    ]
+  },
+  {
+    "objectID": "weeks/week04.html#concepts-to-keep",
+    "href": "weeks/week04.html#concepts-to-keep",
+    "title": "Week 4 — Turning Data into New Information",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\noperator;\noperand;\nexpression;\nevaluation;\nprecedence;\nparentheses;\nassignment from expression;\ntransformation;\nverification.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 4 — Turning Data into New Information"
+    ]
+  },
+  {
+    "objectID": "weeks/week04.html#portfolio-evidence-this-week",
+    "href": "weeks/week04.html#portfolio-evidence-this-week",
+    "title": "Week 4 — Turning Data into New Information",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nREP — Representation\nTRC — Tracing\nPRECISION — Executable precision\nDBG — Debugging expressions\nTRN — Domain transfer",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
@@ -737,40 +814,73 @@
     "href": "weeks/week05.html",
     "title": "Week 5 — Programs That Interact",
     "section": "",
-    "text": "Note\n\n\n\nThis module is part of the published 14-week course architecture.\nIts interactive notebook, evidence tasks, and homework package will be added as the module is finalized.",
+    "text": "TipThis week’s central question\n\n\n\nHow can a program receive information from a user and turn it into usable data?",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
     ]
   },
   {
-    "objectID": "weeks/week05.html#official-focus",
-    "href": "weeks/week05.html#official-focus",
+    "objectID": "weeks/week05.html#learning-goals",
+    "href": "weeks/week05.html#learning-goals",
     "title": "Week 5 — Programs That Interact",
-    "section": "Official focus",
-    "text": "Official focus\nInput and output",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish program input from program output;\nuse input() to receive user-provided information;\nexplain why input() initially returns text;\nconvert user input with int() and float() when appropriate;\ncombine input, computation, and output in a small interactive program;\nidentify and repair simple input/conversion errors.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
     ]
   },
   {
-    "objectID": "weeks/week05.html#weekly-structure",
-    "href": "weeks/week05.html#weekly-structure",
+    "objectID": "weeks/week05.html#connection-to-week-4",
+    "href": "weeks/week05.html#connection-to-week-4",
     "title": "Week 5 — Programs That Interact",
-    "section": "Weekly structure",
-    "text": "Weekly structure\nThis module will use the same recurring active-learning grammar:\n\nToday’s Problem\nPredict\nRun\nModify\nConcept\nGuided Practice\nPair Challenge\nDebug This\nDomain Application\nIndependent Check\nExit Ticket\nHomework",
+    "section": "Connection to Week 4",
+    "text": "Connection to Week 4\nLast week, we transformed values with expressions.\nThis week, the values no longer need to be fixed in the program. The user can provide them at runtime.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
     ]
   },
   {
-    "objectID": "weeks/week05.html#evidence-model",
-    "href": "weeks/week05.html#evidence-model",
+    "objectID": "weeks/week05.html#in-class",
+    "href": "weeks/week05.html#in-class",
     "title": "Week 5 — Programs That Interact",
-    "section": "Evidence model",
-    "text": "Evidence model\n\nWeekly Quiz\nSelected Lab Evidence\nExit Ticket\nHomework Transfer Task",
+    "section": "In class",
+    "text": "In class\nOpen Week 5 Student Notebook in Colab\nDownload the notebook\nPredict → Run → Modify → Explain → Build → Test\n\nEvidence\n\n\n\nWeekly Quiz\nStart Week 5 Quiz\n\n\nLab Evidence\nSubmit Lab Evidence\n\n\nExit Ticket\nComplete Exit Ticket",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 5 — Programs That Interact"
+    ]
+  },
+  {
+    "objectID": "weeks/week05.html#after-class",
+    "href": "weeks/week05.html#after-class",
+    "title": "Week 5 — Programs That Interact",
+    "section": "After class",
+    "text": "After class\nOpen Week 5 Homework in Colab\nDownload the homework notebook\nSubmit Week 5 Homework\n\n\n\n\n\n\nNoteMidterm connection\n\n\n\nThis week develops two skills that may be assessed in the midterm:\n\ndesigning an Input–Process–Output structure;\nconverting interactive input into a usable representation before calculation.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 5 — Programs That Interact"
+    ]
+  },
+  {
+    "objectID": "weeks/week05.html#concepts-to-keep",
+    "href": "weeks/week05.html#concepts-to-keep",
+    "title": "Week 5 — Programs That Interact",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\ninput;\noutput;\ninput();\nprompt;\nconversion;\nint();\nfloat();\nruntime;\ninteraction;\nverification.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 5 — Programs That Interact"
+    ]
+  },
+  {
+    "objectID": "weeks/week05.html#portfolio-evidence-this-week",
+    "href": "weeks/week05.html#portfolio-evidence-this-week",
+    "title": "Week 5 — Programs That Interact",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nREP\nTRC\nPRECISION\nDBG\nTRN",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
@@ -779,45 +889,45 @@
   {
     "objectID": "weeks/week07.html",
     "href": "weeks/week07.html",
-    "title": "Week 7 — Checkpoint I",
+    "title": "Week 7 — Midterm Examination",
     "section": "",
-    "text": "Note\n\n\n\nThis module is part of the published 14-week course architecture.\nIts interactive notebook, evidence tasks, and homework package will be added as the module is finalized.",
+    "text": "ImportantMidterm week\n\n\n\nWeek 7 is reserved for the physical in-class midterm examination.\nThere is no regular TRACE lesson, Colab activity, weekly quiz, lab evidence task, exit ticket, or homework submission this week.",
     "crumbs": [
       "Checkpoint",
-      "Week 7 — Checkpoint I"
+      "Week 7 — Midterm Examination"
     ]
   },
   {
-    "objectID": "weeks/week07.html#official-focus",
-    "href": "weeks/week07.html#official-focus",
-    "title": "Week 7 — Checkpoint I",
-    "section": "Official focus",
-    "text": "Official focus\nMidterm examination and first diagnostic portfolio",
+    "objectID": "weeks/week07.html#coverage",
+    "href": "weeks/week07.html#coverage",
+    "title": "Week 7 — Midterm Examination",
+    "section": "Coverage",
+    "text": "Coverage\nThe examination covers the material developed in Weeks 1–6:\n\nproblem solving, algorithms, and Input → Process → Output;\nexecutable Python statements and tracing;\nvariables and data types;\noperators and expressions;\ninput, output, and type conversion;\ncomparisons and conditional logic;\ntesting, debugging, and boundary reasoning.",
     "crumbs": [
       "Checkpoint",
-      "Week 7 — Checkpoint I"
+      "Week 7 — Midterm Examination"
     ]
   },
   {
-    "objectID": "weeks/week07.html#weekly-structure",
-    "href": "weeks/week07.html#weekly-structure",
-    "title": "Week 7 — Checkpoint I",
-    "section": "Weekly structure",
-    "text": "Weekly structure\nThis module will use the same recurring active-learning grammar:\n\nToday’s Problem\nPredict\nRun\nModify\nConcept\nGuided Practice\nPair Challenge\nDebug This\nDomain Application\nIndependent Check\nExit Ticket\nHomework",
+    "objectID": "weeks/week07.html#preparation",
+    "href": "weeks/week07.html#preparation",
+    "title": "Week 7 — Midterm Examination",
+    "section": "Preparation",
+    "text": "Preparation\nUse the short review linked at the end of Week 6.\nReturn to Week 6\nThe review material is for preparation only. The formal assessment takes place physically in class.",
     "crumbs": [
       "Checkpoint",
-      "Week 7 — Checkpoint I"
+      "Week 7 — Midterm Examination"
     ]
   },
   {
-    "objectID": "weeks/week07.html#evidence-model",
-    "href": "weeks/week07.html#evidence-model",
-    "title": "Week 7 — Checkpoint I",
-    "section": "Evidence model",
-    "text": "Evidence model\n\nWeekly Quiz\nSelected Lab Evidence\nExit Ticket\nHomework Transfer Task",
+    "objectID": "weeks/week07.html#after-the-examination",
+    "href": "weeks/week07.html#after-the-examination",
+    "title": "Week 7 — Midterm Examination",
+    "section": "After the examination",
+    "text": "After the examination\nThe course resumes in Week 8 with repetition and loops.",
     "crumbs": [
       "Checkpoint",
-      "Week 7 — Checkpoint I"
+      "Week 7 — Midterm Examination"
     ]
   },
   {

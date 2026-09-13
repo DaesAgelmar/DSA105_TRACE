@@ -212,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 7 — Checkpoint I</span></a>
+ <span class="menu-text">Week 7 — Midterm Examination</span></a>
   </div>
 </li>
       </ul>
@@ -280,9 +280,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#connection-to-week-5" id="toc-connection-to-week-5" class="nav-link" data-scroll-target="#connection-to-week-5">Connection to Week 5</a></li>
+  <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class">In class</a>
+  <ul class="collapse">
+  <li><a href="#evidence" id="toc-evidence" class="nav-link" data-scroll-target="#evidence">Evidence</a></li>
+  </ul></li>
+  <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class">After class</a></li>
+  <li><a href="#before-week-7-short-midterm-review" id="toc-before-week-7-short-midterm-review" class="nav-link" data-scroll-target="#before-week-7-short-midterm-review">Before Week 7 — Short Midterm Review</a></li>
+  <li><a href="#concepts-to-keep" id="toc-concepts-to-keep" class="nav-link" data-scroll-target="#concepts-to-keep">Concepts to keep</a></li>
+  <li><a href="#portfolio-evidence-this-week" id="toc-portfolio-evidence-this-week" class="nav-link" data-scroll-target="#portfolio-evidence-this-week">Portfolio evidence this week</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week06.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,7 +299,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week01.html">Part I — Computational Grammar</a></li><li class="breadcrumb-item"><a href="../weeks/week06.html">Week 6 — Programs That Make Decisions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 6 — Programs That Make Decisions</h1>
-<p class="subtitle lead">Conditional statements and decision structures</p>
+<p class="subtitle lead">Boolean conditions, comparisons, if/elif/else, and branching</p>
 </div>
 
 
@@ -309,49 +316,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>This week’s central question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>How can a program choose different actions for different situations?</strong></p>
+</div>
+</div>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of this week, you should be able to:</p>
+<ol type="1">
+<li>evaluate simple comparison expressions;</li>
+<li>explain how a Boolean condition controls a branch;</li>
+<li>write basic <code>if</code>, <code>if/else</code>, and <code>if/elif/else</code> structures;</li>
+<li>predict which branch will execute before running code;</li>
+<li>connect decision rules to domain logic;</li>
+<li>identify unreachable or incorrectly ordered conditions.</li>
+</ol>
+</section>
+<section id="connection-to-week-5" class="level2">
+<h2 class="anchored" data-anchor-id="connection-to-week-5">Connection to Week 5</h2>
+<p>Last week, programs received data from users.</p>
+<p>This week, programs use that information to decide what should happen next.</p>
+</section>
+<section id="in-class" class="level2">
+<h2 class="anchored" data-anchor-id="in-class">In class</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week06/DSA105_W06_Student.ipynb" class="btn btn-primary">Open Week 6 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week06/DSA105_W06_Student.ipynb">Download the notebook</a></p>
+<p><strong>Predict → Run → Modify → Explain → Build → Test</strong></p>
+<section id="evidence" class="level3">
+<h3 class="anchored" data-anchor-id="evidence">Evidence</h3>
+</section>
+<div class="action-grid">
+<section id="weekly-quiz" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="weekly-quiz">Weekly Quiz</h3>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkIxnCX3jNRkCQbFv7PgkSsJPDfaNOHsYxrLQfJgl4Kx-sFA/viewform" class="btn btn-primary">Start Week 6 Quiz</a></p>
+</section>
+<section id="lab-evidence" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="lab-evidence">Lab Evidence</h3>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3XCtaojwuKOBxDQO1MYysc5b2z3rhZ_Qjmd2Ywk1l38J3yA/viewform" class="btn btn-primary">Submit Lab Evidence</a></p>
+</section>
+<section id="exit-ticket" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="exit-ticket">Exit Ticket</h3>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdpn39eqxucKf726iB5BU-c0IpGWTdlL28FNzsd2-BRpQdC-g/viewform" class="btn btn-primary">Complete Exit Ticket</a></p>
+</section>
+</div>
+</section>
+<section id="after-class" class="level2">
+<h2 class="anchored" data-anchor-id="after-class">After class</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week06/DSA105_W06_Homework.ipynb" class="btn btn-primary">Open Week 6 Homework in Colab</a></p>
+<p><a href="../notebooks/week06/DSA105_W06_Homework.ipynb">Download the homework notebook</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSefcqIifnQX9h4eACdh1usQ2J-jFGytcJQZjIBiWwcE0eOp5A/viewform" class="btn btn-primary">Submit Week 6 Homework</a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Midterm connection
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
-</div>
-</div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>Conditional statements and decision structures</strong></p>
-</section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
-<ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
-</ol>
-</section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<p>This week develops two skills that may be assessed in the midterm:</p>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li>translating a domain rule into branching logic;</li>
+<li>analyzing branch order and boundary cases.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="before-week-7-short-midterm-review" class="level2">
+<h2 class="anchored" data-anchor-id="before-week-7-short-midterm-review">Before Week 7 — Short Midterm Review</h2>
+<p>Week 7 is the <strong>physical in-class midterm examination</strong>. There is no normal TRACE activity in Week 7.</p>
+<p>Use this short review after completing Week 6 to connect the first six weeks:</p>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week06/DSA105_W06_Midterm_Review.ipynb" class="btn btn-primary">Open the Midterm Review Notebook in Colab</a></p>
+<p><a href="../notebooks/week06/DSA105_W06_Midterm_Review.ipynb">Download the review notebook</a></p>
+<p>The review does not introduce new content and does not reproduce exam questions. It revisits:</p>
+<ul>
+<li>problem → algorithm → executable representation;</li>
+<li>variables and data types;</li>
+<li>expressions;</li>
+<li>input and conversion;</li>
+<li>decision logic;</li>
+<li>tracing, debugging, and boundary testing.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Week 7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Physical midterm examination.</strong></p>
+<p>No weekly quiz, lab evidence, homework submission, or Colab activity is scheduled for Week 7.</p>
+</div>
+</div>
+</section>
+<section id="concepts-to-keep" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-keep">Concepts to keep</h2>
+<ul>
+<li>condition;</li>
+<li>comparison;</li>
+<li>Boolean;</li>
+<li>branch;</li>
+<li><code>if</code>;</li>
+<li><code>elif</code>;</li>
+<li><code>else</code>;</li>
+<li>decision rule;</li>
+<li>branch order;</li>
+<li>test case.</li>
+</ul>
+</section>
+<section id="portfolio-evidence-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="portfolio-evidence-this-week">Portfolio evidence this week</h2>
+<ul>
+<li><code>CTL</code> — Control flow</li>
+<li><code>TRC</code> — Tracing</li>
+<li><code>PRECISION</code></li>
+<li><code>DBG</code></li>
+<li><code>TRN</code></li>
 </ul>
 
 
@@ -765,8 +858,8 @@ Its interactive notebook, evidence tasks, and homework package will be added as 
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../weeks/week07.html" class="pagination-link" aria-label="Week 7 — Checkpoint I">
-        <span class="nav-page-text">Week 7 — Checkpoint I</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../weeks/week07.html" class="pagination-link" aria-label="Week 7 — Midterm Examination">
+        <span class="nav-page-text">Week 7 — Midterm Examination</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

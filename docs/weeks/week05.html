@@ -212,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 7 — Checkpoint I</span></a>
+ <span class="menu-text">Week 7 — Midterm Examination</span></a>
   </div>
 </li>
       </ul>
@@ -280,9 +280,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#official-focus" id="toc-official-focus" class="nav-link active" data-scroll-target="#official-focus">Official focus</a></li>
-  <li><a href="#weekly-structure" id="toc-weekly-structure" class="nav-link" data-scroll-target="#weekly-structure">Weekly structure</a></li>
-  <li><a href="#evidence-model" id="toc-evidence-model" class="nav-link" data-scroll-target="#evidence-model">Evidence model</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#connection-to-week-4" id="toc-connection-to-week-4" class="nav-link" data-scroll-target="#connection-to-week-4">Connection to Week 4</a></li>
+  <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class">In class</a>
+  <ul class="collapse">
+  <li><a href="#evidence" id="toc-evidence" class="nav-link" data-scroll-target="#evidence">Evidence</a></li>
+  </ul></li>
+  <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class">After class</a></li>
+  <li><a href="#concepts-to-keep" id="toc-concepts-to-keep" class="nav-link" data-scroll-target="#concepts-to-keep">Concepts to keep</a></li>
+  <li><a href="#portfolio-evidence-this-week" id="toc-portfolio-evidence-this-week" class="nav-link" data-scroll-target="#portfolio-evidence-this-week">Portfolio evidence this week</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week05.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -292,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week01.html">Part I — Computational Grammar</a></li><li class="breadcrumb-item"><a href="../weeks/week05.html">Week 5 — Programs That Interact</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 5 — Programs That Interact</h1>
-<p class="subtitle lead">Input and output</p>
+<p class="subtitle lead">Input, output, type conversion, and interactive execution</p>
 </div>
 
 
@@ -309,49 +315,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>This week’s central question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>How can a program receive information from a user and turn it into usable data?</strong></p>
+</div>
+</div>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of this week, you should be able to:</p>
+<ol type="1">
+<li>distinguish program <strong>input</strong> from program <strong>output</strong>;</li>
+<li>use <code>input()</code> to receive user-provided information;</li>
+<li>explain why <code>input()</code> initially returns text;</li>
+<li>convert user input with <code>int()</code> and <code>float()</code> when appropriate;</li>
+<li>combine input, computation, and output in a small interactive program;</li>
+<li>identify and repair simple input/conversion errors.</li>
+</ol>
+</section>
+<section id="connection-to-week-4" class="level2">
+<h2 class="anchored" data-anchor-id="connection-to-week-4">Connection to Week 4</h2>
+<p>Last week, we transformed values with expressions.</p>
+<p>This week, the values no longer need to be fixed in the program. The user can provide them at runtime.</p>
+</section>
+<section id="in-class" class="level2">
+<h2 class="anchored" data-anchor-id="in-class">In class</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week05/DSA105_W05_Student.ipynb" class="btn btn-primary">Open Week 5 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week05/DSA105_W05_Student.ipynb">Download the notebook</a></p>
+<p><strong>Predict → Run → Modify → Explain → Build → Test</strong></p>
+<section id="evidence" class="level3">
+<h3 class="anchored" data-anchor-id="evidence">Evidence</h3>
+</section>
+<div class="action-grid">
+<section id="weekly-quiz" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="weekly-quiz">Weekly Quiz</h3>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLScQomvzeoXAFsdGr2uwXtO8oag_RhdNpvz6jfQzMKAA-iOCKg/viewform" class="btn btn-primary">Start Week 5 Quiz</a></p>
+</section>
+<section id="lab-evidence" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="lab-evidence">Lab Evidence</h3>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdmCOvNiXDI6REwTs1hxqNXtwagILZyQLj_H2vO97QpNuywWA/viewform" class="btn btn-primary">Submit Lab Evidence</a></p>
+</section>
+<section id="exit-ticket" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="exit-ticket">Exit Ticket</h3>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSf4vowZB0wCedSk70OrU9e9Q0mZp4EXUqCb78tCMeNWdT52Qg/viewform" class="btn btn-primary">Complete Exit Ticket</a></p>
+</section>
+</div>
+</section>
+<section id="after-class" class="level2">
+<h2 class="anchored" data-anchor-id="after-class">After class</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week05/DSA105_W05_Homework.ipynb" class="btn btn-primary">Open Week 5 Homework in Colab</a></p>
+<p><a href="../notebooks/week05/DSA105_W05_Homework.ipynb">Download the homework notebook</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfG1USoaHNziky5hfdbzX-cEs69UkjVNbZAJVpF2KJFHc4gig/viewform" class="btn btn-primary">Submit Week 5 Homework</a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Midterm connection
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This module is part of the published 14-week course architecture.<br>
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.</p>
-</div>
-</div>
-<section id="official-focus" class="level2">
-<h2 class="anchored" data-anchor-id="official-focus">Official focus</h2>
-<p><strong>Input and output</strong></p>
-</section>
-<section id="weekly-structure" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-structure">Weekly structure</h2>
-<p>This module will use the same recurring active-learning grammar:</p>
-<ol type="1">
-<li><strong>Today’s Problem</strong></li>
-<li><strong>Predict</strong></li>
-<li><strong>Run</strong></li>
-<li><strong>Modify</strong></li>
-<li><strong>Concept</strong></li>
-<li><strong>Guided Practice</strong></li>
-<li><strong>Pair Challenge</strong></li>
-<li><strong>Debug This</strong></li>
-<li><strong>Domain Application</strong></li>
-<li><strong>Independent Check</strong></li>
-<li><strong>Exit Ticket</strong></li>
-<li><strong>Homework</strong></li>
-</ol>
-</section>
-<section id="evidence-model" class="level2">
-<h2 class="anchored" data-anchor-id="evidence-model">Evidence model</h2>
+<p>This week develops two skills that may be assessed in the midterm:</p>
 <ul>
-<li>Weekly Quiz</li>
-<li>Selected Lab Evidence</li>
-<li>Exit Ticket</li>
-<li>Homework Transfer Task</li>
+<li>designing an Input–Process–Output structure;</li>
+<li>converting interactive input into a usable representation before calculation.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="concepts-to-keep" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-keep">Concepts to keep</h2>
+<ul>
+<li>input;</li>
+<li>output;</li>
+<li><code>input()</code>;</li>
+<li>prompt;</li>
+<li>conversion;</li>
+<li><code>int()</code>;</li>
+<li><code>float()</code>;</li>
+<li>runtime;</li>
+<li>interaction;</li>
+<li>verification.</li>
+</ul>
+</section>
+<section id="portfolio-evidence-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="portfolio-evidence-this-week">Portfolio evidence this week</h2>
+<ul>
+<li><code>REP</code></li>
+<li><code>TRC</code></li>
+<li><code>PRECISION</code></li>
+<li><code>DBG</code></li>
+<li><code>TRN</code></li>
 </ul>
 
 

@@ -1,37 +1,95 @@
 ---
 title: "Week 5 — Programs That Interact"
-subtitle: "Input and output"
+subtitle: "Input, output, type conversion, and interactive execution"
 ---
 
-::: {.callout-note}
-This module is part of the published 14-week course architecture.  
-Its interactive notebook, evidence tasks, and homework package will be added as the module is finalized.
+::: {.callout-tip}
+## This week's central question
+
+**How can a program receive information from a user and turn it into usable data?**
 :::
 
-## Official focus
+## Learning goals
 
-**Input and output**
+By the end of this week, you should be able to:
 
-## Weekly structure
+1. distinguish program **input** from program **output**;
+2. use `input()` to receive user-provided information;
+3. explain why `input()` initially returns text;
+4. convert user input with `int()` and `float()` when appropriate;
+5. combine input, computation, and output in a small interactive program;
+6. identify and repair simple input/conversion errors.
 
-This module will use the same recurring active-learning grammar:
+## Connection to Week 4
 
-1. **Today's Problem**
-2. **Predict**
-3. **Run**
-4. **Modify**
-5. **Concept**
-6. **Guided Practice**
-7. **Pair Challenge**
-8. **Debug This**
-9. **Domain Application**
-10. **Independent Check**
-11. **Exit Ticket**
-12. **Homework**
+Last week, we transformed values with expressions.
 
-## Evidence model
+This week, the values no longer need to be fixed in the program. The user can provide them at runtime.
 
-- Weekly Quiz
-- Selected Lab Evidence
-- Exit Ticket
-- Homework Transfer Task
+## In class
+
+[Open Week 5 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week05/DSA105_W05_Student.ipynb){.btn .btn-primary}
+
+[Download the notebook](../notebooks/week05/DSA105_W05_Student.ipynb)
+
+**Predict → Run → Modify → Explain → Build → Test**
+
+### Evidence
+
+::: {.action-grid}
+
+::: {.action-card}
+### Weekly Quiz
+[Start Week 5 Quiz]({{< var forms.week05.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+[Submit Lab Evidence]({{< var forms.week05.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+[Complete Exit Ticket]({{< var forms.week05.exit >}}){.btn .btn-primary}
+:::
+
+:::
+
+## After class
+
+[Open Week 5 Homework in Colab]({{< var urls.colab >}}/notebooks/week05/DSA105_W05_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week05/DSA105_W05_Homework.ipynb)
+
+[Submit Week 5 Homework]({{< var forms.week05.homework >}}){.btn .btn-primary}
+
+
+::: {.callout-note}
+## Midterm connection
+
+This week develops two skills that may be assessed in the midterm:
+
+- designing an Input–Process–Output structure;
+- converting interactive input into a usable representation before calculation.
+:::
+
+## Concepts to keep
+
+- input;
+- output;
+- `input()`;
+- prompt;
+- conversion;
+- `int()`;
+- `float()`;
+- runtime;
+- interaction;
+- verification.
+
+## Portfolio evidence this week
+
+- `REP`
+- `TRC`
+- `PRECISION`
+- `DBG`
+- `TRN`
