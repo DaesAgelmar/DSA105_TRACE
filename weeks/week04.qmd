@@ -15,28 +15,29 @@ By the end of this week, you should be able to:
 
 1. distinguish a **value**, an **operator**, and an **expression**;
 2. use arithmetic operators to transform numeric data;
-3. predict the result of simple expressions before running code;
+3. predict the result of expressions before running code;
 4. explain how assignment stores the result of an expression;
 5. use parentheses to make evaluation order explicit;
-6. identify and repair simple expression errors.
+6. write readable expressions with standard spacing and descriptive result names;
+7. identify and repair incorrect formulas.
 
-## Connection to Week 3
+## Connection
 
-Last week, we represented information using variables and data types.
+Week 3 gave values meaningful names and representations. Week 4 combines those values into new information.
 
-This week we ask:
-
-> **How do we transform those represented values into new information?**
+A readable expression should make the domain relationship visible, not merely produce the right number.
 
 ## In class
 
-### 1. Open the student notebook
+
+### Open the student notebook
 
 [Open Week 4 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week04/DSA105_W04_Student.ipynb){.btn .btn-primary}
 
 [Download the notebook](../notebooks/week04/DSA105_W04_Student.ipynb)
 
-### 2. Active cycle
+
+You will repeatedly use:
 
 **Predict → Run → Modify → Explain → Build → Test**
 
@@ -47,30 +48,63 @@ The class includes:
 - expression tracing;
 - assignment from expressions;
 - parentheses and precedence;
+- readable formula construction;
 - domain transformations;
 - debugging incorrect formulas;
 - independent lab evidence.
 
-### 3. Evidence tasks
+::: {.callout-note}
+## Make the relationship visible
+
+Prefer:
+
+```python
+total_revenue = quantity_sold * unit_price
+profit_margin = profit / revenue
+```
+
+over compressed forms such as:
+
+```python
+r=q*p
+m=p/r
+```
+
+Python ignores most of the visual difference. Human readers do not.
+:::
+
+
+### Evidence tasks
 
 ::: {.action-grid}
 
 ::: {.action-card}
 ### Weekly Quiz
+
+Individual retrieval and diagnostic check.
+
 [Start Week 4 Quiz]({{< var forms.week04.quiz >}}){.btn .btn-primary}
 :::
 
 ::: {.action-card}
 ### Lab Evidence
+
+Submit the selected in-class evidence task.
+
 [Submit Lab Evidence]({{< var forms.week04.lab >}}){.btn .btn-primary}
 :::
 
 ::: {.action-card}
 ### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
 [Complete Exit Ticket]({{< var forms.week04.exit >}}){.btn .btn-primary}
 :::
 
 :::
+
+
 
 ## After class
 
@@ -80,15 +114,6 @@ The class includes:
 
 [Submit Week 4 Homework]({{< var forms.week04.homework >}}){.btn .btn-primary}
 
-
-::: {.callout-note}
-## Midterm connection
-
-This week develops two skills that may be assessed in the midterm:
-
-- translating a quantitative relationship into a correct Python expression;
-- diagnosing and repairing an incorrect formula or evaluation order.
-:::
 
 ## Concepts to keep
 

@@ -1,150 +1,146 @@
 ---
 title: "Week 10 — Breaking Problems into Reusable Pieces"
-subtitle: "Functions · Parameters · Return Values"
+subtitle: "Functions, parameters, return values, contracts, and decomposition"
 ---
 
-## Today’s problem
+::: {.callout-tip}
+## This week's central question
 
-Repeated code is not always repeated by a loop. Sometimes we need the **same operation** in different parts of a program.
+**How can we package one computational responsibility so it can be reused and tested independently?**
+:::
 
-> **How can we package one computational responsibility so that it can be reused and tested independently?**
+## Learning goals
 
-### Learning goals
+By the end of this week, you should be able to:
 
-- define and call a function;
-- distinguish parameters from arguments;
-- return a result;
-- separate calculation from display;
-- test a function with multiple cases;
-- identify hard-coded logic that ignores a parameter.
+1. define and call a function;
+2. distinguish parameters from arguments;
+3. return a result instead of hiding computation inside display code;
+4. use descriptive verb-based function names;
+5. write a concise one-line docstring for a function;
+6. design a function around one clear responsibility;
+7. test a function with multiple cases;
+8. identify hard-coded logic that ignores a parameter.
+
+## Connection
+
+Week 10 is the point where a program begins to become a set of reusable computational units.
+
+A function name should state what the unit does, its parameters should make dependencies explicit, and its return value should make testing possible.
+
+## In class
 
 
-## Open the notebooks
+### Open the student notebook
 
-[Open Week 10 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week10/DSA105_W10_Student.ipynb){.btn .btn-primary}
+[Open Week 10 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week10/DSA105_W10_Student.ipynb){.btn .btn-primary}
 
-[Download Student Notebook](../notebooks/week10/DSA105_W10_Student.ipynb){.btn .btn-outline-primary}
-
-[Open Week 10 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week10/DSA105_W10_Homework.ipynb){.btn .btn-secondary}
-
-[Download Homework Notebook](../notebooks/week10/DSA105_W10_Homework.ipynb){.btn .btn-outline-secondary}
+[Download the notebook](../notebooks/week10/DSA105_W10_Student.ipynb)
 
 
-## Part A — Core concept
+You will repeatedly use:
+
+**Predict → Run → Modify → Explain → Build → Test**
+
+The class includes:
+
+- function definitions and calls;
+- parameters and arguments;
+- `return` versus `print()`;
+- verb-based function names;
+- short docstrings as normal Python function documentation;
+- single-responsibility decomposition;
+- AI verification of a violated function contract;
+- composition of small functions.
+
+::: {.callout-note}
+## A normal Python function
 
 ```python
 def calculate_revenue(quantity, unit_price):
-    revenue = quantity * unit_price
-    return revenue
+    """Return revenue from quantity and unit price."""
+    return quantity * unit_price
 ```
 
-Before running:
+The docstring is not decoration. It states the function's responsibility in one sentence.
 
-- What information enters the function?
-- What value leaves the function?
-- What changes if the arguments change?
-
-## Parameters are part of the contract
-
-```python
-def apply_discount(price, rate):
-    return price * (1 - rate)
-```
-
-Test:
-
-```python
-print(apply_discount(500, 0.10))
-print(apply_discount(500, 0.25))
-```
-
-## Debug This
-
-```python
-def calculate_area(width, height):
-    area = width * 10
-    return area
-```
-
-The code runs. What did the function fail to respect?
-
+Functions in this course should normally **calculate and return**. The surrounding program decides when and how to display the result.
+:::
 
 ## AI Verify
 
-::: {.callout-warning}
-### Verification rule
-
-The code below is syntactically valid and produces plausible output.  
-**Do not run it immediately.** First decide what you expect it to do.
-:::
-
-**Scenario:** A product price should be increased using the tax rate passed to the function.
-
-**An AI assistant wrote:**
-
 ```python
 def apply_tax(price, tax_rate=0.18):
+    """Return the price after applying the supplied tax rate."""
     final_price = price * 1.18
     return final_price
 ```
 
-**Sample case:** `apply_tax(200, 0.08)` should return `216.0`.
+`apply_tax(200, 0.08)` should return `216.0`.
 
-Your verification sequence:
-
-1. **Predict** — What result will the function return, and why?
-2. **Run** — Run `apply_tax(200, 0.08)`.
-3. **Diagnose** — Explain what the function signature promises and what the body actually does.
-4. **Fix & verify** — Repair the function so the parameter controls the calculation; verify with two tax rates.
-
-This is not a prompting exercise. The target skill is **verification of executable logic**.
+1. **Predict** what the function actually returns.
+2. **Run** it.
+3. **Diagnose** how the body violates the contract expressed by its parameter and docstring.
+4. **Fix & verify** using at least two tax rates.
 
 
-## Domain application
 
-Write a function:
+### Evidence tasks
 
-```python
-def calculate_invoice(hours, hourly_rate):
-    ...
-```
+::: {.action-grid}
 
-It must **return** the fee. Display should happen outside the function.
+::: {.action-card}
+### Weekly Quiz
 
-## Independent check / Lab Evidence
+Individual retrieval and diagnostic check.
 
-Build three small functions:
+[Start Week 10 Quiz]({{< var forms.week10.quiz >}}){.btn .btn-primary}
+:::
 
-- `calculate_revenue(quantity, unit_price)`
-- `calculate_profit(revenue, cost)`
-- `profit_margin(profit, revenue)`
+::: {.action-card}
+### Lab Evidence
 
-Then compose them in a short program.
+Submit the selected in-class evidence task.
 
-Submit:
+[Submit Lab Evidence]({{< var forms.week10.lab >}}){.btn .btn-primary}
+:::
 
-- one prediction;
-- one test case for each function;
-- AI Verify diagnosis.
+::: {.action-card}
+### Exit Ticket
 
+Concept check, difficulty signal, and confidence rating.
 
-## Weekly evidence
+[Complete Exit Ticket]({{< var forms.week10.exit >}}){.btn .btn-primary}
+:::
 
-Complete these after the corresponding activities:
-
-- [Weekly Quiz]({{< var forms.week10.quiz >}})
-- [Lab Evidence]({{< var forms.week10.lab >}})
-- [Exit Ticket]({{< var forms.week10.exit >}})
-- [Homework Submission]({{< var forms.week10.homework >}})
+:::
 
 
-## Homework
 
-Create a reusable delivery-price calculator with:
+## After class
 
-```python
-def delivery_cost(distance_km, rate_per_km):
-    ...
-```
+[Open Week 10 Homework in Colab]({{< var urls.colab >}}/notebooks/week10/DSA105_W10_Homework.ipynb){.btn .btn-primary}
 
-Add at least three test cases, including `distance_km = 0`.
+[Download the homework notebook](../notebooks/week10/DSA105_W10_Homework.ipynb)
+
+[Submit Week 10 Homework]({{< var forms.week10.homework >}}){.btn .btn-primary}
+
+
+## Concepts to keep
+
+- function;
+- parameter;
+- argument;
+- `return`;
+- function contract;
+- docstring;
+- decomposition;
+- single responsibility;
+- verification.
+
+## Portfolio evidence this week
+
+- `DEC` — Decomposition
+- `REP` — Representation
+- `DBG` — Function/debug reasoning
+- `TRN` — Transfer

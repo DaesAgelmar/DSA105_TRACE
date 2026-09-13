@@ -1,149 +1,158 @@
 ---
 title: "Week 12 — Programs Meet Real Data"
-subtitle: "Files · Persistent Data · Cleaning Text Input"
+subtitle: "Files, text cleaning, parsing, transformation pipelines, and separation of I/O from computation"
 ---
 
-## Today’s problem
+::: {.callout-tip}
+## This week's central question
 
-Programs often receive data from outside the code itself.
+**How do we move from temporary variables to data that already exists in a file?**
+:::
 
-> **How do we move from temporary variables to data that already exists in a file?**
+## Learning goals
 
-### Learning goals
+By the end of this week, you should be able to:
 
-- open text files safely;
-- read line-based data;
-- write output;
-- use `with open(...)`;
-- clean newline characters;
-- test file-derived values before trusting downstream comparisons.
+1. open text files safely with `with open(...)`;
+2. read and inspect line-based data;
+3. clean newline and surrounding whitespace;
+4. convert cleaned text into computational values;
+5. separate file I/O from reusable transformation functions;
+6. compose a small `load → clean → parse → summarize` pipeline;
+7. test file-derived values before trusting downstream comparisons.
 
+## Connection
 
-## Open the notebooks
+Week 11 organized many values in collections. Week 12 asks where those collections come from.
 
-[Open Week 12 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Student.ipynb){.btn .btn-primary}
+The program is easier to test when reading a file and transforming its contents are separate responsibilities.
 
-[Download Student Notebook](../notebooks/week12/DSA105_W12_Student.ipynb){.btn .btn-outline-primary}
-
-[Open Week 12 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Homework.ipynb){.btn .btn-secondary}
-
-[Download Homework Notebook](../notebooks/week12/DSA105_W12_Homework.ipynb){.btn .btn-outline-secondary}
+## In class
 
 
-## Part A — Core concept
+### Open the student notebook
 
-```python
-with open("customers.txt", "r", encoding="utf-8") as file:
-    lines = file.readlines()
+[Open Week 12 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week12/DSA105_W12_Student.ipynb){.btn .btn-primary}
 
-print(lines)
-```
+[Download the notebook](../notebooks/week12/DSA105_W12_Student.ipynb)
 
-A file line usually contains a newline character. That character is data.
 
-## Clean line data
+You will repeatedly use:
 
-```python
-names = []
+**Predict → Run → Modify → Explain → Build → Test**
 
-for line in lines:
-    names.append(line.strip())
-```
+The class includes:
 
-Explain what `.strip()` changes.
+- safe file opening;
+- raw line inspection with `repr()`;
+- text cleaning;
+- numeric parsing;
+- small transformation functions;
+- I/O versus computation;
+- AI verification of hidden newline characters;
+- file-to-summary pipeline.
 
-## Write output
-
-```python
-with open("summary.txt", "w", encoding="utf-8") as file:
-    file.write("Processing complete\n")
-```
-
-## Debug This
-
-Why can this comparison fail?
+::: {.callout-note}
+## Separate reading from transformation
 
 ```python
-name_from_file = "Ayşe\n"
-print(name_from_file == "Ayşe")
+def clean_lines(lines):
+    """Return stripped, non-empty lines."""
+    cleaned_lines = []
+
+    for line in lines:
+        cleaned_line = line.strip()
+
+        if cleaned_line:
+            cleaned_lines.append(cleaned_line)
+
+    return cleaned_lines
 ```
 
+A function like this can be tested without opening a file. File I/O remains at the boundary of the program.
+:::
 
 ## AI Verify
 
-::: {.callout-warning}
-### Verification rule
-
-The code below is syntactically valid and produces plausible output.  
-**Do not run it immediately.** First decide what you expect it to do.
-:::
-
-**Scenario:** A text file contains a header followed by one customer name per line. The program should return clean names.
-
-**An AI assistant wrote:**
-
 ```python
-def load_customer_names(filepath):
-    with open(filepath, "r", encoding="utf-8") as file:
+def load_customer_names(file_path):
+    """Return customer names from a one-name-per-line text file."""
+    with open(file_path, "r", encoding="utf-8") as file:
         lines = file.readlines()
 
-    names = []
-    for line in lines[1:]:
-        names.append(line)
+    customer_names = []
 
-    return names
+    for line in lines[1:]:
+        customer_names.append(line)
+
+    return customer_names
 ```
 
-**Sample case:** A file containing `name\nAyşe\nMert\n` should produce `['Ayşe', 'Mert']`.
+A file containing `name\nAyşe\nMert\n` should produce `["Ayşe", "Mert"]`.
 
-Your verification sequence:
-
-1. **Predict** — What exact strings do you think are stored in the returned list?
-2. **Run** — Create a small file and inspect `repr()` of each returned value.
-3. **Diagnose** — Explain why the data looks correct when printed but can fail in later equality checks.
-4. **Fix & verify** — Repair with explicit cleaning and verify by comparing a returned name with `'Ayşe'`.
-
-This is not a prompting exercise. The target skill is **verification of executable logic**.
+1. **Predict** the exact strings actually stored.
+2. **Run** and inspect each item with `repr()`.
+3. **Diagnose** why printed names can look correct while equality checks fail.
+4. **Fix & verify** by cleaning each line before returning it.
 
 
-## Domain application
 
-Create a text file containing five daily revenue values, one per line. Read the file, convert the lines to numbers, and calculate the total.
+### Evidence tasks
 
-## Independent check / Lab Evidence
+::: {.action-grid}
 
-Create `expenses.txt` with a header and five expense values.
+::: {.action-card}
+### Weekly Quiz
 
-Your program must:
+Individual retrieval and diagnostic check.
 
-- skip the header;
-- clean each line;
-- convert to `float`;
-- calculate total and average;
-- verify one value using `repr()` before conversion;
-- complete AI Verify evidence.
+[Start Week 12 Quiz]({{< var forms.week12.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week12.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week12.exit >}}){.btn .btn-primary}
+:::
+
+:::
 
 
-## Weekly evidence
 
-Complete these after the corresponding activities:
+## After class
 
-- [Weekly Quiz]({{< var forms.week12.quiz >}})
-- [Lab Evidence]({{< var forms.week12.lab >}})
-- [Exit Ticket]({{< var forms.week12.exit >}})
-- [Homework Submission]({{< var forms.week12.homework >}})
+[Open Week 12 Homework in Colab]({{< var urls.colab >}}/notebooks/week12/DSA105_W12_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week12/DSA105_W12_Homework.ipynb)
+
+[Submit Week 12 Homework]({{< var forms.week12.homework >}}){.btn .btn-primary}
 
 
-## Exit question
+## Concepts to keep
 
-Why can whitespace be a **data-quality** problem rather than merely a display problem?
+- file;
+- `with open(...)`;
+- `readlines()`;
+- whitespace;
+- `.strip()`;
+- parsing;
+- transformation;
+- pipeline;
+- verification.
 
-## Homework
+## Portfolio evidence this week
 
-Read a simple `transactions.txt` file containing one numeric amount per line and write a second file containing:
-
-- transaction count;
-- total;
-- average.
-
-Include one paragraph explaining why `with open(...)` is preferable to leaving file handles unmanaged.
+- `REP` — Representation
+- `DEC` — Decomposition
+- `DBG` — Data/debug reasoning
+- `TRN` — Transfer

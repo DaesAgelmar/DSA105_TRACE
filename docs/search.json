@@ -4,128 +4,95 @@
     "href": "weeks/week14.html",
     "title": "Week 14 — Build, Test, Explain",
     "section": "",
-    "text": "This week introduces no new programming structure.\nInstead, you must demonstrate that you can move through the full TRACE cycle:\n\nThink → Reason → Algorithm → Code → Execute → Verify → Explain\n\n\n\n\ndecompose a small domain problem;\nchoose appropriate representations;\ncombine loops, functions, lists, files, and decisions when needed;\ndesign tests before trusting output;\ndiagnose more than one logic defect;\nexplain why a solution is credible.",
+    "text": "TipThis week’s central question\n\n\n\nCan you build a program whose logic another person can read, test, and trust?",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#final-problem",
-    "href": "weeks/week14.html#final-problem",
+    "objectID": "weeks/week14.html#learning-goals",
+    "href": "weeks/week14.html#learning-goals",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "",
-    "text": "This week introduces no new programming structure.\nInstead, you must demonstrate that you can move through the full TRACE cycle:\n\nThink → Reason → Algorithm → Code → Execute → Verify → Explain\n\n\n\n\ndecompose a small domain problem;\nchoose appropriate representations;\ncombine loops, functions, lists, files, and decisions when needed;\ndesign tests before trusting output;\ndiagnose more than one logic defect;\nexplain why a solution is credible.",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndecompose a small domain problem into clear computational responsibilities;\nchoose meaningful representations and names;\ncombine decisions, loops, functions, collections, and files when appropriate;\nuse concise docstrings for reusable functions;\nseparate input/output from core transformations when practical;\ndesign tests before trusting output;\ndiagnose multiple independent logic defects;\nexplain why a solution is credible.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#open-the-notebooks",
-    "href": "weeks/week14.html#open-the-notebooks",
+    "objectID": "weeks/week14.html#connection",
+    "href": "weeks/week14.html#connection",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "Open the notebooks",
-    "text": "Open the notebooks\nOpen Week 14 Student Notebook in Colab\nDownload Student Notebook\nOpen Week 14 Homework Notebook in Colab\nDownload Homework Notebook",
+    "section": "Connection",
+    "text": "Connection\nWeek 14 introduces no new syntax target. It integrates the shared Python form used throughout the course.\nThe standard is now visible as one coherent habit: meaningful names, readable expressions, explicit state, small functions, concise documentation, limited mutation, specific error handling, and evidence from tests.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#part-a-integration-challenge",
-    "href": "weeks/week14.html#part-a-integration-challenge",
+    "objectID": "weeks/week14.html#in-class",
+    "href": "weeks/week14.html#in-class",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "Part A — Integration challenge",
-    "text": "Part A — Integration challenge\nBuild a small analysis program from the following requirements:\n\nA shop has a list of transaction values. Transactions above a threshold receive a configurable discount. The program should calculate the average final transaction value.\n\nBefore code:\n\ndefine inputs;\ndefine the transformation;\ndecide whether a function is useful;\nidentify at least three test cases.",
+    "section": "In class",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 14 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nproblem decomposition;\nfunction composition;\ncollection transformation;\nboundary cases;\nmanual and executable tests;\ntwo-defect AI verification;\npair explanation;\nportfolio close.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#explain-before-optimizing",
-    "href": "weeks/week14.html#explain-before-optimizing",
+    "objectID": "weeks/week14.html#integrated-python-example",
+    "href": "weeks/week14.html#integrated-python-example",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "Explain before optimizing",
-    "text": "Explain before optimizing\nA correct solution that you can trace and defend is more valuable than a compact solution you cannot explain.",
+    "section": "Integrated Python example",
+    "text": "Integrated Python example\ndef apply_discount(price, threshold, discount_rate):\n    \"\"\"Return price after applying a discount above the threshold.\"\"\"\n    if price &gt; threshold:\n        return price * (1 - discount_rate)\n\n    return price\n\n\ndef calculate_average(values):\n    \"\"\"Return the arithmetic mean of a non-empty list.\"\"\"\n    total = 0\n\n    for value in values:\n        total += value\n\n    return total / len(values)\nThe functions make the transformations independently testable and easy to compose.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#debug-this",
-    "href": "weeks/week14.html#debug-this",
+    "objectID": "weeks/week14.html#ai-verify-two-independent-defects",
+    "href": "weeks/week14.html#ai-verify-two-independent-defects",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "Debug This",
-    "text": "Debug This\nFind the conceptual problem:\ndef average(values):\n    return sum(values) / 7\nWhen is this correct? When is it silently wrong?",
+    "section": "AI Verify — two independent defects",
+    "text": "AI Verify — two independent defects\ndef average_adjusted_price(prices, threshold, discount_rate):\n    \"\"\"Return the average price after applying an eligible discount.\"\"\"\n    adjusted_prices = []\n\n    for price in prices:\n        if price &gt; threshold:\n            adjusted_prices.append(price - discount_rate)\n        else:\n            adjusted_prices.append(price)\n\n    total_adjusted_price = 0\n\n    for index in range(len(adjusted_prices) - 1):\n        total_adjusted_price += adjusted_prices[index]\n\n    return total_adjusted_price / len(adjusted_prices)\nUse prices = [80, 120, 200, 100], threshold = 100, and discount_rate = 0.10.\nThe intended rule is: values strictly above 100 receive a 10% discount.\n\nPredict the correct adjusted values and average by hand.\nRun the AI-generated function.\nDiagnose two independent defects:\n\nthe rate is treated as a flat amount rather than a proportion;\nthe final adjusted value is omitted from the accumulated total.\n\nFix & verify with a second case that contains a value exactly equal to the threshold.\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 14 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#ai-verify",
-    "href": "weeks/week14.html#ai-verify",
+    "objectID": "weeks/week14.html#after-class",
+    "href": "weeks/week14.html#after-class",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "AI Verify",
-    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid and produces plausible output.\nDo not run it immediately. First decide what you expect it to do.\n\n\nScenario: A function should apply a percentage discount only to prices above a threshold, then return the average adjusted price.\nAn AI assistant wrote:\ndef average_adjusted_price(prices, threshold, discount_rate):\n    adjusted = []\n\n    for price in prices:\n        if price &gt;= threshold:\n            adjusted.append(price - discount_rate)\n        else:\n            adjusted.append(price)\n\n    total = 0\n    for i in range(len(adjusted) - 1):\n        total += adjusted[i]\n\n    return total / len(adjusted)\nSample case: prices = [80, 120, 200, 100], threshold = 100, discount_rate = 0.10. Intended rule: discount only values strictly above 100 by 10%.\nYour verification sequence:\n\nPredict — Predict which values should be discounted and what conceptual operations are required.\nRun — Run the AI code and compare its result with a hand-worked result.\nDiagnose — Identify two independent logic defects: one in discount logic/meaning and one in accumulation.\nFix & verify — Repair both defects and verify using a second case that includes a value exactly equal to the threshold.\n\nThis is not a prompting exercise. The target skill is verification of executable logic.",
+    "section": "After class",
+    "text": "After class\nOpen Week 14 Homework in Colab\nDownload the homework notebook\nSubmit Week 14 Homework",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#pair-verification-discussion",
-    "href": "weeks/week14.html#pair-verification-discussion",
+    "objectID": "weeks/week14.html#concepts-to-keep",
+    "href": "weeks/week14.html#concepts-to-keep",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "Pair verification discussion",
-    "text": "Pair verification discussion\nCompare repair strategies with a partner:\n\nDid you detect the same defects?\nWhich test case exposed each defect?\nCould one test case miss a defect?\nWhat evidence makes the corrected program trustworthy?",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\ndecomposition;\ncomposition;\nreadability;\ndocstring;\ntesting;\nboundary case;\nverification;\nexplanation.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
     ]
   },
   {
-    "objectID": "weeks/week14.html#independent-integration-lab-evidence",
-    "href": "weeks/week14.html#independent-integration-lab-evidence",
+    "objectID": "weeks/week14.html#portfolio-evidence-this-week",
+    "href": "weeks/week14.html#portfolio-evidence-this-week",
     "title": "Week 14 — Build, Test, Explain",
-    "section": "Independent integration / Lab Evidence",
-    "text": "Independent integration / Lab Evidence\nCreate a small transaction analysis program that:\n\nuses at least one function;\nprocesses a collection;\ncontains at least one decision;\nproduces a summary value;\nincludes three tests;\nexplains one potential silent logic error;\nincludes the Week 14 AI Verify diagnosis.",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 14 — Build, Test, Explain"
-    ]
-  },
-  {
-    "objectID": "weeks/week14.html#weekly-evidence",
-    "href": "weeks/week14.html#weekly-evidence",
-    "title": "Week 14 — Build, Test, Explain",
-    "section": "Weekly evidence",
-    "text": "Weekly evidence\nComplete these after the corresponding activities:\n\nWeekly Quiz\nLab Evidence\nExit Ticket\nHomework Submission",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 14 — Build, Test, Explain"
-    ]
-  },
-  {
-    "objectID": "weeks/week14.html#exit-reflection",
-    "href": "weeks/week14.html#exit-reflection",
-    "title": "Week 14 — Build, Test, Explain",
-    "section": "Exit reflection",
-    "text": "Exit reflection\nComplete:\n\n“I do not trust a program merely because it runs. I trust it more when …”",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 14 — Build, Test, Explain"
-    ]
-  },
-  {
-    "objectID": "weeks/week14.html#homework-portfolio-close",
-    "href": "weeks/week14.html#homework-portfolio-close",
-    "title": "Week 14 — Build, Test, Explain",
-    "section": "Homework / Portfolio close",
-    "text": "Homework / Portfolio close\nSubmit one revised program from Weeks 8–14 with:\n\nthe original problem;\nthe algorithm;\nthe final code;\none bug or weakness you found;\nthe test that exposed it;\nthe corrected version;\na 100–150 word verification reflection.\n\nThis is the final TRACE evidence package for the course.",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nREP — Representation\nTRC — Tracing\nCTL — Control flow\nDEC — Decomposition\nDBG — Debugging\nTRN — Transfer",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 14 — Build, Test, Explain"
@@ -136,73 +103,40 @@
     "href": "weeks/week12.html",
     "title": "Week 12 — Programs Meet Real Data",
     "section": "",
-    "text": "Programs often receive data from outside the code itself.\n\nHow do we move from temporary variables to data that already exists in a file?\n\n\n\n\nopen text files safely;\nread line-based data;\nwrite output;\nuse with open(...);\nclean newline characters;\ntest file-derived values before trusting downstream comparisons.",
+    "text": "TipThis week’s central question\n\n\n\nHow do we move from temporary variables to data that already exists in a file?",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
     ]
   },
   {
-    "objectID": "weeks/week12.html#todays-problem",
-    "href": "weeks/week12.html#todays-problem",
+    "objectID": "weeks/week12.html#learning-goals",
+    "href": "weeks/week12.html#learning-goals",
     "title": "Week 12 — Programs Meet Real Data",
-    "section": "",
-    "text": "Programs often receive data from outside the code itself.\n\nHow do we move from temporary variables to data that already exists in a file?\n\n\n\n\nopen text files safely;\nread line-based data;\nwrite output;\nuse with open(...);\nclean newline characters;\ntest file-derived values before trusting downstream comparisons.",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nopen text files safely with with open(...);\nread and inspect line-based data;\nclean newline and surrounding whitespace;\nconvert cleaned text into computational values;\nseparate file I/O from reusable transformation functions;\ncompose a small load → clean → parse → summarize pipeline;\ntest file-derived values before trusting downstream comparisons.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
     ]
   },
   {
-    "objectID": "weeks/week12.html#open-the-notebooks",
-    "href": "weeks/week12.html#open-the-notebooks",
+    "objectID": "weeks/week12.html#connection",
+    "href": "weeks/week12.html#connection",
     "title": "Week 12 — Programs Meet Real Data",
-    "section": "Open the notebooks",
-    "text": "Open the notebooks\nOpen Week 12 Student Notebook in Colab\nDownload Student Notebook\nOpen Week 12 Homework Notebook in Colab\nDownload Homework Notebook",
+    "section": "Connection",
+    "text": "Connection\nWeek 11 organized many values in collections. Week 12 asks where those collections come from.\nThe program is easier to test when reading a file and transforming its contents are separate responsibilities.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
     ]
   },
   {
-    "objectID": "weeks/week12.html#part-a-core-concept",
-    "href": "weeks/week12.html#part-a-core-concept",
+    "objectID": "weeks/week12.html#in-class",
+    "href": "weeks/week12.html#in-class",
     "title": "Week 12 — Programs Meet Real Data",
-    "section": "Part A — Core concept",
-    "text": "Part A — Core concept\nwith open(\"customers.txt\", \"r\", encoding=\"utf-8\") as file:\n    lines = file.readlines()\n\nprint(lines)\nA file line usually contains a newline character. That character is data.",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 12 — Programs Meet Real Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week12.html#clean-line-data",
-    "href": "weeks/week12.html#clean-line-data",
-    "title": "Week 12 — Programs Meet Real Data",
-    "section": "Clean line data",
-    "text": "Clean line data\nnames = []\n\nfor line in lines:\n    names.append(line.strip())\nExplain what .strip() changes.",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 12 — Programs Meet Real Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week12.html#write-output",
-    "href": "weeks/week12.html#write-output",
-    "title": "Week 12 — Programs Meet Real Data",
-    "section": "Write output",
-    "text": "Write output\nwith open(\"summary.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"Processing complete\\n\")",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 12 — Programs Meet Real Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week12.html#debug-this",
-    "href": "weeks/week12.html#debug-this",
-    "title": "Week 12 — Programs Meet Real Data",
-    "section": "Debug This",
-    "text": "Debug This\nWhy can this comparison fail?\nname_from_file = \"Ayşe\\n\"\nprint(name_from_file == \"Ayşe\")",
+    "section": "In class",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 12 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nsafe file opening;\nraw line inspection with repr();\ntext cleaning;\nnumeric parsing;\nsmall transformation functions;\nI/O versus computation;\nAI verification of hidden newline characters;\nfile-to-summary pipeline.\n\n\n\n\n\n\n\nNoteSeparate reading from transformation\n\n\n\ndef clean_lines(lines):\n    \"\"\"Return stripped, non-empty lines.\"\"\"\n    cleaned_lines = []\n\n    for line in lines:\n        cleaned_line = line.strip()\n\n        if cleaned_line:\n            cleaned_lines.append(cleaned_line)\n\n    return cleaned_lines\nA function like this can be tested without opening a file. File I/O remains at the boundary of the program.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
@@ -213,62 +147,40 @@
     "href": "weeks/week12.html#ai-verify",
     "title": "Week 12 — Programs Meet Real Data",
     "section": "AI Verify",
-    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid and produces plausible output.\nDo not run it immediately. First decide what you expect it to do.\n\n\nScenario: A text file contains a header followed by one customer name per line. The program should return clean names.\nAn AI assistant wrote:\ndef load_customer_names(filepath):\n    with open(filepath, \"r\", encoding=\"utf-8\") as file:\n        lines = file.readlines()\n\n    names = []\n    for line in lines[1:]:\n        names.append(line)\n\n    return names\nSample case: A file containing name\\nAyşe\\nMert\\n should produce ['Ayşe', 'Mert'].\nYour verification sequence:\n\nPredict — What exact strings do you think are stored in the returned list?\nRun — Create a small file and inspect repr() of each returned value.\nDiagnose — Explain why the data looks correct when printed but can fail in later equality checks.\nFix & verify — Repair with explicit cleaning and verify by comparing a returned name with 'Ayşe'.\n\nThis is not a prompting exercise. The target skill is verification of executable logic.",
+    "text": "AI Verify\ndef load_customer_names(file_path):\n    \"\"\"Return customer names from a one-name-per-line text file.\"\"\"\n    with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        lines = file.readlines()\n\n    customer_names = []\n\n    for line in lines[1:]:\n        customer_names.append(line)\n\n    return customer_names\nA file containing name\\nAyşe\\nMert\\n should produce [\"Ayşe\", \"Mert\"].\n\nPredict the exact strings actually stored.\nRun and inspect each item with repr().\nDiagnose why printed names can look correct while equality checks fail.\nFix & verify by cleaning each line before returning it.\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 12 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
     ]
   },
   {
-    "objectID": "weeks/week12.html#domain-application",
-    "href": "weeks/week12.html#domain-application",
+    "objectID": "weeks/week12.html#after-class",
+    "href": "weeks/week12.html#after-class",
     "title": "Week 12 — Programs Meet Real Data",
-    "section": "Domain application",
-    "text": "Domain application\nCreate a text file containing five daily revenue values, one per line. Read the file, convert the lines to numbers, and calculate the total.",
+    "section": "After class",
+    "text": "After class\nOpen Week 12 Homework in Colab\nDownload the homework notebook\nSubmit Week 12 Homework",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
     ]
   },
   {
-    "objectID": "weeks/week12.html#independent-check-lab-evidence",
-    "href": "weeks/week12.html#independent-check-lab-evidence",
+    "objectID": "weeks/week12.html#concepts-to-keep",
+    "href": "weeks/week12.html#concepts-to-keep",
     "title": "Week 12 — Programs Meet Real Data",
-    "section": "Independent check / Lab Evidence",
-    "text": "Independent check / Lab Evidence\nCreate expenses.txt with a header and five expense values.\nYour program must:\n\nskip the header;\nclean each line;\nconvert to float;\ncalculate total and average;\nverify one value using repr() before conversion;\ncomplete AI Verify evidence.",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nfile;\nwith open(...);\nreadlines();\nwhitespace;\n.strip();\nparsing;\ntransformation;\npipeline;\nverification.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
     ]
   },
   {
-    "objectID": "weeks/week12.html#weekly-evidence",
-    "href": "weeks/week12.html#weekly-evidence",
+    "objectID": "weeks/week12.html#portfolio-evidence-this-week",
+    "href": "weeks/week12.html#portfolio-evidence-this-week",
     "title": "Week 12 — Programs Meet Real Data",
-    "section": "Weekly evidence",
-    "text": "Weekly evidence\nComplete these after the corresponding activities:\n\nWeekly Quiz\nLab Evidence\nExit Ticket\nHomework Submission",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 12 — Programs Meet Real Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week12.html#exit-question",
-    "href": "weeks/week12.html#exit-question",
-    "title": "Week 12 — Programs Meet Real Data",
-    "section": "Exit question",
-    "text": "Exit question\nWhy can whitespace be a data-quality problem rather than merely a display problem?",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 12 — Programs Meet Real Data"
-    ]
-  },
-  {
-    "objectID": "weeks/week12.html#homework",
-    "href": "weeks/week12.html#homework",
-    "title": "Week 12 — Programs Meet Real Data",
-    "section": "Homework",
-    "text": "Homework\nRead a simple transactions.txt file containing one numeric amount per line and write a second file containing:\n\ntransaction count;\ntotal;\naverage.\n\nInclude one paragraph explaining why with open(...) is preferable to leaving file handles unmanaged.",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nREP — Representation\nDEC — Decomposition\nDBG — Data/debug reasoning\nTRN — Transfer",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 12 — Programs Meet Real Data"
@@ -279,62 +191,40 @@
     "href": "weeks/week10.html",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
     "section": "",
-    "text": "Repeated code is not always repeated by a loop. Sometimes we need the same operation in different parts of a program.\n\nHow can we package one computational responsibility so that it can be reused and tested independently?\n\n\n\n\ndefine and call a function;\ndistinguish parameters from arguments;\nreturn a result;\nseparate calculation from display;\ntest a function with multiple cases;\nidentify hard-coded logic that ignores a parameter.",
+    "text": "TipThis week’s central question\n\n\n\nHow can we package one computational responsibility so it can be reused and tested independently?",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
     ]
   },
   {
-    "objectID": "weeks/week10.html#todays-problem",
-    "href": "weeks/week10.html#todays-problem",
+    "objectID": "weeks/week10.html#learning-goals",
+    "href": "weeks/week10.html#learning-goals",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "",
-    "text": "Repeated code is not always repeated by a loop. Sometimes we need the same operation in different parts of a program.\n\nHow can we package one computational responsibility so that it can be reused and tested independently?\n\n\n\n\ndefine and call a function;\ndistinguish parameters from arguments;\nreturn a result;\nseparate calculation from display;\ntest a function with multiple cases;\nidentify hard-coded logic that ignores a parameter.",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndefine and call a function;\ndistinguish parameters from arguments;\nreturn a result instead of hiding computation inside display code;\nuse descriptive verb-based function names;\nwrite a concise one-line docstring for a function;\ndesign a function around one clear responsibility;\ntest a function with multiple cases;\nidentify hard-coded logic that ignores a parameter.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
     ]
   },
   {
-    "objectID": "weeks/week10.html#open-the-notebooks",
-    "href": "weeks/week10.html#open-the-notebooks",
+    "objectID": "weeks/week10.html#connection",
+    "href": "weeks/week10.html#connection",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Open the notebooks",
-    "text": "Open the notebooks\nOpen Week 10 Student Notebook in Colab\nDownload Student Notebook\nOpen Week 10 Homework Notebook in Colab\nDownload Homework Notebook",
+    "section": "Connection",
+    "text": "Connection\nWeek 10 is the point where a program begins to become a set of reusable computational units.\nA function name should state what the unit does, its parameters should make dependencies explicit, and its return value should make testing possible.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
     ]
   },
   {
-    "objectID": "weeks/week10.html#part-a-core-concept",
-    "href": "weeks/week10.html#part-a-core-concept",
+    "objectID": "weeks/week10.html#in-class",
+    "href": "weeks/week10.html#in-class",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Part A — Core concept",
-    "text": "Part A — Core concept\ndef calculate_revenue(quantity, unit_price):\n    revenue = quantity * unit_price\n    return revenue\nBefore running:\n\nWhat information enters the function?\nWhat value leaves the function?\nWhat changes if the arguments change?",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 10 — Breaking Problems into Reusable Pieces"
-    ]
-  },
-  {
-    "objectID": "weeks/week10.html#parameters-are-part-of-the-contract",
-    "href": "weeks/week10.html#parameters-are-part-of-the-contract",
-    "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Parameters are part of the contract",
-    "text": "Parameters are part of the contract\ndef apply_discount(price, rate):\n    return price * (1 - rate)\nTest:\nprint(apply_discount(500, 0.10))\nprint(apply_discount(500, 0.25))",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 10 — Breaking Problems into Reusable Pieces"
-    ]
-  },
-  {
-    "objectID": "weeks/week10.html#debug-this",
-    "href": "weeks/week10.html#debug-this",
-    "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Debug This",
-    "text": "Debug This\ndef calculate_area(width, height):\n    area = width * 10\n    return area\nThe code runs. What did the function fail to respect?",
+    "section": "In class",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 10 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nfunction definitions and calls;\nparameters and arguments;\nreturn versus print();\nverb-based function names;\nshort docstrings as normal Python function documentation;\nsingle-responsibility decomposition;\nAI verification of a violated function contract;\ncomposition of small functions.\n\n\n\n\n\n\n\nNoteA normal Python function\n\n\n\ndef calculate_revenue(quantity, unit_price):\n    \"\"\"Return revenue from quantity and unit price.\"\"\"\n    return quantity * unit_price\nThe docstring is not decoration. It states the function’s responsibility in one sentence.\nFunctions in this course should normally calculate and return. The surrounding program decides when and how to display the result.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
@@ -345,51 +235,40 @@
     "href": "weeks/week10.html#ai-verify",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
     "section": "AI Verify",
-    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid and produces plausible output.\nDo not run it immediately. First decide what you expect it to do.\n\n\nScenario: A product price should be increased using the tax rate passed to the function.\nAn AI assistant wrote:\ndef apply_tax(price, tax_rate=0.18):\n    final_price = price * 1.18\n    return final_price\nSample case: apply_tax(200, 0.08) should return 216.0.\nYour verification sequence:\n\nPredict — What result will the function return, and why?\nRun — Run apply_tax(200, 0.08).\nDiagnose — Explain what the function signature promises and what the body actually does.\nFix & verify — Repair the function so the parameter controls the calculation; verify with two tax rates.\n\nThis is not a prompting exercise. The target skill is verification of executable logic.",
+    "text": "AI Verify\ndef apply_tax(price, tax_rate=0.18):\n    \"\"\"Return the price after applying the supplied tax rate.\"\"\"\n    final_price = price * 1.18\n    return final_price\napply_tax(200, 0.08) should return 216.0.\n\nPredict what the function actually returns.\nRun it.\nDiagnose how the body violates the contract expressed by its parameter and docstring.\nFix & verify using at least two tax rates.\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 10 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
     ]
   },
   {
-    "objectID": "weeks/week10.html#domain-application",
-    "href": "weeks/week10.html#domain-application",
+    "objectID": "weeks/week10.html#after-class",
+    "href": "weeks/week10.html#after-class",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Domain application",
-    "text": "Domain application\nWrite a function:\ndef calculate_invoice(hours, hourly_rate):\n    ...\nIt must return the fee. Display should happen outside the function.",
+    "section": "After class",
+    "text": "After class\nOpen Week 10 Homework in Colab\nDownload the homework notebook\nSubmit Week 10 Homework",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
     ]
   },
   {
-    "objectID": "weeks/week10.html#independent-check-lab-evidence",
-    "href": "weeks/week10.html#independent-check-lab-evidence",
+    "objectID": "weeks/week10.html#concepts-to-keep",
+    "href": "weeks/week10.html#concepts-to-keep",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Independent check / Lab Evidence",
-    "text": "Independent check / Lab Evidence\nBuild three small functions:\n\ncalculate_revenue(quantity, unit_price)\ncalculate_profit(revenue, cost)\nprofit_margin(profit, revenue)\n\nThen compose them in a short program.\nSubmit:\n\none prediction;\none test case for each function;\nAI Verify diagnosis.",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nfunction;\nparameter;\nargument;\nreturn;\nfunction contract;\ndocstring;\ndecomposition;\nsingle responsibility;\nverification.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
     ]
   },
   {
-    "objectID": "weeks/week10.html#weekly-evidence",
-    "href": "weeks/week10.html#weekly-evidence",
+    "objectID": "weeks/week10.html#portfolio-evidence-this-week",
+    "href": "weeks/week10.html#portfolio-evidence-this-week",
     "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Weekly evidence",
-    "text": "Weekly evidence\nComplete these after the corresponding activities:\n\nWeekly Quiz\nLab Evidence\nExit Ticket\nHomework Submission",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 10 — Breaking Problems into Reusable Pieces"
-    ]
-  },
-  {
-    "objectID": "weeks/week10.html#homework",
-    "href": "weeks/week10.html#homework",
-    "title": "Week 10 — Breaking Problems into Reusable Pieces",
-    "section": "Homework",
-    "text": "Homework\nCreate a reusable delivery-price calculator with:\ndef delivery_cost(distance_km, rate_per_km):\n    ...\nAdd at least three test cases, including distance_km = 0.",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nDEC — Decomposition\nREP — Representation\nDBG — Function/debug reasoning\nTRN — Transfer",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 10 — Breaking Problems into Reusable Pieces"
@@ -400,73 +279,40 @@
     "href": "weeks/week08.html",
     "title": "Week 8 — Making Computers Repeat Work",
     "section": "",
-    "text": "A business has the same kind of information arriving repeatedly: daily sales, hourly traffic, item counts, or transaction values.\n\nHow can one precise instruction be executed repeatedly without losing control of what changes?\n\n\n\nBy the end of this week, you should be able to:\n\nexplain why repetition is an algorithmic structure;\ntrace a for loop before running it;\nuse range() to control repetition;\ndistinguish a counter from an accumulator;\nidentify loop-bound errors;\ntest repeated logic using boundary cases.",
+    "text": "TipThis week’s central question\n\n\n\nHow can one precise instruction be executed repeatedly without losing control of what changes?",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
     ]
   },
   {
-    "objectID": "weeks/week08.html#todays-problem",
-    "href": "weeks/week08.html#todays-problem",
+    "objectID": "weeks/week08.html#learning-goals",
+    "href": "weeks/week08.html#learning-goals",
     "title": "Week 8 — Making Computers Repeat Work",
-    "section": "",
-    "text": "A business has the same kind of information arriving repeatedly: daily sales, hourly traffic, item counts, or transaction values.\n\nHow can one precise instruction be executed repeatedly without losing control of what changes?\n\n\n\nBy the end of this week, you should be able to:\n\nexplain why repetition is an algorithmic structure;\ntrace a for loop before running it;\nuse range() to control repetition;\ndistinguish a counter from an accumulator;\nidentify loop-bound errors;\ntest repeated logic using boundary cases.",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nexplain why repetition is an algorithmic structure;\ntrace a for loop before running it;\nuse range() to control repetition;\ndistinguish a counter from an accumulator;\nchoose loop-variable names that reveal the role of the repeated value;\nidentify loop-bound errors;\ntest repeated logic using boundary cases.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
     ]
   },
   {
-    "objectID": "weeks/week08.html#open-the-notebooks",
-    "href": "weeks/week08.html#open-the-notebooks",
+    "objectID": "weeks/week08.html#connection",
+    "href": "weeks/week08.html#connection",
     "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Open the notebooks",
-    "text": "Open the notebooks\nOpen Week 8 Student Notebook in Colab\nDownload Student Notebook\nOpen Week 8 Homework Notebook in Colab\nDownload Homework Notebook",
+    "section": "Connection",
+    "text": "Connection\nWeeks 1–6 built precise sequential and conditional logic. Week 8 adds repetition.\nThe code should still reveal the algorithm. A loop variable is therefore named for what it represents whenever possible: day, branch, sale, or customer, rather than automatically using i.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
     ]
   },
   {
-    "objectID": "weeks/week08.html#part-a-core-concept",
-    "href": "weeks/week08.html#part-a-core-concept",
+    "objectID": "weeks/week08.html#in-class",
+    "href": "weeks/week08.html#in-class",
     "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Part A — Core concept",
-    "text": "Part A — Core concept\nUse Predict → Run → Modify → Explain to study repetition.\ntotal = 0\n\nfor day in range(1, 5):\n    sale = float(input(\"Enter daily sales: \"))\n    total += sale\n\nprint(\"Four-day total:\", total)\nBefore running:\n\nHow many times will the loop body execute?\nWhich value changes on every iteration?\nWhich value carries information from one iteration to the next?",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 8 — Making Computers Repeat Work"
-    ]
-  },
-  {
-    "objectID": "weeks/week08.html#trace-before-execution",
-    "href": "weeks/week08.html#trace-before-execution",
-    "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Trace before execution",
-    "text": "Trace before execution\nfor i in range(1, 5):\n    print(i)\nWrite the exact output before you run the cell.",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 8 — Making Computers Repeat Work"
-    ]
-  },
-  {
-    "objectID": "weeks/week08.html#counter-vs-accumulator",
-    "href": "weeks/week08.html#counter-vs-accumulator",
-    "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Counter vs accumulator",
-    "text": "Counter vs accumulator\nA counter tracks how many times something happened.\ncount = 0\nfor _ in range(4):\n    count += 1\nAn accumulator combines values across repetitions.\ntotal = 0\nfor _ in range(4):\n    value = float(input(\"Value: \"))\n    total += value",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 8 — Making Computers Repeat Work"
-    ]
-  },
-  {
-    "objectID": "weeks/week08.html#debug-this",
-    "href": "weeks/week08.html#debug-this",
-    "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Debug This",
-    "text": "Debug This\nA shop wants five daily values, but this code asks for only four:\ntotal = 0\n\nfor day in range(1, 5):\n    sale = float(input(\"Sale: \"))\n    total += sale\n\nprint(total)\nExplain the error before fixing it.",
+    "section": "In class",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 8 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nloop tracing;\nrange() boundaries;\ncounter and accumulator patterns;\nsemantic iterator names;\noff-by-one errors;\nguided modification;\nAI verification of plausible loop logic;\nindependent build and test.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
@@ -477,62 +323,40 @@
     "href": "weeks/week08.html#ai-verify",
     "title": "Week 8 — Making Computers Repeat Work",
     "section": "AI Verify",
-    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid and produces plausible output.\nDo not run it immediately. First decide what you expect it to do.\n\n\nScenario: A small shop wants the total revenue for four days.\nAn AI assistant wrote:\ntotal = 0\n\nfor day in range(1, 4):\n    sale = float(input(\"Enter daily sales: \"))\n    total += sale\n\nprint(\"Four-day total:\", total)\nSample case: Enter 120, 95, 130, 80 as the four intended daily values. Correct total: 425.\nYour verification sequence:\n\nPredict — How many values will the program actually request, and what total do you expect?\nRun — Run it. Does it ever ask for the fourth value?\nDiagnose — Explain why the loop bound encodes the wrong number of repetitions.\nFix & verify — Repair the range and verify with a second four-day case of your own.\n\nThis is not a prompting exercise. The target skill is verification of executable logic.",
+    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid. Do not run it immediately.\n\n\ntotal_revenue = 0\n\nfor day in range(1, 4):\n    daily_revenue = float(input(\"Daily revenue: \"))\n    total_revenue += daily_revenue\n\nprint(f\"Four-day total: {total_revenue:.2f}\")\nA shop intends to enter four days: 120, 95, 130, and 80. The correct total is 425.\n\nPredict how many values the program will request.\nRun it.\nDiagnose the loop-bound error.\nFix & verify it with a second four-day case.\n\nThe defect is logical, not stylistic: readable code can still encode the wrong repetition boundary.\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 8 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
     ]
   },
   {
-    "objectID": "weeks/week08.html#domain-application",
-    "href": "weeks/week08.html#domain-application",
+    "objectID": "weeks/week08.html#after-class",
+    "href": "weeks/week08.html#after-class",
     "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Domain application",
-    "text": "Domain application\nCreate a program that asks for six hourly customer counts, accumulates the total, and prints the average customers per hour.\nDo not begin with code. First write:\n\nwhat repeats;\nwhat must be remembered across repetitions;\nthe loop boundary.",
+    "section": "After class",
+    "text": "After class\nOpen Week 8 Homework in Colab\nDownload the homework notebook\nSubmit Week 8 Homework",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
     ]
   },
   {
-    "objectID": "weeks/week08.html#independent-check-lab-evidence",
-    "href": "weeks/week08.html#independent-check-lab-evidence",
+    "objectID": "weeks/week08.html#concepts-to-keep",
+    "href": "weeks/week08.html#concepts-to-keep",
     "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Independent check / Lab Evidence",
-    "text": "Independent check / Lab Evidence\nBuild a five-day expense tracker:\n\nask for five daily expenses;\ncompute total expense;\ncompute average daily expense;\nprint both;\nprovide one hand-computed test case;\ncomplete the AI Verify evidence in the Lab Form.",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nloop;\nfor;\nrange();\niteration;\ncounter;\naccumulator;\nloop boundary;\noff-by-one;\nverification.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
     ]
   },
   {
-    "objectID": "weeks/week08.html#weekly-evidence",
-    "href": "weeks/week08.html#weekly-evidence",
+    "objectID": "weeks/week08.html#portfolio-evidence-this-week",
+    "href": "weeks/week08.html#portfolio-evidence-this-week",
     "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Weekly evidence",
-    "text": "Weekly evidence\nComplete these after the corresponding activities:\n\nWeekly Quiz\nLab Evidence\nExit Ticket\nHomework Submission",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 8 — Making Computers Repeat Work"
-    ]
-  },
-  {
-    "objectID": "weeks/week08.html#exit-question",
-    "href": "weeks/week08.html#exit-question",
-    "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Exit question",
-    "text": "Exit question\nIn one sentence: why can code run without error and still repeat the wrong number of times?",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 8 — Making Computers Repeat Work"
-    ]
-  },
-  {
-    "objectID": "weeks/week08.html#homework",
-    "href": "weeks/week08.html#homework",
-    "title": "Week 8 — Making Computers Repeat Work",
-    "section": "Homework",
-    "text": "Homework\nBuild a weekly production tracker for 7 days. Your notebook must include:\n\nan algorithm in plain English;\na loop;\nan accumulator;\ntotal and average output;\none predicted test case;\none verification statement comparing predicted and actual output.",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nTRC — Tracing\nCTL — Control flow\nDBG — Loop debugging\nTRN — Transfer",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 8 — Making Computers Repeat Work"
@@ -554,18 +378,18 @@
     "href": "weeks/week06.html#learning-goals",
     "title": "Week 6 — Programs That Make Decisions",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nevaluate simple comparison expressions;\nexplain how a Boolean condition controls a branch;\nwrite basic if, if/else, and if/elif/else structures;\npredict which branch will execute before running code;\nconnect decision rules to domain logic;\nidentify unreachable or incorrectly ordered conditions.",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nevaluate comparison expressions;\nexplain how a Boolean condition controls a branch;\nwrite if, if/else, and if/elif/else structures;\npredict which branch will execute before running code;\ntranslate domain rules into readable conditions;\nuse meaningful names for thresholds and Boolean states;\nidentify unreachable or incorrectly ordered conditions.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
     ]
   },
   {
-    "objectID": "weeks/week06.html#connection-to-week-5",
-    "href": "weeks/week06.html#connection-to-week-5",
+    "objectID": "weeks/week06.html#connection",
+    "href": "weeks/week06.html#connection",
     "title": "Week 6 — Programs That Make Decisions",
-    "section": "Connection to Week 5",
-    "text": "Connection to Week 5\nLast week, programs received data from users.\nThis week, programs use that information to decide what should happen next.",
+    "section": "Connection",
+    "text": "Connection\nWeek 5 allowed users to supply information. Week 6 uses that information to decide what should happen next.\nReadable conditionals make the decision rule visible in the code.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
@@ -576,18 +400,7 @@
     "href": "weeks/week06.html#in-class",
     "title": "Week 6 — Programs That Make Decisions",
     "section": "In class",
-    "text": "In class\nOpen Week 6 Student Notebook in Colab\nDownload the notebook\nPredict → Run → Modify → Explain → Build → Test\n\nEvidence\n\n\n\nWeekly Quiz\nStart Week 6 Quiz\n\n\nLab Evidence\nSubmit Lab Evidence\n\n\nExit Ticket\nComplete Exit Ticket",
-    "crumbs": [
-      "Part I — Computational Grammar",
-      "Week 6 — Programs That Make Decisions"
-    ]
-  },
-  {
-    "objectID": "weeks/week06.html#after-class",
-    "href": "weeks/week06.html#after-class",
-    "title": "Week 6 — Programs That Make Decisions",
-    "section": "After class",
-    "text": "After class\nOpen Week 6 Homework in Colab\nDownload the homework notebook\nSubmit Week 6 Homework\n\n\n\n\n\n\nNoteMidterm connection\n\n\n\nThis week develops two skills that may be assessed in the midterm:\n\ntranslating a domain rule into branching logic;\nanalyzing branch order and boundary cases.",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 6 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\ncomparison expressions;\nBoolean values and decision rules;\nif, elif, and else;\nbranch tracing;\nthreshold and boundary cases;\nmeaningful Boolean names;\nincorrect branch ordering;\nindependent lab evidence.\n\n\n\n\n\n\n\nNoteConditions should read like rules\n\n\n\nfree_delivery_threshold = 2000\norder_total = 2350\n\nif order_total &gt;= free_delivery_threshold:\n    delivery_message = \"Free delivery\"\nelse:\n    delivery_message = \"Standard delivery\"\nThe code and the business rule should be easy to compare.\n\nBefore Week 7 — Short Midterm Review\nWeek 7 is the physical in-class midterm examination.\nOpen the Midterm Review Notebook in Colab\nDownload the review notebook\nThe review introduces no new content. It reconnects problem formulation, representation, expressions, input, decisions, tracing, and debugging.\n\n\n\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 6 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
@@ -598,7 +411,18 @@
     "href": "weeks/week06.html#before-week-7-short-midterm-review",
     "title": "Week 6 — Programs That Make Decisions",
     "section": "Before Week 7 — Short Midterm Review",
-    "text": "Before Week 7 — Short Midterm Review\nWeek 7 is the physical in-class midterm examination. There is no normal TRACE activity in Week 7.\nUse this short review after completing Week 6 to connect the first six weeks:\nOpen the Midterm Review Notebook in Colab\nDownload the review notebook\nThe review does not introduce new content and does not reproduce exam questions. It revisits:\n\nproblem → algorithm → executable representation;\nvariables and data types;\nexpressions;\ninput and conversion;\ndecision logic;\ntracing, debugging, and boundary testing.\n\n\n\n\n\n\n\nImportantWeek 7\n\n\n\nPhysical midterm examination.\nNo weekly quiz, lab evidence, homework submission, or Colab activity is scheduled for Week 7.",
+    "text": "Before Week 7 — Short Midterm Review\nWeek 7 is the physical in-class midterm examination.\nOpen the Midterm Review Notebook in Colab\nDownload the review notebook\nThe review introduces no new content. It reconnects problem formulation, representation, expressions, input, decisions, tracing, and debugging.",
+    "crumbs": [
+      "Part I — Computational Grammar",
+      "Week 6 — Programs That Make Decisions"
+    ]
+  },
+  {
+    "objectID": "weeks/week06.html#after-class",
+    "href": "weeks/week06.html#after-class",
+    "title": "Week 6 — Programs That Make Decisions",
+    "section": "After class",
+    "text": "After class\nOpen Week 6 Homework in Colab\nDownload the homework notebook\nSubmit Week 6 Homework",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
@@ -609,7 +433,7 @@
     "href": "weeks/week06.html#concepts-to-keep",
     "title": "Week 6 — Programs That Make Decisions",
     "section": "Concepts to keep",
-    "text": "Concepts to keep\n\ncondition;\ncomparison;\nBoolean;\nbranch;\nif;\nelif;\nelse;\ndecision rule;\nbranch order;\ntest case.",
+    "text": "Concepts to keep\n\ncondition;\ncomparison;\nBoolean;\nbranch;\nif;\nelif;\nelse;\ndecision rule;\nbranch order;\nboundary test.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
@@ -620,7 +444,7 @@
     "href": "weeks/week06.html#portfolio-evidence-this-week",
     "title": "Week 6 — Programs That Make Decisions",
     "section": "Portfolio evidence this week",
-    "text": "Portfolio evidence this week\n\nCTL — Control flow\nTRC — Tracing\nPRECISION\nDBG\nTRN",
+    "text": "Portfolio evidence this week\n\nCTL — Control flow\nTRC — Tracing\nPRECISION — Executable precision\nDBG — Branch/debug reasoning\nTRN — Transfer",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 6 — Programs That Make Decisions"
@@ -642,18 +466,18 @@
     "href": "weeks/week04.html#learning-goals",
     "title": "Week 4 — Turning Data into New Information",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a value, an operator, and an expression;\nuse arithmetic operators to transform numeric data;\npredict the result of simple expressions before running code;\nexplain how assignment stores the result of an expression;\nuse parentheses to make evaluation order explicit;\nidentify and repair simple expression errors.",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a value, an operator, and an expression;\nuse arithmetic operators to transform numeric data;\npredict the result of expressions before running code;\nexplain how assignment stores the result of an expression;\nuse parentheses to make evaluation order explicit;\nwrite readable expressions with standard spacing and descriptive result names;\nidentify and repair incorrect formulas.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
     ]
   },
   {
-    "objectID": "weeks/week04.html#connection-to-week-3",
-    "href": "weeks/week04.html#connection-to-week-3",
+    "objectID": "weeks/week04.html#connection",
+    "href": "weeks/week04.html#connection",
     "title": "Week 4 — Turning Data into New Information",
-    "section": "Connection to Week 3",
-    "text": "Connection to Week 3\nLast week, we represented information using variables and data types.\nThis week we ask:\n\nHow do we transform those represented values into new information?",
+    "section": "Connection",
+    "text": "Connection\nWeek 3 gave values meaningful names and representations. Week 4 combines those values into new information.\nA readable expression should make the domain relationship visible, not merely produce the right number.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
@@ -664,7 +488,7 @@
     "href": "weeks/week04.html#in-class",
     "title": "Week 4 — Turning Data into New Information",
     "section": "In class",
-    "text": "In class\n\n1. Open the student notebook\nOpen Week 4 Student Notebook in Colab\nDownload the notebook\n\n\n2. Active cycle\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nretrieval from Week 3;\noperators and expressions;\nexpression tracing;\nassignment from expressions;\nparentheses and precedence;\ndomain transformations;\ndebugging incorrect formulas;\nindependent lab evidence.\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nStart Week 4 Quiz\n\n\nLab Evidence\nSubmit Lab Evidence\n\n\nExit Ticket\nComplete Exit Ticket",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 4 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nretrieval from Week 3;\noperators and expressions;\nexpression tracing;\nassignment from expressions;\nparentheses and precedence;\nreadable formula construction;\ndomain transformations;\ndebugging incorrect formulas;\nindependent lab evidence.\n\n\n\n\n\n\n\nNoteMake the relationship visible\n\n\n\nPrefer:\ntotal_revenue = quantity_sold * unit_price\nprofit_margin = profit / revenue\nover compressed forms such as:\nr=q*p\nm=p/r\nPython ignores most of the visual difference. Human readers do not.\n\n\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 4 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
@@ -675,7 +499,7 @@
     "href": "weeks/week04.html#after-class",
     "title": "Week 4 — Turning Data into New Information",
     "section": "After class",
-    "text": "After class\nOpen Week 4 Homework in Colab\nDownload the homework notebook\nSubmit Week 4 Homework\n\n\n\n\n\n\nNoteMidterm connection\n\n\n\nThis week develops two skills that may be assessed in the midterm:\n\ntranslating a quantitative relationship into a correct Python expression;\ndiagnosing and repairing an incorrect formula or evaluation order.",
+    "text": "After class\nOpen Week 4 Homework in Colab\nDownload the homework notebook\nSubmit Week 4 Homework",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 4 — Turning Data into New Information"
@@ -719,18 +543,18 @@
     "href": "weeks/week02.html#learning-goals",
     "title": "Week 2 — From Instructions to Executable Code",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nmap simple algorithm steps to Python statements;\npredict the order in which a sequential program executes;\nuse print() to make program output visible;\ndistinguish an algorithmic idea from its Python representation;\nidentify simple execution failures caused by imprecise code;\nmodify and build a short sequential Python program.",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\nmap simple algorithm steps to Python statements;\npredict the order in which a sequential program executes;\nuse print() to make program output visible;\ndistinguish an algorithmic idea from its Python representation;\nidentify simple execution failures caused by imprecise code;\nwrite sequential code whose names and layout communicate the algorithm.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
     ]
   },
   {
-    "objectID": "weeks/week02.html#connection-to-week-1",
-    "href": "weeks/week02.html#connection-to-week-1",
+    "objectID": "weeks/week02.html#connection",
+    "href": "weeks/week02.html#connection",
     "title": "Week 2 — From Instructions to Executable Code",
-    "section": "Connection to Week 1",
-    "text": "Connection to Week 1\nLast week, the main question was:\n\nHow precise must an instruction be before a computer can execute it?\n\nThis week we go one step further:\n\nWhat does that precise instruction look like when it becomes executable Python code?\n\nThe focus is still reasoning first. Python is the executable representation.",
+    "section": "Connection",
+    "text": "Connection\nWeek 1 established that algorithms must be precise and ordered. Week 2 translates that ordered reasoning into executable statements.\nThe code remains deliberately simple. Variables and data types are studied systematically in Week 3; operators and expressions are studied in Week 4.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
@@ -741,7 +565,7 @@
     "href": "weeks/week02.html#in-class",
     "title": "Week 2 — From Instructions to Executable Code",
     "section": "In class",
-    "text": "In class\n\n1. Open the student notebook\nOpen Week 2 Student Notebook in Colab\nIf you want a local copy:\nDownload the notebook\n\n\n2. Work through the active cycle\nYou will repeatedly:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nWeek 1 retrieval;\nalgorithm-to-code matching;\nsequential execution tracing;\nvisible output with print();\ncode ordering;\nprecision and syntax checks;\nfaded-code completion;\npair explanation;\nindependent build and test.\n\n\n\n\n\n\n\nNoteScope for Week 2\n\n\n\nWe will use a few Python names, values, and arithmetic expressions when needed, but we will study variables and data representation systematically in Week 3 and operators/expressions in Week 4.\nThis week is about translation and execution order.\n\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 2 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 2 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nWeek 1 retrieval;\nalgorithm-to-code matching;\nsequential execution tracing;\nvisible output with print();\ncode ordering;\nprecision and syntax checks;\nfaded-code completion;\npair explanation;\nindependent build and test.\n\n\n\n\n\n\n\nNoteA shared Python form\n\n\n\nWhen two programs implement the same algorithm, their layout should not make them look like unrelated languages. We therefore continue using descriptive snake_case names, spaces around operators, and consistent indentation in every example.\n\n\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 2 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
@@ -752,7 +576,7 @@
     "href": "weeks/week02.html#after-class",
     "title": "Week 2 — From Instructions to Executable Code",
     "section": "After class",
-    "text": "After class\n\nHomework\nOpen Week 2 Homework in Colab\nDownload the homework notebook\nThe homework follows:\n\nAlgorithm → Prediction → Code → Run → Verification → Transfer\n\n\n\nHomework submission\nSubmit Week 2 Homework",
+    "text": "After class\nOpen Week 2 Homework in Colab\nDownload the homework notebook\nSubmit Week 2 Homework",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
@@ -763,7 +587,7 @@
     "href": "weeks/week02.html#concepts-to-keep",
     "title": "Week 2 — From Instructions to Executable Code",
     "section": "Concepts to keep",
-    "text": "Concepts to keep\n\nalgorithm;\nprogram;\nPython statement;\nexecution order;\nsequential execution;\noutput;\nprint();\nprediction;\ntracing;\ntranslation from algorithm to code.",
+    "text": "Concepts to keep\n\nalgorithm;\nprogram;\nPython statement;\nexecution order;\nsequential execution;\noutput;\nprint();\nprediction;\ntracing;\nalgorithm-to-code translation.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 2 — From Instructions to Executable Code"
@@ -1034,18 +858,18 @@
     "href": "weeks/week01.html#learning-goals",
     "title": "Week 1 — How Do We Tell a Computer What to Do?",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a problem, an algorithm, and a program;\ndescribe a simple problem using Input → Process → Output;\nwrite a precise and ordered sequence of steps;\ninterpret a basic flowchart;\nconnect an algorithm to a minimal executable Python representation.",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a problem, an algorithm, and a program;\ndescribe a simple problem using Input → Process → Output;\nwrite a precise and ordered sequence of steps;\ninterpret a basic flowchart;\nconnect an algorithm to a minimal executable Python representation;\nrecognize that readable names can reveal the meaning of a computation.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 1 — How Do We Tell a Computer What to Do?"
     ]
   },
   {
-    "objectID": "weeks/week01.html#before-class",
-    "href": "weeks/week01.html#before-class",
+    "objectID": "weeks/week01.html#connection",
+    "href": "weeks/week01.html#connection",
     "title": "Week 1 — How Do We Tell a Computer What to Do?",
-    "section": "Before class",
-    "text": "Before class\nThink about one everyday process that seems simple to a human but would require very precise instructions for a computer.\nExamples:\n\ncalculating a receipt;\ndetermining a discount;\nfinding an average;\nprocessing an order.\n\nBring one example to class.",
+    "section": "Connection",
+    "text": "Connection\nWeek 1 begins with the algorithm, not with Python grammar. Python appears only as a small executable representation of a solution that has already been reasoned through.\nFrom the first code example onward, names such as total_sales and average_sales are used because program names should communicate meaning rather than force the reader to decode abbreviations.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 1 — How Do We Tell a Computer What to Do?"
@@ -1056,7 +880,7 @@
     "href": "weeks/week01.html#in-class",
     "title": "Week 1 — How Do We Tell a Computer What to Do?",
     "section": "In class",
-    "text": "In class\n\n1. Open the student notebook\nOpen Week 1 Student Notebook in Colab\nIf you want a local copy:\nDownload the notebook\n\n\n2. Work through the active cycle\nYou will repeatedly:\nPredict → Run → Modify → Explain → Build\nThe class includes:\n\nprecision challenge;\nInput–Process–Output analysis;\nalgorithm ordering;\nfirst executable Python object;\nflowchart classification;\nHuman CPU pair activity;\nfaded-code completion;\nalgorithm debugging;\nindependent lab evidence.\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 1 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 1 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nprecision challenge;\nInput–Process–Output analysis;\nalgorithm ordering;\nfirst executable Python object;\nflowchart classification;\nHuman CPU pair activity;\nfaded-code completion;\nalgorithm debugging;\nindependent lab evidence.\n\n\n\n\n\n\n\nNotePython from the beginning\n\n\n\nYou do not need to memorize style rules this week. The examples simply model the way readable Python is normally written:\n\nnames describe what a value means;\nwords in names use snake_case;\noperators are surrounded by spaces;\nindentation is consistent.\n\nTreat these patterns as part of the language you are learning.\n\n\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 1 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 1 — How Do We Tell a Computer What to Do?"
@@ -1067,7 +891,7 @@
     "href": "weeks/week01.html#after-class",
     "title": "Week 1 — How Do We Tell a Computer What to Do?",
     "section": "After class",
-    "text": "After class\n\nHomework\nOpen Week 1 Homework in Colab\nDownload the homework notebook\nThe homework follows:\n\nProblem → IPO → Algorithm → Prediction → Python → Verification → Transfer\n\n\n\nHomework submission\nSubmit Week 1 Homework",
+    "text": "After class\nOpen Week 1 Homework in Colab\nDownload the homework notebook\nSubmit Week 1 Homework",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 1 — How Do We Tell a Computer What to Do?"
@@ -1111,18 +935,18 @@
     "href": "weeks/week03.html#learning-goals",
     "title": "Week 3 — How Does a Computer Represent Information?",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a value from the name used to refer to it;\ncreate and update simple Python variables;\nidentify common data types: int, float, str, and bool;\nuse type() to inspect how Python represents a value;\nexplain why \"120\" and 120 are not the same representation;\ntrace simple assignment and reassignment step by step.",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish a value from the name used to refer to it;\ncreate and update simple Python variables;\nidentify int, float, str, and bool values;\nuse type() to inspect representation;\nexplain why \"120\" and 120 are different representations;\ntrace assignment and reassignment step by step;\nchoose descriptive snake_case variable names that communicate domain meaning.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
     ]
   },
   {
-    "objectID": "weeks/week03.html#connection-to-week-2",
-    "href": "weeks/week03.html#connection-to-week-2",
+    "objectID": "weeks/week03.html#connection",
+    "href": "weeks/week03.html#connection",
     "title": "Week 3 — How Does a Computer Represent Information?",
-    "section": "Connection to Week 2",
-    "text": "Connection to Week 2\nLast week, we translated ordered algorithm steps into executable Python statements.\nThis week, we ask:\n\nWhat exactly are those Python statements working with?\n\nPrograms need representations for quantities, text, categories, and logical states. Before we can manipulate data, we need to understand how those values are stored and named.",
+    "section": "Connection",
+    "text": "Connection\nWeek 2 translated algorithms into executable statements. Week 3 asks what those statements operate on.\nRepresentation and naming are connected: Python stores values, while readable names tell humans what those values mean.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
@@ -1133,7 +957,7 @@
     "href": "weeks/week03.html#in-class",
     "title": "Week 3 — How Does a Computer Represent Information?",
     "section": "In class",
-    "text": "In class\n\n1. Open the student notebook\nOpen Week 3 Student Notebook in Colab\nIf you want a local copy:\nDownload the notebook\n\n\n2. Work through the active cycle\nYou will repeatedly:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nretrieval from Week 2;\nvalue-versus-name reasoning;\nfirst systematic use of variables;\nint, float, str, and bool;\ninspecting values with type();\nassignment and reassignment tracing;\nrepresentation mismatches;\nvariable naming;\nindependent lab evidence.\n\n\n\n\n\n\n\nNoteScope for Week 3\n\n\n\nThis week is about representation.\nWe will not yet study operators and expressions systematically. That comes in Week 4. Our goal now is to understand what kinds of values a program can work with and how Python names them.\n\n\n\n\n3. Evidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 3 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 3 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nvalue-versus-name reasoning;\nsystematic use of variables;\nint, float, str, and bool;\ninspection with type();\nassignment and reassignment tracing;\nrepresentation mismatches;\nPython naming convention through domain examples;\nindependent lab evidence.\n\n\n\n\n\n\n\nNoteHow Python names are normally written\n\n\n\nFor ordinary variables, use lowercase words joined with underscores:\ncustomer_name = \"Ada\"\nunit_price = 120.0\nquantity_sold = 8\nis_member = True\nNames such as x, v1, or a are useful only when the meaning is genuinely generic or temporary. In domain code, the name should help explain the program.\n\n\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 3 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
@@ -1144,7 +968,7 @@
     "href": "weeks/week03.html#after-class",
     "title": "Week 3 — How Does a Computer Represent Information?",
     "section": "After class",
-    "text": "After class\n\nHomework\nOpen Week 3 Homework in Colab\nDownload the homework notebook\nThe homework follows:\n\nIdentify information → Predict representation → Assign → Inspect → Update → Explain\n\n\n\nHomework submission\nSubmit Week 3 Homework",
+    "text": "After class\nOpen Week 3 Homework in Colab\nDownload the homework notebook\nSubmit Week 3 Homework",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
@@ -1155,7 +979,7 @@
     "href": "weeks/week03.html#concepts-to-keep",
     "title": "Week 3 — How Does a Computer Represent Information?",
     "section": "Concepts to keep",
-    "text": "Concepts to keep\n\nvalue;\nvariable;\nname;\nassignment;\nreassignment;\nint;\nfloat;\nstr;\nbool;\ntype();\nrepresentation;\ntracing.",
+    "text": "Concepts to keep\n\nvalue;\nvariable;\nassignment;\nreassignment;\nint;\nfloat;\nstr;\nbool;\ntype();\nsnake_case;\nrepresentation;\ntracing.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 3 — How Does a Computer Represent Information?"
@@ -1188,18 +1012,18 @@
     "href": "weeks/week05.html#learning-goals",
     "title": "Week 5 — Programs That Interact",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish program input from program output;\nuse input() to receive user-provided information;\nexplain why input() initially returns text;\nconvert user input with int() and float() when appropriate;\ncombine input, computation, and output in a small interactive program;\nidentify and repair simple input/conversion errors.",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish program input from program output;\nuse input() to receive user-provided information;\nexplain why input() initially returns text;\nconvert user input with int() and float() when appropriate;\nuse names that reflect the converted meaning of data;\ncombine input, computation, and output in a readable interactive program;\nidentify and repair input/conversion errors.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
     ]
   },
   {
-    "objectID": "weeks/week05.html#connection-to-week-4",
-    "href": "weeks/week05.html#connection-to-week-4",
+    "objectID": "weeks/week05.html#connection",
+    "href": "weeks/week05.html#connection",
     "title": "Week 5 — Programs That Interact",
-    "section": "Connection to Week 4",
-    "text": "Connection to Week 4\nLast week, we transformed values with expressions.\nThis week, the values no longer need to be fixed in the program. The user can provide them at runtime.",
+    "section": "Connection",
+    "text": "Connection\nWeek 4 transformed values already present in a program. Week 5 allows those values to arrive at runtime.\nThe important transition is not only from input to output, but from raw text to a representation suitable for the intended calculation.",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
@@ -1210,7 +1034,7 @@
     "href": "weeks/week05.html#in-class",
     "title": "Week 5 — Programs That Interact",
     "section": "In class",
-    "text": "In class\nOpen Week 5 Student Notebook in Colab\nDownload the notebook\nPredict → Run → Modify → Explain → Build → Test\n\nEvidence\n\n\n\nWeekly Quiz\nStart Week 5 Quiz\n\n\nLab Evidence\nSubmit Lab Evidence\n\n\nExit Ticket\nComplete Exit Ticket",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 5 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\ninput/output reasoning;\ninput() and prompts;\nconversion with int() and float();\nsemantic variable names after conversion;\nformatted output;\ninput → computation → output structure;\ndebugging conversion failures;\nindependent lab evidence.\n\n\n\n\n\n\n\nNoteRead the program as a sentence\n\n\n\nquantity = int(input(\"Quantity: \"))\nunit_price = float(input(\"Unit price: \"))\n\ntotal_price = quantity * unit_price\n\nprint(f\"Total price: {total_price:.2f}\")\nThe names show what each value means. The blank line separates input, computation, and output without adding new syntax.\n\n\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 5 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
@@ -1221,7 +1045,7 @@
     "href": "weeks/week05.html#after-class",
     "title": "Week 5 — Programs That Interact",
     "section": "After class",
-    "text": "After class\nOpen Week 5 Homework in Colab\nDownload the homework notebook\nSubmit Week 5 Homework\n\n\n\n\n\n\nNoteMidterm connection\n\n\n\nThis week develops two skills that may be assessed in the midterm:\n\ndesigning an Input–Process–Output structure;\nconverting interactive input into a usable representation before calculation.",
+    "text": "After class\nOpen Week 5 Homework in Colab\nDownload the homework notebook\nSubmit Week 5 Homework",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
@@ -1243,7 +1067,7 @@
     "href": "weeks/week05.html#portfolio-evidence-this-week",
     "title": "Week 5 — Programs That Interact",
     "section": "Portfolio evidence this week",
-    "text": "Portfolio evidence this week\n\nREP\nTRC\nPRECISION\nDBG\nTRN",
+    "text": "Portfolio evidence this week\n\nREP — Representation\nTRC — Tracing\nPRECISION — Executable precision\nDBG — Input/conversion debugging\nTRN — Transfer",
     "crumbs": [
       "Part I — Computational Grammar",
       "Week 5 — Programs That Interact"
@@ -1265,7 +1089,7 @@
     "href": "weeks/week07.html#coverage",
     "title": "Week 7 — Midterm Examination",
     "section": "Coverage",
-    "text": "Coverage\nThe examination covers the material developed in Weeks 1–6:\n\nproblem solving, algorithms, and Input → Process → Output;\nexecutable Python statements and tracing;\nvariables and data types;\noperators and expressions;\ninput, output, and type conversion;\ncomparisons and conditional logic;\ntesting, debugging, and boundary reasoning.",
+    "text": "Coverage\nThe examination covers the material developed in Weeks 1–6:\n\nproblem solving, algorithms, and Input → Process → Output;\nexecutable Python statements and tracing;\nvariables, meaningful names, and data types;\noperators and readable expressions;\ninput, output, and type conversion;\ncomparisons and conditional logic;\ntesting, debugging, and boundary reasoning.",
     "crumbs": [
       "Checkpoint",
       "Week 7 — Midterm Examination"
@@ -1298,51 +1122,40 @@
     "href": "weeks/week09.html",
     "title": "Week 9 — Patterns inside Patterns",
     "section": "",
-    "text": "Some problems repeat at two levels: days inside branches, products inside categories, seats inside rows.\n\nWhat changes when one repeated process contains another repeated process?\n\n\n\n\ntrace nested loops;\ndistinguish outer-loop state from inner-loop state;\ndecide where an accumulator should be initialized;\nexplain how overwrite and reset errors change results;\nverify multi-level repetition with a small hand-worked case.",
+    "text": "TipThis week’s central question\n\n\n\nWhat changes when one repeated process contains another repeated process?",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
     ]
   },
   {
-    "objectID": "weeks/week09.html#todays-problem",
-    "href": "weeks/week09.html#todays-problem",
+    "objectID": "weeks/week09.html#learning-goals",
+    "href": "weeks/week09.html#learning-goals",
     "title": "Week 9 — Patterns inside Patterns",
-    "section": "",
-    "text": "Some problems repeat at two levels: days inside branches, products inside categories, seats inside rows.\n\nWhat changes when one repeated process contains another repeated process?\n\n\n\n\ntrace nested loops;\ndistinguish outer-loop state from inner-loop state;\ndecide where an accumulator should be initialized;\nexplain how overwrite and reset errors change results;\nverify multi-level repetition with a small hand-worked case.",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ntrace nested loops;\ndistinguish outer-loop state from inner-loop state;\ndecide where an accumulator should be initialized;\nuse names such as branch_total and company_total to make state scope visible;\nexplain reset, accumulation, and overwrite errors;\nverify multi-level repetition with a small hand-worked case.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
     ]
   },
   {
-    "objectID": "weeks/week09.html#open-the-notebooks",
-    "href": "weeks/week09.html#open-the-notebooks",
+    "objectID": "weeks/week09.html#connection",
+    "href": "weeks/week09.html#connection",
     "title": "Week 9 — Patterns inside Patterns",
-    "section": "Open the notebooks",
-    "text": "Open the notebooks\nOpen Week 9 Student Notebook in Colab\nDownload Student Notebook\nOpen Week 9 Homework Notebook in Colab\nDownload Homework Notebook",
+    "section": "Connection",
+    "text": "Connection\nWeek 8 introduced repeated state. Week 9 introduces state at more than one level.\nNames now do conceptual work: branch_total describes state that resets for each branch, while company_total describes state that survives across branches.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
     ]
   },
   {
-    "objectID": "weeks/week09.html#part-a-core-concept",
-    "href": "weeks/week09.html#part-a-core-concept",
+    "objectID": "weeks/week09.html#in-class",
+    "href": "weeks/week09.html#in-class",
     "title": "Week 9 — Patterns inside Patterns",
-    "section": "Part A — Core concept",
-    "text": "Part A — Core concept\nfor branch in range(1, 3):\n    print(\"Branch\", branch)\n\n    for day in range(1, 4):\n        print(\"  Day\", day)\nBefore running, predict how many times the inner print() runs.",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 9 — Patterns inside Patterns"
-    ]
-  },
-  {
-    "objectID": "weeks/week09.html#state-at-two-levels",
-    "href": "weeks/week09.html#state-at-two-levels",
-    "title": "Week 9 — Patterns inside Patterns",
-    "section": "State at two levels",
-    "text": "State at two levels\ncompany_total = 0\n\nfor branch in range(1, 3):\n    branch_total = 0\n\n    for day in range(1, 4):\n        sale = float(input(\"Sale: \"))\n        branch_total += sale\n\n    company_total += branch_total\n\nprint(\"Company total:\", company_total)\nExplain why branch_total = 0 belongs inside the outer loop but company_total = 0 belongs before it.",
+    "section": "In class",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 9 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nnested-loop tracing;\ninner and outer state;\nreset boundaries;\ntwo-level accumulators;\ndouble counting;\noverwrite versus accumulation;\nAI verification;\nindependent multi-level build.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
@@ -1353,7 +1166,7 @@
     "href": "weeks/week09.html#debug-this",
     "title": "Week 9 — Patterns inside Patterns",
     "section": "Debug This",
-    "text": "Debug This\nWhat happens if branch_total = 0 is moved above both loops? What information is lost?",
+    "text": "Debug This\nAn assistant moved branch_total = 0 outside the outer loop:\ncompany_total = 0\nbranch_total = 0\n\nfor branch in range(1, 3):\n    for day in range(1, 4):\n        daily_sales = float(input(\"Sales: \"))\n        branch_total += daily_sales\n\n    company_total += branch_total\n\nprint(f\"Company total: {company_total:.2f}\")\nUse:\n\nBranch 1: 100, 120, 80\nBranch 2: 90, 110, 130\n\nDo not run yet.\n\nPredict the final value of company_total.\nTrace branch_total after each branch.\nExplain why the result becomes 930 instead of 630.\nIdentify which state must reset for each branch.\n\nThe problem is state leakage and double counting, not information loss.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
@@ -1364,51 +1177,40 @@
     "href": "weeks/week09.html#ai-verify",
     "title": "Week 9 — Patterns inside Patterns",
     "section": "AI Verify",
-    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid and produces plausible output.\nDo not run it immediately. First decide what you expect it to do.\n\n\nScenario: A company has two branches. Each branch reports three daily sales values. The program should calculate the total across both branches.\nAn AI assistant wrote:\ncompany_total = 0\n\nfor branch in range(1, 3):\n    branch_total = 0\n\n    for day in range(1, 4):\n        sale = float(input(\"Sale: \"))\n        branch_total += sale\n\n    company_total = branch_total\n\nprint(\"Company total:\", company_total)\nSample case: Branch 1: 100, 120, 80; Branch 2: 90, 110, 130. Correct company total: 630.\nYour verification sequence:\n\nPredict — What value do you think company_total will contain after the second branch?\nRun — Run the code with the sample values.\nDiagnose — Explain why assignment overwrites prior branch information.\nFix & verify — Repair the outer accumulation and verify with a second two-branch case.\n\nThis is not a prompting exercise. The target skill is verification of executable logic.",
+    "text": "AI Verify\nNow examine a different silent bug:\ncompany_total = 0\n\nfor branch in range(1, 3):\n    branch_total = 0\n\n    for day in range(1, 4):\n        daily_sales = float(input(\"Sales: \"))\n        branch_total += daily_sales\n\n    company_total = branch_total\n\nprint(f\"Company total: {company_total:.2f}\")\nWith the same values, the correct total is 630.\n\nPredict the final value.\nRun the program.\nDiagnose why assignment overwrites prior branch information.\nFix & verify by accumulating rather than replacing.\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 9 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
     ]
   },
   {
-    "objectID": "weeks/week09.html#domain-application",
-    "href": "weeks/week09.html#domain-application",
+    "objectID": "weeks/week09.html#after-class",
+    "href": "weeks/week09.html#after-class",
     "title": "Week 9 — Patterns inside Patterns",
-    "section": "Domain application",
-    "text": "Domain application\nCreate a small 2 departments × 4 weeks workload calculator. For each department:\n\nread four weekly workload values;\nprint the department total;\nadd it to an organization total.",
+    "section": "After class",
+    "text": "After class\nOpen Week 9 Homework in Colab\nDownload the homework notebook\nSubmit Week 9 Homework",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
     ]
   },
   {
-    "objectID": "weeks/week09.html#independent-check-lab-evidence",
-    "href": "weeks/week09.html#independent-check-lab-evidence",
+    "objectID": "weeks/week09.html#concepts-to-keep",
+    "href": "weeks/week09.html#concepts-to-keep",
     "title": "Week 9 — Patterns inside Patterns",
-    "section": "Independent check / Lab Evidence",
-    "text": "Independent check / Lab Evidence\nBuild a 3 products × 2 months sales tracker.\nRequired evidence:\n\na trace for one product;\ncorrect placement of both accumulators;\none manual total;\nAI Verify diagnosis and repaired code.",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nnested loop;\nouter loop;\ninner loop;\nstate;\nreset;\naccumulator;\noverwrite;\nscope;\nverification.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
     ]
   },
   {
-    "objectID": "weeks/week09.html#weekly-evidence",
-    "href": "weeks/week09.html#weekly-evidence",
+    "objectID": "weeks/week09.html#portfolio-evidence-this-week",
+    "href": "weeks/week09.html#portfolio-evidence-this-week",
     "title": "Week 9 — Patterns inside Patterns",
-    "section": "Weekly evidence",
-    "text": "Weekly evidence\nComplete these after the corresponding activities:\n\nWeekly Quiz\nLab Evidence\nExit Ticket\nHomework Submission",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 9 — Patterns inside Patterns"
-    ]
-  },
-  {
-    "objectID": "weeks/week09.html#homework",
-    "href": "weeks/week09.html#homework",
-    "title": "Week 9 — Patterns inside Patterns",
-    "section": "Homework",
-    "text": "Homework\nBuild a 2 stores × 5 days transaction-count program. Print:\n\neach store total;\ncompany total;\ncompany average per store.\n\nAdd a short explanation of why the two accumulators are initialized in different places.",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nTRC — Tracing\nCTL — Control flow\nDBG — State/debug reasoning\nTRN — Transfer",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 9 — Patterns inside Patterns"
@@ -1419,73 +1221,51 @@
     "href": "weeks/week11.html",
     "title": "Week 11 — Working with Many Things at Once",
     "section": "",
-    "text": "Until now, many values were stored in separate variables.\n\nWhat if the program needs to treat many related values as one collection?\n\n\n\n\ncreate and inspect a list;\nuse indexes;\nappend new values;\niterate over a list;\ncompute aggregate information;\nexplain why mutating a list while iterating can skip data.",
+    "text": "TipThis week’s central question\n\n\n\nWhat if a program needs to treat many related values as one collection?",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
     ]
   },
   {
-    "objectID": "weeks/week11.html#todays-problem",
-    "href": "weeks/week11.html#todays-problem",
+    "objectID": "weeks/week11.html#learning-goals",
+    "href": "weeks/week11.html#learning-goals",
     "title": "Week 11 — Working with Many Things at Once",
-    "section": "",
-    "text": "Until now, many values were stored in separate variables.\n\nWhat if the program needs to treat many related values as one collection?\n\n\n\n\ncreate and inspect a list;\nuse indexes;\nappend new values;\niterate over a list;\ncompute aggregate information;\nexplain why mutating a list while iterating can skip data.",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ncreate, inspect, and update a list;\nuse indexes when position genuinely matters;\niterate directly over list values when position does not matter;\nbuild aggregate information from a collection;\nprefer producing a new filtered collection when the original should remain stable;\nexplain why mutating a list while iterating can skip data;\ncompare an explicit filtering loop with a compact Python expression after understanding the algorithm.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
     ]
   },
   {
-    "objectID": "weeks/week11.html#open-the-notebooks",
-    "href": "weeks/week11.html#open-the-notebooks",
+    "objectID": "weeks/week11.html#connection",
+    "href": "weeks/week11.html#connection",
     "title": "Week 11 — Working with Many Things at Once",
-    "section": "Open the notebooks",
-    "text": "Open the notebooks\nOpen Week 11 Student Notebook in Colab\nDownload Student Notebook\nOpen Week 11 Homework Notebook in Colab\nDownload Homework Notebook",
+    "section": "Connection",
+    "text": "Connection\nWeek 8 taught repetition; Week 11 gives repetition a collection to work on.\nThe default pattern is value-oriented: read from an input collection and produce a result, rather than changing the collection underneath the loop.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
     ]
   },
   {
-    "objectID": "weeks/week11.html#part-a-core-concept",
-    "href": "weeks/week11.html#part-a-core-concept",
+    "objectID": "weeks/week11.html#in-class",
+    "href": "weeks/week11.html#in-class",
     "title": "Week 11 — Working with Many Things at Once",
-    "section": "Part A — Core concept",
-    "text": "Part A — Core concept\nsales = [120, 95, 130, 80]\n\nprint(sales[0])\nprint(len(sales))\nPredict each output before running.",
+    "section": "In class",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 11 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nlist creation and indexing;\ndirect iteration over values;\nappend and aggregation;\nfiltering into a new list;\nmutation hazards;\nexplicit loop first, compact Python form second;\nAI verification of mutation while iterating;\nindependent collection analysis.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
     ]
   },
   {
-    "objectID": "weeks/week11.html#iterate-over-values",
-    "href": "weeks/week11.html#iterate-over-values",
+    "objectID": "weeks/week11.html#from-visible-algorithm-to-idiomatic-python",
+    "href": "weeks/week11.html#from-visible-algorithm-to-idiomatic-python",
     "title": "Week 11 — Working with Many Things at Once",
-    "section": "Iterate over values",
-    "text": "Iterate over values\ntotal = 0\n\nfor sale in sales:\n    total += sale\n\nprint(total)\nCompare this with Week 8’s counter-controlled loop.",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 11 — Working with Many Things at Once"
-    ]
-  },
-  {
-    "objectID": "weeks/week11.html#modify-a-collection",
-    "href": "weeks/week11.html#modify-a-collection",
-    "title": "Week 11 — Working with Many Things at Once",
-    "section": "Modify a collection",
-    "text": "Modify a collection\nsales.append(105)\nWhat changed: the variable name, the list object, or both?",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 11 — Working with Many Things at Once"
-    ]
-  },
-  {
-    "objectID": "weeks/week11.html#debug-this",
-    "href": "weeks/week11.html#debug-this",
-    "title": "Week 11 — Working with Many Things at Once",
-    "section": "Debug This",
-    "text": "Debug This\nscores = [40, 75, 55, 90]\nfor score in scores:\n    if score &lt; 60:\n        scores.remove(score)\nDo not repair it yet. First decide whether changing the collection during iteration is safe.",
+    "section": "From visible algorithm to idiomatic Python",
+    "text": "From visible algorithm to idiomatic Python\nFirst make the algorithm visible:\nhigh_scores = []\n\nfor score in scores:\n    if score &gt;= threshold:\n        high_scores.append(score)\nAfter you can explain that algorithm, Python also allows:\nhigh_scores = [\n    score\n    for score in scores\n    if score &gt;= threshold\n]\nThe shorter form is not automatically better. Use it only when it remains easy to read.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
@@ -1496,51 +1276,40 @@
     "href": "weeks/week11.html#ai-verify",
     "title": "Week 11 — Working with Many Things at Once",
     "section": "AI Verify",
-    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid and produces plausible output.\nDo not run it immediately. First decide what you expect it to do.\n\n\nScenario: A customer-feedback list should remove all scores below 5 before later analysis.\nAn AI assistant wrote:\ndef remove_low_scores(scores, threshold):\n    for score in scores:\n        if score &lt; threshold:\n            scores.remove(score)\n    return scores\nSample case: scores = [2, 3, 8, 9, 7, 9], threshold = 5. Correct cleaned list: [8, 9, 7, 9].\nYour verification sequence:\n\nPredict — Which values do you expect to remain?\nRun — Run the function on a copy of the sample list.\nDiagnose — Explain why removing 2 changes what the loop sees next.\nFix & verify — Repair without mutating the list during iteration and verify with adjacent low values.\n\nThis is not a prompting exercise. The target skill is verification of executable logic.",
+    "text": "AI Verify\ndef remove_low_scores(scores, threshold):\n    \"\"\"Return scores after removing values below the threshold.\"\"\"\n    for score in scores:\n        if score &lt; threshold:\n            scores.remove(score)\n\n    return scores\nFor scores = [2, 3, 8, 9, 7, 9] and threshold = 5, the correct result is [8, 9, 7, 9].\n\nPredict which values should remain.\nRun the function on a copy of the list.\nDiagnose why removing 2 changes what the loop sees next.\nFix & verify by returning a new filtered list.\n\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 11 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
     ]
   },
   {
-    "objectID": "weeks/week11.html#domain-application",
-    "href": "weeks/week11.html#domain-application",
+    "objectID": "weeks/week11.html#after-class",
+    "href": "weeks/week11.html#after-class",
     "title": "Week 11 — Working with Many Things at Once",
-    "section": "Domain application",
-    "text": "Domain application\nGiven:\ndaily_sales = [420, 510, 390, 610, 570]\nproduce:\n\ntotal;\naverage;\nhighest value;\na new list containing values at least 500.",
+    "section": "After class",
+    "text": "After class\nOpen Week 11 Homework in Colab\nDownload the homework notebook\nSubmit Week 11 Homework",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
     ]
   },
   {
-    "objectID": "weeks/week11.html#independent-check-lab-evidence",
-    "href": "weeks/week11.html#independent-check-lab-evidence",
+    "objectID": "weeks/week11.html#concepts-to-keep",
+    "href": "weeks/week11.html#concepts-to-keep",
     "title": "Week 11 — Working with Many Things at Once",
-    "section": "Independent check / Lab Evidence",
-    "text": "Independent check / Lab Evidence\nCreate a list-based satisfaction analysis:\nscores = [7, 4, 9, 6, 3, 8, 10]\nProduce:\n\ncount;\naverage;\nhigh-score list (&gt;= 8);\none explicit manual verification;\nAI Verify evidence.",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nlist;\nindex;\nappend();\niteration;\nfiltering;\nmutation;\nnew collection;\naggregation;\nverification.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
     ]
   },
   {
-    "objectID": "weeks/week11.html#weekly-evidence",
-    "href": "weeks/week11.html#weekly-evidence",
+    "objectID": "weeks/week11.html#portfolio-evidence-this-week",
+    "href": "weeks/week11.html#portfolio-evidence-this-week",
     "title": "Week 11 — Working with Many Things at Once",
-    "section": "Weekly evidence",
-    "text": "Weekly evidence\nComplete these after the corresponding activities:\n\nWeekly Quiz\nLab Evidence\nExit Ticket\nHomework Submission",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 11 — Working with Many Things at Once"
-    ]
-  },
-  {
-    "objectID": "weeks/week11.html#homework",
-    "href": "weeks/week11.html#homework",
-    "title": "Week 11 — Working with Many Things at Once",
-    "section": "Homework",
-    "text": "Homework\nBuild a simple inventory list application:\n\nstart with five stock counts;\nappend a sixth;\ncompute total units;\ncreate a new list of counts below a reorder threshold;\nexplain why building a new filtered list is safer than removing while iterating.",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nREP — Representation\nTRC — Tracing\nDBG — Collection/debug reasoning\nTRN — Transfer",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 11 — Working with Many Things at Once"
@@ -1551,62 +1320,40 @@
     "href": "weeks/week13.html",
     "title": "Week 13 — When Programs Go Wrong",
     "section": "",
-    "text": "A program can fail in several different ways:\n\nit may not parse;\nit may crash while running;\nit may run and produce the wrong result.\n\n\nHow do we identify the failure mode before trying to repair it?\n\n\n\n\ndistinguish syntax, runtime, and logic errors;\nread an exception message;\nuse targeted try/except;\navoid hiding programming errors;\nverify that error handling preserves useful failure information.",
+    "text": "TipThis week’s central question\n\n\n\nHow do we identify the failure mode before trying to repair it?",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"
     ]
   },
   {
-    "objectID": "weeks/week13.html#todays-problem",
-    "href": "weeks/week13.html#todays-problem",
+    "objectID": "weeks/week13.html#learning-goals",
+    "href": "weeks/week13.html#learning-goals",
     "title": "Week 13 — When Programs Go Wrong",
-    "section": "",
-    "text": "A program can fail in several different ways:\n\nit may not parse;\nit may crash while running;\nit may run and produce the wrong result.\n\n\nHow do we identify the failure mode before trying to repair it?\n\n\n\n\ndistinguish syntax, runtime, and logic errors;\nread an exception message;\nuse targeted try/except;\navoid hiding programming errors;\nverify that error handling preserves useful failure information.",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of this week, you should be able to:\n\ndistinguish syntax, runtime, and logic errors;\nread an exception message before changing code;\nuse targeted try/except blocks at appropriate program boundaries;\ncatch the specific failure you expect rather than every possible exception;\navoid converting unexpected programming errors into plausible output;\ntest both valid and invalid cases.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"
     ]
   },
   {
-    "objectID": "weeks/week13.html#open-the-notebooks",
-    "href": "weeks/week13.html#open-the-notebooks",
+    "objectID": "weeks/week13.html#connection",
+    "href": "weeks/week13.html#connection",
     "title": "Week 13 — When Programs Go Wrong",
-    "section": "Open the notebooks",
-    "text": "Open the notebooks\nOpen Week 13 Student Notebook in Colab\nDownload Student Notebook\nOpen Week 13 Homework Notebook in Colab\nDownload Homework Notebook",
+    "section": "Connection",
+    "text": "Connection\nEarlier weeks treated debugging as a recurring activity. Week 13 makes failure classification explicit.\nGood error handling is precise: it handles an expected failure without hiding a different one.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"
     ]
   },
   {
-    "objectID": "weeks/week13.html#part-a-classify-the-failure",
-    "href": "weeks/week13.html#part-a-classify-the-failure",
+    "objectID": "weeks/week13.html#in-class",
+    "href": "weeks/week13.html#in-class",
     "title": "Week 13 — When Programs Go Wrong",
-    "section": "Part A — Classify the failure",
-    "text": "Part A — Classify the failure\nFor each case, decide:\n\nsyntax error;\nruntime error;\nlogic error.\n\nprint(\"Hello\"\nvalue = int(\"twelve\")\naverage = total / 4   # but there are five observations",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 13 — When Programs Go Wrong"
-    ]
-  },
-  {
-    "objectID": "weeks/week13.html#targeted-exception-handling",
-    "href": "weeks/week13.html#targeted-exception-handling",
-    "title": "Week 13 — When Programs Go Wrong",
-    "section": "Targeted exception handling",
-    "text": "Targeted exception handling\ntry:\n    quantity = int(input(\"Quantity: \"))\nexcept ValueError:\n    print(\"Please enter a whole number.\")\nThe exception type is part of the program’s reasoning.",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 13 — When Programs Go Wrong"
-    ]
-  },
-  {
-    "objectID": "weeks/week13.html#debug-this",
-    "href": "weeks/week13.html#debug-this",
-    "title": "Week 13 — When Programs Go Wrong",
-    "section": "Debug This",
-    "text": "Debug This\ntry:\n    result = 10 / user_value\nexcept:\n    result = 0\nWhat useful information might this hide?",
+    "section": "In class",
+    "text": "In class\n\nOpen the student notebook\nOpen Week 13 Student Notebook in Colab\nDownload the notebook\nYou will repeatedly use:\nPredict → Run → Modify → Explain → Build → Test\nThe class includes:\n\nsyntax, runtime, and logic classification;\nreading exception types;\ntargeted exception handling;\ninput-boundary validation;\navoiding bare except;\npreserving unexpected failures;\nAI verification of misleading ‘safe’ code;\nmulti-case testing.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"
@@ -1617,51 +1364,40 @@
     "href": "weeks/week13.html#ai-verify",
     "title": "Week 13 — When Programs Go Wrong",
     "section": "AI Verify",
-    "text": "AI Verify\n\n\n\n\n\n\nWarningVerification rule\n\n\n\nThe code below is syntactically valid and produces plausible output.\nDo not run it immediately. First decide what you expect it to do.\n\n\nScenario: A helper function should handle division by zero without hiding unrelated programming errors.\nAn AI assistant wrote:\ndef safe_divide(a, b):\n    try:\n        return a / b\n    except:\n        return 0\nSample case: Test safe_divide(10, 2), safe_divide(10, 0), and safe_divide(10, 'two').\nYour verification sequence:\n\nPredict — What should each test reveal about the function?\nRun — Run all three calls.\nDiagnose — Explain why returning 0 for every exception can make a real programming error look like a valid result.\nFix & verify — Catch only the intended exception and verify that the wrong-type case is no longer silently swallowed.\n\nThis is not a prompting exercise. The target skill is verification of executable logic.",
+    "text": "AI Verify\ndef safe_divide(numerator, denominator):\n    \"\"\"Return a quotient while handling division by zero.\"\"\"\n    try:\n        return numerator / denominator\n    except:\n        return 0\nTest:\n\nsafe_divide(10, 2)\nsafe_divide(10, 0)\nsafe_divide(10, \"two\")\n\n\nPredict what each call should tell you.\nRun all three.\nDiagnose why returning 0 for every exception hides real programming errors.\nFix & verify by catching only ZeroDivisionError.\n\nThe goal is not “never crash.” The goal is to handle the failure you understand without concealing failures you did not intend.\n\nEvidence tasks\n\n\n\nWeekly Quiz\nIndividual retrieval and diagnostic check.\nStart Week 13 Quiz\n\n\nLab Evidence\nSubmit the selected in-class evidence task.\nSubmit Lab Evidence\n\n\nExit Ticket\nConcept check, difficulty signal, and confidence rating.\nComplete Exit Ticket",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"
     ]
   },
   {
-    "objectID": "weeks/week13.html#domain-application",
-    "href": "weeks/week13.html#domain-application",
+    "objectID": "weeks/week13.html#after-class",
+    "href": "weeks/week13.html#after-class",
     "title": "Week 13 — When Programs Go Wrong",
-    "section": "Domain application",
-    "text": "Domain application\nBuild a small numeric-input function that:\n\nrequests a quantity;\nconverts it to an integer;\nhandles invalid integer text;\ndoes not use a bare except.",
+    "section": "After class",
+    "text": "After class\nOpen Week 13 Homework in Colab\nDownload the homework notebook\nSubmit Week 13 Homework",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"
     ]
   },
   {
-    "objectID": "weeks/week13.html#independent-check-lab-evidence",
-    "href": "weeks/week13.html#independent-check-lab-evidence",
+    "objectID": "weeks/week13.html#concepts-to-keep",
+    "href": "weeks/week13.html#concepts-to-keep",
     "title": "Week 13 — When Programs Go Wrong",
-    "section": "Independent check / Lab Evidence",
-    "text": "Independent check / Lab Evidence\nYou are given three broken programs:\n\none syntax failure;\none runtime conversion failure;\none silent logic failure.\n\nFor each:\n\nclassify;\ndiagnose;\nrepair;\nverify.\n\nInclude the AI Verify evidence in your submission.",
+    "section": "Concepts to keep",
+    "text": "Concepts to keep\n\nsyntax error;\nruntime error;\nlogic error;\nexception;\ntry;\nexcept;\nValueError;\nZeroDivisionError;\nfailure visibility;\nverification.",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"
     ]
   },
   {
-    "objectID": "weeks/week13.html#weekly-evidence",
-    "href": "weeks/week13.html#weekly-evidence",
+    "objectID": "weeks/week13.html#portfolio-evidence-this-week",
+    "href": "weeks/week13.html#portfolio-evidence-this-week",
     "title": "Week 13 — When Programs Go Wrong",
-    "section": "Weekly evidence",
-    "text": "Weekly evidence\nComplete these after the corresponding activities:\n\nWeekly Quiz\nLab Evidence\nExit Ticket\nHomework Submission",
-    "crumbs": [
-      "Part II — Computational Composition",
-      "Week 13 — When Programs Go Wrong"
-    ]
-  },
-  {
-    "objectID": "weeks/week13.html#homework",
-    "href": "weeks/week13.html#homework",
-    "title": "Week 13 — When Programs Go Wrong",
-    "section": "Homework",
-    "text": "Homework\nBuild a robust unit-price calculator that:\n\nrequests quantity and unit price;\nhandles invalid numeric input using targeted exception types;\ncalculates total when inputs are valid;\nincludes three test cases;\nexplains why “does not crash” is not the same as “correctly handles errors.”",
+    "section": "Portfolio evidence this week",
+    "text": "Portfolio evidence this week\n\nDBG — Debugging\nTRC — Tracing\nPRECISION — Precise failure handling\nTRN — Transfer",
     "crumbs": [
       "Part II — Computational Composition",
       "Week 13 — When Programs Go Wrong"

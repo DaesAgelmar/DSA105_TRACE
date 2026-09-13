@@ -1,157 +1,139 @@
 ---
 title: "Week 13 — When Programs Go Wrong"
-subtitle: "Errors · Exceptions · Debugging and Verification"
+subtitle: "Syntax, runtime, and logic errors; specific exceptions; preserving useful failures"
 ---
 
-## Today’s problem
+::: {.callout-tip}
+## This week's central question
 
-A program can fail in several different ways:
+**How do we identify the failure mode before trying to repair it?**
+:::
 
-- it may not parse;
-- it may crash while running;
-- it may run and produce the wrong result.
+## Learning goals
 
-> **How do we identify the failure mode before trying to repair it?**
+By the end of this week, you should be able to:
 
-### Learning goals
+1. distinguish syntax, runtime, and logic errors;
+2. read an exception message before changing code;
+3. use targeted `try/except` blocks at appropriate program boundaries;
+4. catch the specific failure you expect rather than every possible exception;
+5. avoid converting unexpected programming errors into plausible output;
+6. test both valid and invalid cases.
 
-- distinguish syntax, runtime, and logic errors;
-- read an exception message;
-- use targeted `try/except`;
-- avoid hiding programming errors;
-- verify that error handling preserves useful failure information.
+## Connection
 
+Earlier weeks treated debugging as a recurring activity. Week 13 makes failure classification explicit.
 
-## Open the notebooks
+Good error handling is precise: it handles an expected failure without hiding a different one.
 
-[Open Week 13 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week13/DSA105_W13_Student.ipynb){.btn .btn-primary}
-
-[Download Student Notebook](../notebooks/week13/DSA105_W13_Student.ipynb){.btn .btn-outline-primary}
-
-[Open Week 13 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week13/DSA105_W13_Homework.ipynb){.btn .btn-secondary}
-
-[Download Homework Notebook](../notebooks/week13/DSA105_W13_Homework.ipynb){.btn .btn-outline-secondary}
+## In class
 
 
-## Part A — Classify the failure
+### Open the student notebook
 
-For each case, decide:
+[Open Week 13 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week13/DSA105_W13_Student.ipynb){.btn .btn-primary}
 
-- syntax error;
-- runtime error;
-- logic error.
+[Download the notebook](../notebooks/week13/DSA105_W13_Student.ipynb)
 
-```python
-print("Hello"
-```
 
-```python
-value = int("twelve")
-```
+You will repeatedly use:
 
-```python
-average = total / 4   # but there are five observations
-```
+**Predict → Run → Modify → Explain → Build → Test**
 
-## Targeted exception handling
+The class includes:
 
-```python
-try:
-    quantity = int(input("Quantity: "))
-except ValueError:
-    print("Please enter a whole number.")
-```
-
-The exception type is part of the program's reasoning.
-
-## Debug This
-
-```python
-try:
-    result = 10 / user_value
-except:
-    result = 0
-```
-
-What useful information might this hide?
-
+- syntax, runtime, and logic classification;
+- reading exception types;
+- targeted exception handling;
+- input-boundary validation;
+- avoiding bare `except`;
+- preserving unexpected failures;
+- AI verification of misleading 'safe' code;
+- multi-case testing.
 
 ## AI Verify
 
-::: {.callout-warning}
-### Verification rule
-
-The code below is syntactically valid and produces plausible output.  
-**Do not run it immediately.** First decide what you expect it to do.
-:::
-
-**Scenario:** A helper function should handle division by zero without hiding unrelated programming errors.
-
-**An AI assistant wrote:**
-
 ```python
-def safe_divide(a, b):
+def safe_divide(numerator, denominator):
+    """Return a quotient while handling division by zero."""
     try:
-        return a / b
+        return numerator / denominator
     except:
         return 0
 ```
 
-**Sample case:** Test `safe_divide(10, 2)`, `safe_divide(10, 0)`, and `safe_divide(10, 'two')`.
+Test:
 
-Your verification sequence:
+- `safe_divide(10, 2)`
+- `safe_divide(10, 0)`
+- `safe_divide(10, "two")`
 
-1. **Predict** — What should each test reveal about the function?
-2. **Run** — Run all three calls.
-3. **Diagnose** — Explain why returning `0` for every exception can make a real programming error look like a valid result.
-4. **Fix & verify** — Catch only the intended exception and verify that the wrong-type case is no longer silently swallowed.
+1. **Predict** what each call should tell you.
+2. **Run** all three.
+3. **Diagnose** why returning `0` for every exception hides real programming errors.
+4. **Fix & verify** by catching only `ZeroDivisionError`.
 
-This is not a prompting exercise. The target skill is **verification of executable logic**.
-
-
-## Domain application
-
-Build a small numeric-input function that:
-
-- requests a quantity;
-- converts it to an integer;
-- handles invalid integer text;
-- does **not** use a bare `except`.
-
-## Independent check / Lab Evidence
-
-You are given three broken programs:
-
-1. one syntax failure;
-2. one runtime conversion failure;
-3. one silent logic failure.
-
-For each:
-
-- classify;
-- diagnose;
-- repair;
-- verify.
-
-Include the AI Verify evidence in your submission.
+The goal is not “never crash.” The goal is to handle the failure you understand without concealing failures you did not intend.
 
 
-## Weekly evidence
 
-Complete these after the corresponding activities:
+### Evidence tasks
 
-- [Weekly Quiz]({{< var forms.week13.quiz >}})
-- [Lab Evidence]({{< var forms.week13.lab >}})
-- [Exit Ticket]({{< var forms.week13.exit >}})
-- [Homework Submission]({{< var forms.week13.homework >}})
+::: {.action-grid}
+
+::: {.action-card}
+### Weekly Quiz
+
+Individual retrieval and diagnostic check.
+
+[Start Week 13 Quiz]({{< var forms.week13.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week13.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week13.exit >}}){.btn .btn-primary}
+:::
+
+:::
 
 
-## Homework
 
-Build a robust unit-price calculator that:
+## After class
 
-- requests quantity and unit price;
-- handles invalid numeric input using targeted exception types;
-- calculates total when inputs are valid;
-- includes three test cases;
-- explains why “does not crash” is not the same as “correctly handles errors.”
+[Open Week 13 Homework in Colab]({{< var urls.colab >}}/notebooks/week13/DSA105_W13_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week13/DSA105_W13_Homework.ipynb)
+
+[Submit Week 13 Homework]({{< var forms.week13.homework >}}){.btn .btn-primary}
+
+
+## Concepts to keep
+
+- syntax error;
+- runtime error;
+- logic error;
+- exception;
+- `try`;
+- `except`;
+- `ValueError`;
+- `ZeroDivisionError`;
+- failure visibility;
+- verification.
+
+## Portfolio evidence this week
+
+- `DBG` — Debugging
+- `TRC` — Tracing
+- `PRECISION` — Precise failure handling
+- `TRN` — Transfer

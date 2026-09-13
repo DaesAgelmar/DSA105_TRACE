@@ -1,160 +1,158 @@
 ---
 title: "Week 11 — Working with Many Things at Once"
-subtitle: "Lists · Collections · Iteration over Many Values"
+subtitle: "Lists, iteration, filtering, mutation, and value-oriented transformations"
 ---
 
-## Today’s problem
+::: {.callout-tip}
+## This week's central question
 
-Until now, many values were stored in separate variables.
+**What if a program needs to treat many related values as one collection?**
+:::
 
-> **What if the program needs to treat many related values as one collection?**
+## Learning goals
 
-### Learning goals
+By the end of this week, you should be able to:
 
-- create and inspect a list;
-- use indexes;
-- append new values;
-- iterate over a list;
-- compute aggregate information;
-- explain why mutating a list while iterating can skip data.
+1. create, inspect, and update a list;
+2. use indexes when position genuinely matters;
+3. iterate directly over list values when position does not matter;
+4. build aggregate information from a collection;
+5. prefer producing a new filtered collection when the original should remain stable;
+6. explain why mutating a list while iterating can skip data;
+7. compare an explicit filtering loop with a compact Python expression after understanding the algorithm.
 
+## Connection
 
-## Open the notebooks
+Week 8 taught repetition; Week 11 gives repetition a collection to work on.
 
-[Open Week 11 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week11/DSA105_W11_Student.ipynb){.btn .btn-primary}
+The default pattern is value-oriented: read from an input collection and produce a result, rather than changing the collection underneath the loop.
 
-[Download Student Notebook](../notebooks/week11/DSA105_W11_Student.ipynb){.btn .btn-outline-primary}
-
-[Open Week 11 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week11/DSA105_W11_Homework.ipynb){.btn .btn-secondary}
-
-[Download Homework Notebook](../notebooks/week11/DSA105_W11_Homework.ipynb){.btn .btn-outline-secondary}
+## In class
 
 
-## Part A — Core concept
+### Open the student notebook
 
-```python
-sales = [120, 95, 130, 80]
+[Open Week 11 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week11/DSA105_W11_Student.ipynb){.btn .btn-primary}
 
-print(sales[0])
-print(len(sales))
-```
+[Download the notebook](../notebooks/week11/DSA105_W11_Student.ipynb)
 
-Predict each output before running.
 
-## Iterate over values
+You will repeatedly use:
 
-```python
-total = 0
+**Predict → Run → Modify → Explain → Build → Test**
 
-for sale in sales:
-    total += sale
+The class includes:
 
-print(total)
-```
+- list creation and indexing;
+- direct iteration over values;
+- append and aggregation;
+- filtering into a new list;
+- mutation hazards;
+- explicit loop first, compact Python form second;
+- AI verification of mutation while iterating;
+- independent collection analysis.
 
-Compare this with Week 8's counter-controlled loop.
+## From visible algorithm to idiomatic Python
 
-## Modify a collection
-
-```python
-sales.append(105)
-```
-
-What changed: the variable name, the list object, or both?
-
-## Debug This
+First make the algorithm visible:
 
 ```python
-scores = [40, 75, 55, 90]
+high_scores = []
+
 for score in scores:
-    if score < 60:
-        scores.remove(score)
+    if score >= threshold:
+        high_scores.append(score)
 ```
 
-Do not repair it yet. First decide whether changing the collection during iteration is safe.
+After you can explain that algorithm, Python also allows:
 
+```python
+high_scores = [
+    score
+    for score in scores
+    if score >= threshold
+]
+```
+
+The shorter form is not automatically better. Use it only when it remains easy to read.
 
 ## AI Verify
 
-::: {.callout-warning}
-### Verification rule
-
-The code below is syntactically valid and produces plausible output.  
-**Do not run it immediately.** First decide what you expect it to do.
-:::
-
-**Scenario:** A customer-feedback list should remove all scores below 5 before later analysis.
-
-**An AI assistant wrote:**
-
 ```python
 def remove_low_scores(scores, threshold):
+    """Return scores after removing values below the threshold."""
     for score in scores:
         if score < threshold:
             scores.remove(score)
+
     return scores
 ```
 
-**Sample case:** `scores = [2, 3, 8, 9, 7, 9]`, `threshold = 5`. Correct cleaned list: `[8, 9, 7, 9]`.
+For `scores = [2, 3, 8, 9, 7, 9]` and `threshold = 5`, the correct result is `[8, 9, 7, 9]`.
 
-Your verification sequence:
-
-1. **Predict** — Which values do you expect to remain?
-2. **Run** — Run the function on a copy of the sample list.
-3. **Diagnose** — Explain why removing `2` changes what the loop sees next.
-4. **Fix & verify** — Repair without mutating the list during iteration and verify with adjacent low values.
-
-This is not a prompting exercise. The target skill is **verification of executable logic**.
+1. **Predict** which values should remain.
+2. **Run** the function on a copy of the list.
+3. **Diagnose** why removing `2` changes what the loop sees next.
+4. **Fix & verify** by returning a new filtered list.
 
 
-## Domain application
 
-Given:
+### Evidence tasks
 
-```python
-daily_sales = [420, 510, 390, 610, 570]
-```
+::: {.action-grid}
 
-produce:
+::: {.action-card}
+### Weekly Quiz
 
-- total;
-- average;
-- highest value;
-- a new list containing values at least 500.
+Individual retrieval and diagnostic check.
 
-## Independent check / Lab Evidence
+[Start Week 11 Quiz]({{< var forms.week11.quiz >}}){.btn .btn-primary}
+:::
 
-Create a list-based satisfaction analysis:
+::: {.action-card}
+### Lab Evidence
 
-```python
-scores = [7, 4, 9, 6, 3, 8, 10]
-```
+Submit the selected in-class evidence task.
 
-Produce:
+[Submit Lab Evidence]({{< var forms.week11.lab >}}){.btn .btn-primary}
+:::
 
-- count;
-- average;
-- high-score list (`>= 8`);
-- one explicit manual verification;
-- AI Verify evidence.
+::: {.action-card}
+### Exit Ticket
 
+Concept check, difficulty signal, and confidence rating.
 
-## Weekly evidence
+[Complete Exit Ticket]({{< var forms.week11.exit >}}){.btn .btn-primary}
+:::
 
-Complete these after the corresponding activities:
-
-- [Weekly Quiz]({{< var forms.week11.quiz >}})
-- [Lab Evidence]({{< var forms.week11.lab >}})
-- [Exit Ticket]({{< var forms.week11.exit >}})
-- [Homework Submission]({{< var forms.week11.homework >}})
+:::
 
 
-## Homework
 
-Build a simple inventory list application:
+## After class
 
-- start with five stock counts;
-- append a sixth;
-- compute total units;
-- create a new list of counts below a reorder threshold;
-- explain why building a new filtered list is safer than removing while iterating.
+[Open Week 11 Homework in Colab]({{< var urls.colab >}}/notebooks/week11/DSA105_W11_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week11/DSA105_W11_Homework.ipynb)
+
+[Submit Week 11 Homework]({{< var forms.week11.homework >}}){.btn .btn-primary}
+
+
+## Concepts to keep
+
+- list;
+- index;
+- `append()`;
+- iteration;
+- filtering;
+- mutation;
+- new collection;
+- aggregation;
+- verification.
+
+## Portfolio evidence this week
+
+- `REP` — Representation
+- `TRC` — Tracing
+- `DBG` — Collection/debug reasoning
+- `TRN` — Transfer

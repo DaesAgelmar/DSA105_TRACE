@@ -1,156 +1,172 @@
 ---
 title: "Week 14 — Build, Test, Explain"
-subtitle: "Integration · Testing · Explanation · AI Verification"
+subtitle: "Integration, decomposition, readable Python, testing, and verification"
 ---
 
-## Final problem
+::: {.callout-tip}
+## This week's central question
 
-This week introduces no new programming structure.
-
-Instead, you must demonstrate that you can move through the full TRACE cycle:
-
-> **Think → Reason → Algorithm → Code → Execute → Verify → Explain**
-
-### Integration goals
-
-- decompose a small domain problem;
-- choose appropriate representations;
-- combine loops, functions, lists, files, and decisions when needed;
-- design tests before trusting output;
-- diagnose more than one logic defect;
-- explain why a solution is credible.
-
-
-## Open the notebooks
-
-[Open Week 14 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Student.ipynb){.btn .btn-primary}
-
-[Download Student Notebook](../notebooks/week14/DSA105_W14_Student.ipynb){.btn .btn-outline-primary}
-
-[Open Week 14 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Homework.ipynb){.btn .btn-secondary}
-
-[Download Homework Notebook](../notebooks/week14/DSA105_W14_Homework.ipynb){.btn .btn-outline-secondary}
-
-
-## Part A — Integration challenge
-
-Build a small analysis program from the following requirements:
-
-> A shop has a list of transaction values. Transactions above a threshold receive a configurable discount. The program should calculate the average final transaction value.
-
-Before code:
-
-1. define inputs;
-2. define the transformation;
-3. decide whether a function is useful;
-4. identify at least three test cases.
-
-## Explain before optimizing
-
-A correct solution that you can trace and defend is more valuable than a compact solution you cannot explain.
-
-## Debug This
-
-Find the conceptual problem:
-
-```python
-def average(values):
-    return sum(values) / 7
-```
-
-When is this correct? When is it silently wrong?
-
-
-## AI Verify
-
-::: {.callout-warning}
-### Verification rule
-
-The code below is syntactically valid and produces plausible output.  
-**Do not run it immediately.** First decide what you expect it to do.
+**Can you build a program whose logic another person can read, test, and trust?**
 :::
 
-**Scenario:** A function should apply a percentage discount only to prices above a threshold, then return the average adjusted price.
+## Learning goals
 
-**An AI assistant wrote:**
+By the end of this week, you should be able to:
+
+1. decompose a small domain problem into clear computational responsibilities;
+2. choose meaningful representations and names;
+3. combine decisions, loops, functions, collections, and files when appropriate;
+4. use concise docstrings for reusable functions;
+5. separate input/output from core transformations when practical;
+6. design tests before trusting output;
+7. diagnose multiple independent logic defects;
+8. explain why a solution is credible.
+
+## Connection
+
+Week 14 introduces no new syntax target. It integrates the shared Python form used throughout the course.
+
+The standard is now visible as one coherent habit: meaningful names, readable expressions, explicit state, small functions, concise documentation, limited mutation, specific error handling, and evidence from tests.
+
+## In class
+
+
+### Open the student notebook
+
+[Open Week 14 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week14/DSA105_W14_Student.ipynb){.btn .btn-primary}
+
+[Download the notebook](../notebooks/week14/DSA105_W14_Student.ipynb)
+
+
+You will repeatedly use:
+
+**Predict → Run → Modify → Explain → Build → Test**
+
+The class includes:
+
+- problem decomposition;
+- function composition;
+- collection transformation;
+- boundary cases;
+- manual and executable tests;
+- two-defect AI verification;
+- pair explanation;
+- portfolio close.
+
+## Integrated Python example
+
+```python
+def apply_discount(price, threshold, discount_rate):
+    """Return price after applying a discount above the threshold."""
+    if price > threshold:
+        return price * (1 - discount_rate)
+
+    return price
+
+
+def calculate_average(values):
+    """Return the arithmetic mean of a non-empty list."""
+    total = 0
+
+    for value in values:
+        total += value
+
+    return total / len(values)
+```
+
+The functions make the transformations independently testable and easy to compose.
+
+## AI Verify — two independent defects
 
 ```python
 def average_adjusted_price(prices, threshold, discount_rate):
-    adjusted = []
+    """Return the average price after applying an eligible discount."""
+    adjusted_prices = []
 
     for price in prices:
-        if price >= threshold:
-            adjusted.append(price - discount_rate)
+        if price > threshold:
+            adjusted_prices.append(price - discount_rate)
         else:
-            adjusted.append(price)
+            adjusted_prices.append(price)
 
-    total = 0
-    for i in range(len(adjusted) - 1):
-        total += adjusted[i]
+    total_adjusted_price = 0
 
-    return total / len(adjusted)
+    for index in range(len(adjusted_prices) - 1):
+        total_adjusted_price += adjusted_prices[index]
+
+    return total_adjusted_price / len(adjusted_prices)
 ```
 
-**Sample case:** `prices = [80, 120, 200, 100]`, `threshold = 100`, `discount_rate = 0.10`. Intended rule: discount only values strictly above 100 by 10%.
+Use `prices = [80, 120, 200, 100]`, `threshold = 100`, and `discount_rate = 0.10`.
 
-Your verification sequence:
+The intended rule is: values **strictly above** `100` receive a **10%** discount.
 
-1. **Predict** — Predict which values should be discounted and what conceptual operations are required.
-2. **Run** — Run the AI code and compare its result with a hand-worked result.
-3. **Diagnose** — Identify **two independent logic defects**: one in discount logic/meaning and one in accumulation.
-4. **Fix & verify** — Repair both defects and verify using a second case that includes a value exactly equal to the threshold.
-
-This is not a prompting exercise. The target skill is **verification of executable logic**.
-
-
-## Pair verification discussion
-
-Compare repair strategies with a partner:
-
-- Did you detect the same defects?
-- Which test case exposed each defect?
-- Could one test case miss a defect?
-- What evidence makes the corrected program trustworthy?
-
-## Independent integration / Lab Evidence
-
-Create a small **transaction analysis** program that:
-
-- uses at least one function;
-- processes a collection;
-- contains at least one decision;
-- produces a summary value;
-- includes three tests;
-- explains one potential silent logic error;
-- includes the Week 14 AI Verify diagnosis.
+1. **Predict** the correct adjusted values and average by hand.
+2. **Run** the AI-generated function.
+3. **Diagnose two independent defects**:
+   - the rate is treated as a flat amount rather than a proportion;
+   - the final adjusted value is omitted from the accumulated total.
+4. **Fix & verify** with a second case that contains a value exactly equal to the threshold.
 
 
-## Weekly evidence
 
-Complete these after the corresponding activities:
+### Evidence tasks
 
-- [Weekly Quiz]({{< var forms.week14.quiz >}})
-- [Lab Evidence]({{< var forms.week14.lab >}})
-- [Exit Ticket]({{< var forms.week14.exit >}})
-- [Homework Submission]({{< var forms.week14.homework >}})
+::: {.action-grid}
+
+::: {.action-card}
+### Weekly Quiz
+
+Individual retrieval and diagnostic check.
+
+[Start Week 14 Quiz]({{< var forms.week14.quiz >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Lab Evidence
+
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week14.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week14.exit >}}){.btn .btn-primary}
+:::
+
+:::
 
 
-## Exit reflection
 
-Complete:
+## After class
 
-> “I do not trust a program merely because it runs. I trust it more when …”
+[Open Week 14 Homework in Colab]({{< var urls.colab >}}/notebooks/week14/DSA105_W14_Homework.ipynb){.btn .btn-primary}
 
-## Homework / Portfolio close
+[Download the homework notebook](../notebooks/week14/DSA105_W14_Homework.ipynb)
 
-Submit one revised program from Weeks 8–14 with:
+[Submit Week 14 Homework]({{< var forms.week14.homework >}}){.btn .btn-primary}
 
-- the original problem;
-- the algorithm;
-- the final code;
-- one bug or weakness you found;
-- the test that exposed it;
-- the corrected version;
-- a 100–150 word verification reflection.
 
-This is the final TRACE evidence package for the course.
+## Concepts to keep
+
+- decomposition;
+- composition;
+- readability;
+- docstring;
+- testing;
+- boundary case;
+- verification;
+- explanation.
+
+## Portfolio evidence this week
+
+- `REP` — Representation
+- `TRC` — Tracing
+- `CTL` — Control flow
+- `DEC` — Decomposition
+- `DBG` — Debugging
+- `TRN` — Transfer

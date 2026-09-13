@@ -1,82 +1,91 @@
 ---
 title: "Week 9 — Patterns inside Patterns"
-subtitle: "Nested Loops · Repeated Structures inside Repeated Structures"
+subtitle: "Nested loops, state at different levels, reset points, and accumulation"
 ---
 
-## Today’s problem
+::: {.callout-tip}
+## This week's central question
 
-Some problems repeat at **two levels**: days inside branches, products inside categories, seats inside rows.
+**What changes when one repeated process contains another repeated process?**
+:::
 
-> **What changes when one repeated process contains another repeated process?**
+## Learning goals
 
-### Learning goals
+By the end of this week, you should be able to:
 
-- trace nested loops;
-- distinguish outer-loop state from inner-loop state;
-- decide where an accumulator should be initialized;
-- explain how overwrite and reset errors change results;
-- verify multi-level repetition with a small hand-worked case.
+1. trace nested loops;
+2. distinguish outer-loop state from inner-loop state;
+3. decide where an accumulator should be initialized;
+4. use names such as `branch_total` and `company_total` to make state scope visible;
+5. explain reset, accumulation, and overwrite errors;
+6. verify multi-level repetition with a small hand-worked case.
 
+## Connection
 
-## Open the notebooks
+Week 8 introduced repeated state. Week 9 introduces **state at more than one level**.
 
-[Open Week 9 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week09/DSA105_W09_Student.ipynb){.btn .btn-primary}
+Names now do conceptual work: `branch_total` describes state that resets for each branch, while `company_total` describes state that survives across branches.
 
-[Download Student Notebook](../notebooks/week09/DSA105_W09_Student.ipynb){.btn .btn-outline-primary}
-
-[Open Week 9 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week09/DSA105_W09_Homework.ipynb){.btn .btn-secondary}
-
-[Download Homework Notebook](../notebooks/week09/DSA105_W09_Homework.ipynb){.btn .btn-outline-secondary}
+## In class
 
 
-## Part A — Core concept
+### Open the student notebook
 
-```python
-for branch in range(1, 3):
-    print("Branch", branch)
+[Open Week 9 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week09/DSA105_W09_Student.ipynb){.btn .btn-primary}
 
-    for day in range(1, 4):
-        print("  Day", day)
-```
+[Download the notebook](../notebooks/week09/DSA105_W09_Student.ipynb)
 
-Before running, predict how many times the inner `print()` runs.
 
-## State at two levels
+You will repeatedly use:
 
-```python
-company_total = 0
+**Predict → Run → Modify → Explain → Build → Test**
 
-for branch in range(1, 3):
-    branch_total = 0
+The class includes:
 
-    for day in range(1, 4):
-        sale = float(input("Sale: "))
-        branch_total += sale
-
-    company_total += branch_total
-
-print("Company total:", company_total)
-```
-
-Explain why `branch_total = 0` belongs **inside** the outer loop but `company_total = 0` belongs **before** it.
+- nested-loop tracing;
+- inner and outer state;
+- reset boundaries;
+- two-level accumulators;
+- double counting;
+- overwrite versus accumulation;
+- AI verification;
+- independent multi-level build.
 
 ## Debug This
 
-What happens if `branch_total = 0` is moved above both loops? What information is lost?
+An assistant moved `branch_total = 0` outside the outer loop:
 
+```python
+company_total = 0
+branch_total = 0
+
+for branch in range(1, 3):
+    for day in range(1, 4):
+        daily_sales = float(input("Sales: "))
+        branch_total += daily_sales
+
+    company_total += branch_total
+
+print(f"Company total: {company_total:.2f}")
+```
+
+Use:
+
+- Branch 1: `100, 120, 80`
+- Branch 2: `90, 110, 130`
+
+**Do not run yet.**
+
+1. Predict the final value of `company_total`.
+2. Trace `branch_total` after each branch.
+3. Explain why the result becomes `930` instead of `630`.
+4. Identify which state must reset for each branch.
+
+The problem is **state leakage and double counting**, not information loss.
 
 ## AI Verify
 
-::: {.callout-warning}
-### Verification rule
-
-The code below is syntactically valid and produces plausible output.  
-**Do not run it immediately.** First decide what you expect it to do.
-:::
-
-**Scenario:** A company has two branches. Each branch reports three daily sales values. The program should calculate the total across both branches.
-
-**An AI assistant wrote:**
+Now examine a different silent bug:
 
 ```python
 company_total = 0
@@ -85,62 +94,79 @@ for branch in range(1, 3):
     branch_total = 0
 
     for day in range(1, 4):
-        sale = float(input("Sale: "))
-        branch_total += sale
+        daily_sales = float(input("Sales: "))
+        branch_total += daily_sales
 
     company_total = branch_total
 
-print("Company total:", company_total)
+print(f"Company total: {company_total:.2f}")
 ```
 
-**Sample case:** Branch 1: `100, 120, 80`; Branch 2: `90, 110, 130`. Correct company total: `630`.
+With the same values, the correct total is `630`.
 
-Your verification sequence:
-
-1. **Predict** — What value do you think `company_total` will contain after the second branch?
-2. **Run** — Run the code with the sample values.
-3. **Diagnose** — Explain why assignment overwrites prior branch information.
-4. **Fix & verify** — Repair the outer accumulation and verify with a second two-branch case.
-
-This is not a prompting exercise. The target skill is **verification of executable logic**.
+1. **Predict** the final value.
+2. **Run** the program.
+3. **Diagnose** why assignment overwrites prior branch information.
+4. **Fix & verify** by accumulating rather than replacing.
 
 
-## Domain application
 
-Create a small **2 departments × 4 weeks** workload calculator. For each department:
+### Evidence tasks
 
-- read four weekly workload values;
-- print the department total;
-- add it to an organization total.
+::: {.action-grid}
 
-## Independent check / Lab Evidence
+::: {.action-card}
+### Weekly Quiz
 
-Build a **3 products × 2 months** sales tracker.
+Individual retrieval and diagnostic check.
 
-Required evidence:
+[Start Week 9 Quiz]({{< var forms.week09.quiz >}}){.btn .btn-primary}
+:::
 
-- a trace for one product;
-- correct placement of both accumulators;
-- one manual total;
-- AI Verify diagnosis and repaired code.
+::: {.action-card}
+### Lab Evidence
+
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week09.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week09.exit >}}){.btn .btn-primary}
+:::
+
+:::
 
 
-## Weekly evidence
 
-Complete these after the corresponding activities:
+## After class
 
-- [Weekly Quiz]({{< var forms.week09.quiz >}})
-- [Lab Evidence]({{< var forms.week09.lab >}})
-- [Exit Ticket]({{< var forms.week09.exit >}})
-- [Homework Submission]({{< var forms.week09.homework >}})
+[Open Week 9 Homework in Colab]({{< var urls.colab >}}/notebooks/week09/DSA105_W09_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week09/DSA105_W09_Homework.ipynb)
+
+[Submit Week 9 Homework]({{< var forms.week09.homework >}}){.btn .btn-primary}
 
 
-## Homework
+## Concepts to keep
 
-Build a **2 stores × 5 days** transaction-count program. Print:
+- nested loop;
+- outer loop;
+- inner loop;
+- state;
+- reset;
+- accumulator;
+- overwrite;
+- scope;
+- verification.
 
-- each store total;
-- company total;
-- company average per store.
+## Portfolio evidence this week
 
-Add a short explanation of why the two accumulators are initialized in different places.
+- `TRC` — Tracing
+- `CTL` — Control flow
+- `DBG` — State/debug reasoning
+- `TRN` — Transfer

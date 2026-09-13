@@ -15,58 +15,60 @@ By the end of this week, you should be able to:
 
 1. distinguish a **value** from the **name** used to refer to it;
 2. create and update simple Python variables;
-3. identify common data types: `int`, `float`, `str`, and `bool`;
-4. use `type()` to inspect how Python represents a value;
-5. explain why `"120"` and `120` are not the same representation;
-6. trace simple assignment and reassignment step by step.
+3. identify `int`, `float`, `str`, and `bool` values;
+4. use `type()` to inspect representation;
+5. explain why `"120"` and `120` are different representations;
+6. trace assignment and reassignment step by step;
+7. choose descriptive `snake_case` variable names that communicate domain meaning.
 
-## Connection to Week 2
+## Connection
 
-Last week, we translated ordered algorithm steps into executable Python statements.
+Week 2 translated algorithms into executable statements. Week 3 asks what those statements operate on.
 
-This week, we ask:
-
-> **What exactly are those Python statements working with?**
-
-Programs need representations for quantities, text, categories, and logical states. Before we can manipulate data, we need to understand how those values are stored and named.
+Representation and naming are connected: Python stores values, while readable names tell humans what those values mean.
 
 ## In class
 
-### 1. Open the student notebook
+
+### Open the student notebook
 
 [Open Week 3 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week03/DSA105_W03_Student.ipynb){.btn .btn-primary}
 
-If you want a local copy:
-
 [Download the notebook](../notebooks/week03/DSA105_W03_Student.ipynb)
 
-### 2. Work through the active cycle
 
-You will repeatedly:
+You will repeatedly use:
 
 **Predict → Run → Modify → Explain → Build → Test**
 
 The class includes:
 
-- retrieval from Week 2;
 - value-versus-name reasoning;
-- first systematic use of variables;
+- systematic use of variables;
 - `int`, `float`, `str`, and `bool`;
-- inspecting values with `type()`;
+- inspection with `type()`;
 - assignment and reassignment tracing;
 - representation mismatches;
-- variable naming;
+- Python naming convention through domain examples;
 - independent lab evidence.
 
 ::: {.callout-note}
-## Scope for Week 3
+## How Python names are normally written
 
-This week is about **representation**.
+For ordinary variables, use lowercase words joined with underscores:
 
-We will not yet study operators and expressions systematically. That comes in **Week 4**. Our goal now is to understand what kinds of values a program can work with and how Python names them.
+```python
+customer_name = "Ada"
+unit_price = 120.0
+quantity_sold = 8
+is_member = True
+```
+
+Names such as `x`, `v1`, or `a` are useful only when the meaning is genuinely generic or temporary. In domain code, the name should help explain the program.
 :::
 
-### 3. Evidence tasks
+
+### Evidence tasks
 
 ::: {.action-grid}
 
@@ -96,27 +98,21 @@ Concept check, difficulty signal, and confidence rating.
 
 :::
 
-## After class
 
-### Homework
+
+## After class
 
 [Open Week 3 Homework in Colab]({{< var urls.colab >}}/notebooks/week03/DSA105_W03_Homework.ipynb){.btn .btn-primary}
 
 [Download the homework notebook](../notebooks/week03/DSA105_W03_Homework.ipynb)
 
-The homework follows:
-
-> **Identify information → Predict representation → Assign → Inspect → Update → Explain**
-
-### Homework submission
-
 [Submit Week 3 Homework]({{< var forms.week03.homework >}}){.btn .btn-primary}
+
 
 ## Concepts to keep
 
 - value;
 - variable;
-- name;
 - assignment;
 - reassignment;
 - `int`;
@@ -124,6 +120,7 @@ The homework follows:
 - `str`;
 - `bool`;
 - `type()`;
+- `snake_case`;
 - representation;
 - tracing.
 

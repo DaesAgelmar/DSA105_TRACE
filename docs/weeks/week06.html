@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -281,13 +316,13 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#connection-to-week-5" id="toc-connection-to-week-5" class="nav-link" data-scroll-target="#connection-to-week-5">Connection to Week 5</a></li>
+  <li><a href="#connection" id="toc-connection" class="nav-link" data-scroll-target="#connection">Connection</a></li>
   <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class">In class</a>
   <ul class="collapse">
-  <li><a href="#evidence" id="toc-evidence" class="nav-link" data-scroll-target="#evidence">Evidence</a></li>
+  <li><a href="#open-the-student-notebook" id="toc-open-the-student-notebook" class="nav-link" data-scroll-target="#open-the-student-notebook">Open the student notebook</a></li>
+  <li><a href="#evidence-tasks" id="toc-evidence-tasks" class="nav-link" data-scroll-target="#evidence-tasks">Evidence tasks</a></li>
   </ul></li>
   <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class">After class</a></li>
-  <li><a href="#before-week-7-short-midterm-review" id="toc-before-week-7-short-midterm-review" class="nav-link" data-scroll-target="#before-week-7-short-midterm-review">Before Week 7 — Short Midterm Review</a></li>
   <li><a href="#concepts-to-keep" id="toc-concepts-to-keep" class="nav-link" data-scroll-target="#concepts-to-keep">Concepts to keep</a></li>
   <li><a href="#portfolio-evidence-this-week" id="toc-portfolio-evidence-this-week" class="nav-link" data-scroll-target="#portfolio-evidence-this-week">Portfolio evidence this week</a></li>
   </ul>
@@ -333,38 +368,84 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
 <p>By the end of this week, you should be able to:</p>
 <ol type="1">
-<li>evaluate simple comparison expressions;</li>
+<li>evaluate comparison expressions;</li>
 <li>explain how a Boolean condition controls a branch;</li>
-<li>write basic <code>if</code>, <code>if/else</code>, and <code>if/elif/else</code> structures;</li>
+<li>write <code>if</code>, <code>if/else</code>, and <code>if/elif/else</code> structures;</li>
 <li>predict which branch will execute before running code;</li>
-<li>connect decision rules to domain logic;</li>
+<li>translate domain rules into readable conditions;</li>
+<li>use meaningful names for thresholds and Boolean states;</li>
 <li>identify unreachable or incorrectly ordered conditions.</li>
 </ol>
 </section>
-<section id="connection-to-week-5" class="level2">
-<h2 class="anchored" data-anchor-id="connection-to-week-5">Connection to Week 5</h2>
-<p>Last week, programs received data from users.</p>
-<p>This week, programs use that information to decide what should happen next.</p>
+<section id="connection" class="level2">
+<h2 class="anchored" data-anchor-id="connection">Connection</h2>
+<p>Week 5 allowed users to supply information. Week 6 uses that information to decide what should happen next.</p>
+<p>Readable conditionals make the decision rule visible in the code.</p>
 </section>
 <section id="in-class" class="level2">
 <h2 class="anchored" data-anchor-id="in-class">In class</h2>
+<section id="open-the-student-notebook" class="level3">
+<h3 class="anchored">Open the student notebook</h3>
 <p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week06/DSA105_W06_Student.ipynb" class="btn btn-primary">Open Week 6 Student Notebook in Colab</a></p>
 <p><a href="../notebooks/week06/DSA105_W06_Student.ipynb">Download the notebook</a></p>
+<p>You will repeatedly use:</p>
 <p><strong>Predict → Run → Modify → Explain → Build → Test</strong></p>
-<section id="evidence" class="level3">
-<h3 class="anchored" data-anchor-id="evidence">Evidence</h3>
+<p>The class includes:</p>
+<ul>
+<li>comparison expressions;</li>
+<li>Boolean values and decision rules;</li>
+<li><code>if</code>, <code>elif</code>, and <code>else</code>;</li>
+<li>branch tracing;</li>
+<li>threshold and boundary cases;</li>
+<li>meaningful Boolean names;</li>
+<li>incorrect branch ordering;</li>
+<li>independent lab evidence.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Conditions should read like rules
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>free_delivery_threshold <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>order_total <span class="op">=</span> <span class="dv">2350</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> order_total <span class="op">&gt;=</span> free_delivery_threshold:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    delivery_message <span class="op">=</span> <span class="st">"Free delivery"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    delivery_message <span class="op">=</span> <span class="st">"Standard delivery"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code and the business rule should be easy to compare.</p>
+<section id="before-week-7-short-midterm-review" class="level2">
+<h2 class="anchored" data-anchor-id="before-week-7-short-midterm-review">Before Week 7 — Short Midterm Review</h2>
+<p>Week 7 is the <strong>physical in-class midterm examination</strong>.</p>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week06/DSA105_W06_Midterm_Review.ipynb" class="btn btn-primary">Open the Midterm Review Notebook in Colab</a></p>
+<p><a href="../notebooks/week06/DSA105_W06_Midterm_Review.ipynb">Download the review notebook</a></p>
+<p>The review introduces no new content. It reconnects problem formulation, representation, expressions, input, decisions, tracing, and debugging.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="evidence-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="evidence-tasks">Evidence tasks</h3>
 </section>
 <div class="action-grid">
 <section id="weekly-quiz" class="level3 action-card">
 <h3 class="anchored" data-anchor-id="weekly-quiz">Weekly Quiz</h3>
+<p>Individual retrieval and diagnostic check.</p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkIxnCX3jNRkCQbFv7PgkSsJPDfaNOHsYxrLQfJgl4Kx-sFA/viewform" class="btn btn-primary">Start Week 6 Quiz</a></p>
 </section>
 <section id="lab-evidence" class="level3 action-card">
 <h3 class="anchored" data-anchor-id="lab-evidence">Lab Evidence</h3>
+<p>Submit the selected in-class evidence task.</p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3XCtaojwuKOBxDQO1MYysc5b2z3rhZ_Qjmd2Ywk1l38J3yA/viewform" class="btn btn-primary">Submit Lab Evidence</a></p>
 </section>
 <section id="exit-ticket" class="level3 action-card">
 <h3 class="anchored" data-anchor-id="exit-ticket">Exit Ticket</h3>
+<p>Concept check, difficulty signal, and confidence rating.</p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdpn39eqxucKf726iB5BU-c0IpGWTdlL28FNzsd2-BRpQdC-g/viewform" class="btn btn-primary">Complete Exit Ticket</a></p>
 </section>
 </div>
@@ -374,53 +455,6 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week06/DSA105_W06_Homework.ipynb" class="btn btn-primary">Open Week 6 Homework in Colab</a></p>
 <p><a href="../notebooks/week06/DSA105_W06_Homework.ipynb">Download the homework notebook</a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSefcqIifnQX9h4eACdh1usQ2J-jFGytcJQZjIBiWwcE0eOp5A/viewform" class="btn btn-primary">Submit Week 6 Homework</a></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Midterm connection
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This week develops two skills that may be assessed in the midterm:</p>
-<ul>
-<li>translating a domain rule into branching logic;</li>
-<li>analyzing branch order and boundary cases.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="before-week-7-short-midterm-review" class="level2">
-<h2 class="anchored" data-anchor-id="before-week-7-short-midterm-review">Before Week 7 — Short Midterm Review</h2>
-<p>Week 7 is the <strong>physical in-class midterm examination</strong>. There is no normal TRACE activity in Week 7.</p>
-<p>Use this short review after completing Week 6 to connect the first six weeks:</p>
-<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week06/DSA105_W06_Midterm_Review.ipynb" class="btn btn-primary">Open the Midterm Review Notebook in Colab</a></p>
-<p><a href="../notebooks/week06/DSA105_W06_Midterm_Review.ipynb">Download the review notebook</a></p>
-<p>The review does not introduce new content and does not reproduce exam questions. It revisits:</p>
-<ul>
-<li>problem → algorithm → executable representation;</li>
-<li>variables and data types;</li>
-<li>expressions;</li>
-<li>input and conversion;</li>
-<li>decision logic;</li>
-<li>tracing, debugging, and boundary testing.</li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Week 7
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Physical midterm examination.</strong></p>
-<p>No weekly quiz, lab evidence, homework submission, or Colab activity is scheduled for Week 7.</p>
-</div>
-</div>
 </section>
 <section id="concepts-to-keep" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-to-keep">Concepts to keep</h2>
@@ -434,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
 <li><code>else</code>;</li>
 <li>decision rule;</li>
 <li>branch order;</li>
-<li>test case.</li>
+<li>boundary test.</li>
 </ul>
 </section>
 <section id="portfolio-evidence-this-week" class="level2">
@@ -442,9 +476,9 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>CTL</code> — Control flow</li>
 <li><code>TRC</code> — Tracing</li>
-<li><code>PRECISION</code></li>
-<li><code>DBG</code></li>
-<li><code>TRN</code></li>
+<li><code>PRECISION</code> — Executable precision</li>
+<li><code>DBG</code> — Branch/debug reasoning</li>
+<li><code>TRN</code> — Transfer</li>
 </ul>
 
 

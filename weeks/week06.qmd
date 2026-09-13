@@ -13,47 +13,103 @@ subtitle: "Boolean conditions, comparisons, if/elif/else, and branching"
 
 By the end of this week, you should be able to:
 
-1. evaluate simple comparison expressions;
+1. evaluate comparison expressions;
 2. explain how a Boolean condition controls a branch;
-3. write basic `if`, `if/else`, and `if/elif/else` structures;
+3. write `if`, `if/else`, and `if/elif/else` structures;
 4. predict which branch will execute before running code;
-5. connect decision rules to domain logic;
-6. identify unreachable or incorrectly ordered conditions.
+5. translate domain rules into readable conditions;
+6. use meaningful names for thresholds and Boolean states;
+7. identify unreachable or incorrectly ordered conditions.
 
-## Connection to Week 5
+## Connection
 
-Last week, programs received data from users.
+Week 5 allowed users to supply information. Week 6 uses that information to decide what should happen next.
 
-This week, programs use that information to decide what should happen next.
+Readable conditionals make the decision rule visible in the code.
 
 ## In class
+
+
+### Open the student notebook
 
 [Open Week 6 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week06/DSA105_W06_Student.ipynb){.btn .btn-primary}
 
 [Download the notebook](../notebooks/week06/DSA105_W06_Student.ipynb)
 
+
+You will repeatedly use:
+
 **Predict → Run → Modify → Explain → Build → Test**
 
-### Evidence
+The class includes:
+
+- comparison expressions;
+- Boolean values and decision rules;
+- `if`, `elif`, and `else`;
+- branch tracing;
+- threshold and boundary cases;
+- meaningful Boolean names;
+- incorrect branch ordering;
+- independent lab evidence.
+
+::: {.callout-note}
+## Conditions should read like rules
+
+```python
+free_delivery_threshold = 2000
+order_total = 2350
+
+if order_total >= free_delivery_threshold:
+    delivery_message = "Free delivery"
+else:
+    delivery_message = "Standard delivery"
+```
+
+The code and the business rule should be easy to compare.
+
+## Before Week 7 — Short Midterm Review
+
+Week 7 is the **physical in-class midterm examination**.
+
+[Open the Midterm Review Notebook in Colab]({{< var urls.colab >}}/notebooks/week06/DSA105_W06_Midterm_Review.ipynb){.btn .btn-primary}
+
+[Download the review notebook](../notebooks/week06/DSA105_W06_Midterm_Review.ipynb)
+
+The review introduces no new content. It reconnects problem formulation, representation, expressions, input, decisions, tracing, and debugging.
+:::
+
+
+### Evidence tasks
 
 ::: {.action-grid}
 
 ::: {.action-card}
 ### Weekly Quiz
+
+Individual retrieval and diagnostic check.
+
 [Start Week 6 Quiz]({{< var forms.week06.quiz >}}){.btn .btn-primary}
 :::
 
 ::: {.action-card}
 ### Lab Evidence
+
+Submit the selected in-class evidence task.
+
 [Submit Lab Evidence]({{< var forms.week06.lab >}}){.btn .btn-primary}
 :::
 
 ::: {.action-card}
 ### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
 [Complete Exit Ticket]({{< var forms.week06.exit >}}){.btn .btn-primary}
 :::
 
 :::
+
+
 
 ## After class
 
@@ -62,44 +118,6 @@ This week, programs use that information to decide what should happen next.
 [Download the homework notebook](../notebooks/week06/DSA105_W06_Homework.ipynb)
 
 [Submit Week 6 Homework]({{< var forms.week06.homework >}}){.btn .btn-primary}
-
-
-::: {.callout-note}
-## Midterm connection
-
-This week develops two skills that may be assessed in the midterm:
-
-- translating a domain rule into branching logic;
-- analyzing branch order and boundary cases.
-:::
-
-
-## Before Week 7 — Short Midterm Review
-
-Week 7 is the **physical in-class midterm examination**. There is no normal TRACE activity in Week 7.
-
-Use this short review after completing Week 6 to connect the first six weeks:
-
-[Open the Midterm Review Notebook in Colab]({{< var urls.colab >}}/notebooks/week06/DSA105_W06_Midterm_Review.ipynb){.btn .btn-primary}
-
-[Download the review notebook](../notebooks/week06/DSA105_W06_Midterm_Review.ipynb)
-
-The review does not introduce new content and does not reproduce exam questions. It revisits:
-
-- problem → algorithm → executable representation;
-- variables and data types;
-- expressions;
-- input and conversion;
-- decision logic;
-- tracing, debugging, and boundary testing.
-
-::: {.callout-important}
-## Week 7
-
-**Physical midterm examination.**
-
-No weekly quiz, lab evidence, homework submission, or Colab activity is scheduled for Week 7.
-:::
 
 
 ## Concepts to keep
@@ -113,12 +131,12 @@ No weekly quiz, lab evidence, homework submission, or Colab activity is schedule
 - `else`;
 - decision rule;
 - branch order;
-- test case.
+- boundary test.
 
 ## Portfolio evidence this week
 
 - `CTL` — Control flow
 - `TRC` — Tracing
-- `PRECISION`
-- `DBG`
-- `TRN`
+- `PRECISION` — Executable precision
+- `DBG` — Branch/debug reasoning
+- `TRN` — Transfer

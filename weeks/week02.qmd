@@ -18,33 +18,25 @@ By the end of this week, you should be able to:
 3. use `print()` to make program output visible;
 4. distinguish an algorithmic idea from its Python representation;
 5. identify simple execution failures caused by imprecise code;
-6. modify and build a short sequential Python program.
+6. write sequential code whose names and layout communicate the algorithm.
 
-## Connection to Week 1
+## Connection
 
-Last week, the main question was:
+Week 1 established that algorithms must be precise and ordered. Week 2 translates that ordered reasoning into executable statements.
 
-> **How precise must an instruction be before a computer can execute it?**
-
-This week we go one step further:
-
-> **What does that precise instruction look like when it becomes executable Python code?**
-
-The focus is still **reasoning first**. Python is the executable representation.
+The code remains deliberately simple. Variables and data types are studied systematically in Week 3; operators and expressions are studied in Week 4.
 
 ## In class
 
-### 1. Open the student notebook
+
+### Open the student notebook
 
 [Open Week 2 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week02/DSA105_W02_Student.ipynb){.btn .btn-primary}
 
-If you want a local copy:
-
 [Download the notebook](../notebooks/week02/DSA105_W02_Student.ipynb)
 
-### 2. Work through the active cycle
 
-You will repeatedly:
+You will repeatedly use:
 
 **Predict → Run → Modify → Explain → Build → Test**
 
@@ -61,14 +53,13 @@ The class includes:
 - independent build and test.
 
 ::: {.callout-note}
-## Scope for Week 2
+## A shared Python form
 
-We will use a few Python names, values, and arithmetic expressions when needed, but we will study **variables and data representation systematically in Week 3** and **operators/expressions in Week 4**.
-
-This week is about **translation and execution order**.
+When two programs implement the same algorithm, their layout should not make them look like unrelated languages. We therefore continue using descriptive `snake_case` names, spaces around operators, and consistent indentation in every example.
 :::
 
-### 3. Evidence tasks
+
+### Evidence tasks
 
 ::: {.action-grid}
 
@@ -98,21 +89,16 @@ Concept check, difficulty signal, and confidence rating.
 
 :::
 
-## After class
 
-### Homework
+
+## After class
 
 [Open Week 2 Homework in Colab]({{< var urls.colab >}}/notebooks/week02/DSA105_W02_Homework.ipynb){.btn .btn-primary}
 
 [Download the homework notebook](../notebooks/week02/DSA105_W02_Homework.ipynb)
 
-The homework follows:
-
-> **Algorithm → Prediction → Code → Run → Verification → Transfer**
-
-### Homework submission
-
 [Submit Week 2 Homework]({{< var forms.week02.homework >}}){.btn .btn-primary}
+
 
 ## Concepts to keep
 
@@ -125,7 +111,7 @@ The homework follows:
 - `print()`;
 - prediction;
 - tracing;
-- translation from algorithm to code.
+- algorithm-to-code translation.
 
 ## Portfolio evidence this week
 

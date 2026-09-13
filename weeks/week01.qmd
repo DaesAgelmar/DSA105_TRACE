@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Week 1 — How Do We Tell a Computer What to Do?"
 subtitle: "Problem solving, algorithms, sequence, Input → Process → Output, and basic flowcharts"
 ---
@@ -17,36 +17,28 @@ By the end of this week, you should be able to:
 2. describe a simple problem using **Input → Process → Output**;
 3. write a precise and ordered sequence of steps;
 4. interpret a basic flowchart;
-5. connect an algorithm to a minimal executable Python representation.
+5. connect an algorithm to a minimal executable Python representation;
+6. recognize that readable names can reveal the meaning of a computation.
 
-## Before class
+## Connection
 
-Think about one everyday process that seems simple to a human but would require very precise instructions for a computer.
+Week 1 begins with the algorithm, not with Python grammar. Python appears only as a small executable representation of a solution that has already been reasoned through.
 
-Examples:
-
-- calculating a receipt;
-- determining a discount;
-- finding an average;
-- processing an order.
-
-Bring one example to class.
+From the first code example onward, names such as `total_sales` and `average_sales` are used because program names should communicate meaning rather than force the reader to decode abbreviations.
 
 ## In class
 
-### 1. Open the student notebook
+
+### Open the student notebook
 
 [Open Week 1 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week01/DSA105_W01_Student.ipynb){.btn .btn-primary}
 
-If you want a local copy:
-
 [Download the notebook](../notebooks/week01/DSA105_W01_Student.ipynb)
 
-### 2. Work through the active cycle
 
-You will repeatedly:
+You will repeatedly use:
 
-**Predict → Run → Modify → Explain → Build**
+**Predict → Run → Modify → Explain → Build → Test**
 
 The class includes:
 
@@ -60,7 +52,21 @@ The class includes:
 - algorithm debugging;
 - independent lab evidence.
 
-### 3. Evidence tasks
+::: {.callout-note}
+## Python from the beginning
+
+You do not need to memorize style rules this week. The examples simply model the way readable Python is normally written:
+
+- names describe what a value means;
+- words in names use `snake_case`;
+- operators are surrounded by spaces;
+- indentation is consistent.
+
+Treat these patterns as part of the language you are learning.
+:::
+
+
+### Evidence tasks
 
 ::: {.action-grid}
 
@@ -90,21 +96,16 @@ Concept check, difficulty signal, and confidence rating.
 
 :::
 
-## After class
 
-### Homework
+
+## After class
 
 [Open Week 1 Homework in Colab]({{< var urls.colab >}}/notebooks/week01/DSA105_W01_Homework.ipynb){.btn .btn-primary}
 
 [Download the homework notebook](../notebooks/week01/DSA105_W01_Homework.ipynb)
 
-The homework follows:
-
-> **Problem → IPO → Algorithm → Prediction → Python → Verification → Transfer**
-
-### Homework submission
-
 [Submit Week 1 Homework]({{< var forms.week01.homework >}}){.btn .btn-primary}
+
 
 ## Concepts to keep
 

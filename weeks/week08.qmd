@@ -1,180 +1,142 @@
 ---
 title: "Week 8 — Making Computers Repeat Work"
-subtitle: "Loops · Repetition · Accumulation"
+subtitle: "Loops, repetition, range, counters, accumulators, and loop boundaries"
 ---
 
-## Today’s problem
+::: {.callout-tip}
+## This week's central question
 
-A business has the same kind of information arriving repeatedly: daily sales, hourly traffic, item counts, or transaction values.
+**How can one precise instruction be executed repeatedly without losing control of what changes?**
+:::
 
-> **How can one precise instruction be executed repeatedly without losing control of what changes?**
-
-### Learning goals
+## Learning goals
 
 By the end of this week, you should be able to:
 
-- explain why repetition is an algorithmic structure;
-- trace a `for` loop before running it;
-- use `range()` to control repetition;
-- distinguish a **counter** from an **accumulator**;
-- identify loop-bound errors;
-- test repeated logic using boundary cases.
+1. explain why repetition is an algorithmic structure;
+2. trace a `for` loop before running it;
+3. use `range()` to control repetition;
+4. distinguish a **counter** from an **accumulator**;
+5. choose loop-variable names that reveal the role of the repeated value;
+6. identify loop-bound errors;
+7. test repeated logic using boundary cases.
+
+## Connection
+
+Weeks 1–6 built precise sequential and conditional logic. Week 8 adds repetition.
+
+The code should still reveal the algorithm. A loop variable is therefore named for what it represents whenever possible: `day`, `branch`, `sale`, or `customer`, rather than automatically using `i`.
+
+## In class
 
 
-## Open the notebooks
+### Open the student notebook
 
-[Open Week 8 Student Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week08/DSA105_W08_Student.ipynb){.btn .btn-primary}
+[Open Week 8 Student Notebook in Colab]({{< var urls.colab >}}/notebooks/week08/DSA105_W08_Student.ipynb){.btn .btn-primary}
 
-[Download Student Notebook](../notebooks/week08/DSA105_W08_Student.ipynb){.btn .btn-outline-primary}
-
-[Open Week 8 Homework Notebook in Colab](https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week08/DSA105_W08_Homework.ipynb){.btn .btn-secondary}
-
-[Download Homework Notebook](../notebooks/week08/DSA105_W08_Homework.ipynb){.btn .btn-outline-secondary}
+[Download the notebook](../notebooks/week08/DSA105_W08_Student.ipynb)
 
 
-## Part A — Core concept
+You will repeatedly use:
 
-Use **Predict → Run → Modify → Explain** to study repetition.
+**Predict → Run → Modify → Explain → Build → Test**
 
-```python
-total = 0
+The class includes:
 
-for day in range(1, 5):
-    sale = float(input("Enter daily sales: "))
-    total += sale
-
-print("Four-day total:", total)
-```
-
-Before running:
-
-- How many times will the loop body execute?
-- Which value changes on every iteration?
-- Which value carries information from one iteration to the next?
-
-## Trace before execution
-
-```python
-for i in range(1, 5):
-    print(i)
-```
-
-Write the exact output before you run the cell.
-
-## Counter vs accumulator
-
-A **counter** tracks how many times something happened.
-
-```python
-count = 0
-for _ in range(4):
-    count += 1
-```
-
-An **accumulator** combines values across repetitions.
-
-```python
-total = 0
-for _ in range(4):
-    value = float(input("Value: "))
-    total += value
-```
-
-## Debug This
-
-A shop wants five daily values, but this code asks for only four:
-
-```python
-total = 0
-
-for day in range(1, 5):
-    sale = float(input("Sale: "))
-    total += sale
-
-print(total)
-```
-
-Explain the error before fixing it.
-
+- loop tracing;
+- `range()` boundaries;
+- counter and accumulator patterns;
+- semantic iterator names;
+- off-by-one errors;
+- guided modification;
+- AI verification of plausible loop logic;
+- independent build and test.
 
 ## AI Verify
 
 ::: {.callout-warning}
 ### Verification rule
 
-The code below is syntactically valid and produces plausible output.  
-**Do not run it immediately.** First decide what you expect it to do.
+The code below is syntactically valid. **Do not run it immediately.**
 :::
 
-**Scenario:** A small shop wants the total revenue for four days.
-
-**An AI assistant wrote:**
-
 ```python
-total = 0
+total_revenue = 0
 
 for day in range(1, 4):
-    sale = float(input("Enter daily sales: "))
-    total += sale
+    daily_revenue = float(input("Daily revenue: "))
+    total_revenue += daily_revenue
 
-print("Four-day total:", total)
+print(f"Four-day total: {total_revenue:.2f}")
 ```
 
-**Sample case:** Enter `120`, `95`, `130`, `80` as the four intended daily values. Correct total: `425`.
+A shop intends to enter four days: `120`, `95`, `130`, and `80`. The correct total is `425`.
 
-Your verification sequence:
+1. **Predict** how many values the program will request.
+2. **Run** it.
+3. **Diagnose** the loop-bound error.
+4. **Fix & verify** it with a second four-day case.
 
-1. **Predict** — How many values will the program actually request, and what total do you expect?
-2. **Run** — Run it. Does it ever ask for the fourth value?
-3. **Diagnose** — Explain why the loop bound encodes the wrong number of repetitions.
-4. **Fix & verify** — Repair the range and verify with a second four-day case of your own.
-
-This is not a prompting exercise. The target skill is **verification of executable logic**.
+The defect is logical, not stylistic: readable code can still encode the wrong repetition boundary.
 
 
-## Domain application
 
-Create a program that asks for **six hourly customer counts**, accumulates the total, and prints the average customers per hour.
+### Evidence tasks
 
-Do not begin with code. First write:
+::: {.action-grid}
 
-1. what repeats;
-2. what must be remembered across repetitions;
-3. the loop boundary.
+::: {.action-card}
+### Weekly Quiz
 
-## Independent check / Lab Evidence
+Individual retrieval and diagnostic check.
 
-Build a **five-day expense tracker**:
+[Start Week 8 Quiz]({{< var forms.week08.quiz >}}){.btn .btn-primary}
+:::
 
-- ask for five daily expenses;
-- compute total expense;
-- compute average daily expense;
-- print both;
-- provide one hand-computed test case;
-- complete the AI Verify evidence in the Lab Form.
+::: {.action-card}
+### Lab Evidence
+
+Submit the selected in-class evidence task.
+
+[Submit Lab Evidence]({{< var forms.week08.lab >}}){.btn .btn-primary}
+:::
+
+::: {.action-card}
+### Exit Ticket
+
+Concept check, difficulty signal, and confidence rating.
+
+[Complete Exit Ticket]({{< var forms.week08.exit >}}){.btn .btn-primary}
+:::
+
+:::
 
 
-## Weekly evidence
 
-Complete these after the corresponding activities:
+## After class
 
-- [Weekly Quiz]({{< var forms.week08.quiz >}})
-- [Lab Evidence]({{< var forms.week08.lab >}})
-- [Exit Ticket]({{< var forms.week08.exit >}})
-- [Homework Submission]({{< var forms.week08.homework >}})
+[Open Week 8 Homework in Colab]({{< var urls.colab >}}/notebooks/week08/DSA105_W08_Homework.ipynb){.btn .btn-primary}
+
+[Download the homework notebook](../notebooks/week08/DSA105_W08_Homework.ipynb)
+
+[Submit Week 8 Homework]({{< var forms.week08.homework >}}){.btn .btn-primary}
 
 
-## Exit question
+## Concepts to keep
 
-In one sentence: why can code run without error and still repeat the wrong number of times?
+- loop;
+- `for`;
+- `range()`;
+- iteration;
+- counter;
+- accumulator;
+- loop boundary;
+- off-by-one;
+- verification.
 
-## Homework
+## Portfolio evidence this week
 
-Build a weekly production tracker for **7 days**. Your notebook must include:
-
-- an algorithm in plain English;
-- a loop;
-- an accumulator;
-- total and average output;
-- one predicted test case;
-- one verification statement comparing predicted and actual output.
+- `TRC` — Tracing
+- `CTL` — Control flow
+- `DBG` — Loop debugging
+- `TRN` — Transfer

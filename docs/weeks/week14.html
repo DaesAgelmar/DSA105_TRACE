@@ -314,20 +314,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#final-problem" id="toc-final-problem" class="nav-link active" data-scroll-target="#final-problem">Final problem</a>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#connection" id="toc-connection" class="nav-link" data-scroll-target="#connection">Connection</a></li>
+  <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class">In class</a>
   <ul class="collapse">
-  <li><a href="#integration-goals" id="toc-integration-goals" class="nav-link" data-scroll-target="#integration-goals">Integration goals</a></li>
+  <li><a href="#open-the-student-notebook" id="toc-open-the-student-notebook" class="nav-link" data-scroll-target="#open-the-student-notebook">Open the student notebook</a></li>
   </ul></li>
-  <li><a href="#open-the-notebooks" id="toc-open-the-notebooks" class="nav-link" data-scroll-target="#open-the-notebooks">Open the notebooks</a></li>
-  <li><a href="#part-a-integration-challenge" id="toc-part-a-integration-challenge" class="nav-link" data-scroll-target="#part-a-integration-challenge">Part A — Integration challenge</a></li>
-  <li><a href="#explain-before-optimizing" id="toc-explain-before-optimizing" class="nav-link" data-scroll-target="#explain-before-optimizing">Explain before optimizing</a></li>
-  <li><a href="#debug-this" id="toc-debug-this" class="nav-link" data-scroll-target="#debug-this">Debug This</a></li>
-  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a></li>
-  <li><a href="#pair-verification-discussion" id="toc-pair-verification-discussion" class="nav-link" data-scroll-target="#pair-verification-discussion">Pair verification discussion</a></li>
-  <li><a href="#independent-integration-lab-evidence" id="toc-independent-integration-lab-evidence" class="nav-link" data-scroll-target="#independent-integration-lab-evidence">Independent integration / Lab Evidence</a></li>
-  <li><a href="#weekly-evidence" id="toc-weekly-evidence" class="nav-link" data-scroll-target="#weekly-evidence">Weekly evidence</a></li>
-  <li><a href="#exit-reflection" id="toc-exit-reflection" class="nav-link" data-scroll-target="#exit-reflection">Exit reflection</a></li>
-  <li><a href="#homework-portfolio-close" id="toc-homework-portfolio-close" class="nav-link" data-scroll-target="#homework-portfolio-close">Homework / Portfolio close</a></li>
+  <li><a href="#integrated-python-example" id="toc-integrated-python-example" class="nav-link" data-scroll-target="#integrated-python-example">Integrated Python example</a></li>
+  <li><a href="#ai-verify-two-independent-defects" id="toc-ai-verify-two-independent-defects" class="nav-link" data-scroll-target="#ai-verify-two-independent-defects">AI Verify — two independent defects</a>
+  <ul class="collapse">
+  <li><a href="#evidence-tasks" id="toc-evidence-tasks" class="nav-link" data-scroll-target="#evidence-tasks">Evidence tasks</a></li>
+  </ul></li>
+  <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class">After class</a></li>
+  <li><a href="#concepts-to-keep" id="toc-concepts-to-keep" class="nav-link" data-scroll-target="#concepts-to-keep">Concepts to keep</a></li>
+  <li><a href="#portfolio-evidence-this-week" id="toc-portfolio-evidence-this-week" class="nav-link" data-scroll-target="#portfolio-evidence-this-week">Portfolio evidence this week</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week14.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week08.html">Part II — Computational Composition</a></li><li class="breadcrumb-item"><a href="../weeks/week14.html">Week 14 — Build, Test, Explain</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 14 — Build, Test, Explain</h1>
-<p class="subtitle lead">Integration · Testing · Explanation · AI Verification</p>
+<p class="subtitle lead">Integration, decomposition, readable Python, testing, and verification</p>
 </div>
 
 
@@ -354,152 +354,159 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="final-problem" class="level2">
-<h2 class="anchored" data-anchor-id="final-problem">Final problem</h2>
-<p>This week introduces no new programming structure.</p>
-<p>Instead, you must demonstrate that you can move through the full TRACE cycle:</p>
-<blockquote class="blockquote">
-<p><strong>Think → Reason → Algorithm → Code → Execute → Verify → Explain</strong></p>
-</blockquote>
-<section id="integration-goals" class="level3">
-<h3 class="anchored" data-anchor-id="integration-goals">Integration goals</h3>
-<ul>
-<li>decompose a small domain problem;</li>
-<li>choose appropriate representations;</li>
-<li>combine loops, functions, lists, files, and decisions when needed;</li>
-<li>design tests before trusting output;</li>
-<li>diagnose more than one logic defect;</li>
-<li>explain why a solution is credible.</li>
-</ul>
-</section>
-</section>
-<section id="open-the-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="open-the-notebooks">Open the notebooks</h2>
-<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Student.ipynb" class="btn btn-primary">Open Week 14 Student Notebook in Colab</a></p>
-<p><a href="../notebooks/week14/DSA105_W14_Student.ipynb" class="btn btn-outline-primary">Download Student Notebook</a></p>
-<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Homework.ipynb" class="btn btn-secondary">Open Week 14 Homework Notebook in Colab</a></p>
-<p><a href="../notebooks/week14/DSA105_W14_Homework.ipynb" class="btn btn-outline-secondary">Download Homework Notebook</a></p>
-</section>
-<section id="part-a-integration-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="part-a-integration-challenge">Part A — Integration challenge</h2>
-<p>Build a small analysis program from the following requirements:</p>
-<blockquote class="blockquote">
-<p>A shop has a list of transaction values. Transactions above a threshold receive a configurable discount. The program should calculate the average final transaction value.</p>
-</blockquote>
-<p>Before code:</p>
-<ol type="1">
-<li>define inputs;</li>
-<li>define the transformation;</li>
-<li>decide whether a function is useful;</li>
-<li>identify at least three test cases.</li>
-</ol>
-</section>
-<section id="explain-before-optimizing" class="level2">
-<h2 class="anchored" data-anchor-id="explain-before-optimizing">Explain before optimizing</h2>
-<p>A correct solution that you can trace and defend is more valuable than a compact solution you cannot explain.</p>
-</section>
-<section id="debug-this" class="level2">
-<h2 class="anchored" data-anchor-id="debug-this">Debug This</h2>
-<p>Find the conceptual problem:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average(values):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(values) <span class="op">/</span> <span class="dv">7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>When is this correct? When is it silently wrong?</p>
-</section>
-<section id="ai-verify" class="level2">
-<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Verification rule
+<span class="screen-reader-only">Tip</span>This week’s central question
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The code below is syntactically valid and produces plausible output.<br>
-<strong>Do not run it immediately.</strong> First decide what you expect it to do.</p>
+<p><strong>Can you build a program whose logic another person can read, test, and trust?</strong></p>
 </div>
 </div>
-<p><strong>Scenario:</strong> A function should apply a percentage discount only to prices above a threshold, then return the average adjusted price.</p>
-<p><strong>An AI assistant wrote:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average_adjusted_price(prices, threshold, discount_rate):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    adjusted <span class="op">=</span> []</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> price <span class="kw">in</span> prices:</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> price <span class="op">&gt;=</span> threshold:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            adjusted.append(price <span class="op">-</span> discount_rate)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            adjusted.append(price)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(adjusted) <span class="op">-</span> <span class="dv">1</span>):</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> adjusted[i]</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total <span class="op">/</span> <span class="bu">len</span>(adjusted)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Sample case:</strong> <code>prices = [80, 120, 200, 100]</code>, <code>threshold = 100</code>, <code>discount_rate = 0.10</code>. Intended rule: discount only values strictly above 100 by 10%.</p>
-<p>Your verification sequence:</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of this week, you should be able to:</p>
 <ol type="1">
-<li><strong>Predict</strong> — Predict which values should be discounted and what conceptual operations are required.</li>
-<li><strong>Run</strong> — Run the AI code and compare its result with a hand-worked result.</li>
-<li><strong>Diagnose</strong> — Identify <strong>two independent logic defects</strong>: one in discount logic/meaning and one in accumulation.</li>
-<li><strong>Fix &amp; verify</strong> — Repair both defects and verify using a second case that includes a value exactly equal to the threshold.</li>
+<li>decompose a small domain problem into clear computational responsibilities;</li>
+<li>choose meaningful representations and names;</li>
+<li>combine decisions, loops, functions, collections, and files when appropriate;</li>
+<li>use concise docstrings for reusable functions;</li>
+<li>separate input/output from core transformations when practical;</li>
+<li>design tests before trusting output;</li>
+<li>diagnose multiple independent logic defects;</li>
+<li>explain why a solution is credible.</li>
 </ol>
-<p>This is not a prompting exercise. The target skill is <strong>verification of executable logic</strong>.</p>
 </section>
-<section id="pair-verification-discussion" class="level2">
-<h2 class="anchored" data-anchor-id="pair-verification-discussion">Pair verification discussion</h2>
-<p>Compare repair strategies with a partner:</p>
+<section id="connection" class="level2">
+<h2 class="anchored" data-anchor-id="connection">Connection</h2>
+<p>Week 14 introduces no new syntax target. It integrates the shared Python form used throughout the course.</p>
+<p>The standard is now visible as one coherent habit: meaningful names, readable expressions, explicit state, small functions, concise documentation, limited mutation, specific error handling, and evidence from tests.</p>
+</section>
+<section id="in-class" class="level2">
+<h2 class="anchored" data-anchor-id="in-class">In class</h2>
+<section id="open-the-student-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="open-the-student-notebook">Open the student notebook</h3>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Student.ipynb" class="btn btn-primary">Open Week 14 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week14/DSA105_W14_Student.ipynb">Download the notebook</a></p>
+<p>You will repeatedly use:</p>
+<p><strong>Predict → Run → Modify → Explain → Build → Test</strong></p>
+<p>The class includes:</p>
 <ul>
-<li>Did you detect the same defects?</li>
-<li>Which test case exposed each defect?</li>
-<li>Could one test case miss a defect?</li>
-<li>What evidence makes the corrected program trustworthy?</li>
+<li>problem decomposition;</li>
+<li>function composition;</li>
+<li>collection transformation;</li>
+<li>boundary cases;</li>
+<li>manual and executable tests;</li>
+<li>two-defect AI verification;</li>
+<li>pair explanation;</li>
+<li>portfolio close.</li>
 </ul>
 </section>
-<section id="independent-integration-lab-evidence" class="level2">
-<h2 class="anchored" data-anchor-id="independent-integration-lab-evidence">Independent integration / Lab Evidence</h2>
-<p>Create a small <strong>transaction analysis</strong> program that:</p>
+</section>
+<section id="integrated-python-example" class="level2">
+<h2 class="anchored" data-anchor-id="integrated-python-example">Integrated Python example</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> apply_discount(price, threshold, discount_rate):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return price after applying a discount above the threshold."""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> price <span class="op">&gt;</span> threshold:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> price <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> discount_rate)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> price</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_average(values):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the arithmetic mean of a non-empty list."""</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> value <span class="kw">in</span> values:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> value</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total <span class="op">/</span> <span class="bu">len</span>(values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The functions make the transformations independently testable and easy to compose.</p>
+</section>
+<section id="ai-verify-two-independent-defects" class="level2">
+<h2 class="anchored" data-anchor-id="ai-verify-two-independent-defects">AI Verify — two independent defects</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average_adjusted_price(prices, threshold, discount_rate):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the average price after applying an eligible discount."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    adjusted_prices <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> price <span class="kw">in</span> prices:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> price <span class="op">&gt;</span> threshold:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            adjusted_prices.append(price <span class="op">-</span> discount_rate)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            adjusted_prices.append(price)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    total_adjusted_price <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(adjusted_prices) <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        total_adjusted_price <span class="op">+=</span> adjusted_prices[index]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total_adjusted_price <span class="op">/</span> <span class="bu">len</span>(adjusted_prices)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>prices = [80, 120, 200, 100]</code>, <code>threshold = 100</code>, and <code>discount_rate = 0.10</code>.</p>
+<p>The intended rule is: values <strong>strictly above</strong> <code>100</code> receive a <strong>10%</strong> discount.</p>
+<ol type="1">
+<li><strong>Predict</strong> the correct adjusted values and average by hand.</li>
+<li><strong>Run</strong> the AI-generated function.</li>
+<li><strong>Diagnose two independent defects</strong>:
 <ul>
-<li>uses at least one function;</li>
-<li>processes a collection;</li>
-<li>contains at least one decision;</li>
-<li>produces a summary value;</li>
-<li>includes three tests;</li>
-<li>explains one potential silent logic error;</li>
-<li>includes the Week 14 AI Verify diagnosis.</li>
+<li>the rate is treated as a flat amount rather than a proportion;</li>
+<li>the final adjusted value is omitted from the accumulated total.</li>
+</ul></li>
+<li><strong>Fix &amp; verify</strong> with a second case that contains a value exactly equal to the threshold.</li>
+</ol>
+<section id="evidence-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="evidence-tasks">Evidence tasks</h3>
+</section>
+<div class="action-grid">
+<section id="weekly-quiz" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="weekly-quiz">Weekly Quiz</h3>
+<p>Individual retrieval and diagnostic check.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSe9NDU6-kponUKs5i8jjDsVCuAzZy7kn3BSyjQJP4tTctkzHg/viewform" class="btn btn-primary">Start Week 14 Quiz</a></p>
+</section>
+<section id="lab-evidence" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="lab-evidence">Lab Evidence</h3>
+<p>Submit the selected in-class evidence task.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSe9ckfPlbDrgnE1HJgPg7c8E5KAhwwKGbfH_3mFx0o8tjZ8aQ/viewform" class="btn btn-primary">Submit Lab Evidence</a></p>
+</section>
+<section id="exit-ticket" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="exit-ticket">Exit Ticket</h3>
+<p>Concept check, difficulty signal, and confidence rating.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfoUpqgoX4b5vrxKjHyu_VbzhqRMpVYIh3zoVEu0639oKYOUg/viewform" class="btn btn-primary">Complete Exit Ticket</a></p>
+</section>
+</div>
+</section>
+<section id="after-class" class="level2">
+<h2 class="anchored" data-anchor-id="after-class">After class</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week14/DSA105_W14_Homework.ipynb" class="btn btn-primary">Open Week 14 Homework in Colab</a></p>
+<p><a href="../notebooks/week14/DSA105_W14_Homework.ipynb">Download the homework notebook</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfgt3IdelWJcUFijNId2Gp8VWCCZ4IukIiAz7Ouj12zRZFrxA/viewform" class="btn btn-primary">Submit Week 14 Homework</a></p>
+</section>
+<section id="concepts-to-keep" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-keep">Concepts to keep</h2>
+<ul>
+<li>decomposition;</li>
+<li>composition;</li>
+<li>readability;</li>
+<li>docstring;</li>
+<li>testing;</li>
+<li>boundary case;</li>
+<li>verification;</li>
+<li>explanation.</li>
 </ul>
 </section>
-<section id="weekly-evidence" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-evidence">Weekly evidence</h2>
-<p>Complete these after the corresponding activities:</p>
+<section id="portfolio-evidence-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="portfolio-evidence-this-week">Portfolio evidence this week</h2>
 <ul>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe9NDU6-kponUKs5i8jjDsVCuAzZy7kn3BSyjQJP4tTctkzHg/viewform">Weekly Quiz</a></li>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe9ckfPlbDrgnE1HJgPg7c8E5KAhwwKGbfH_3mFx0o8tjZ8aQ/viewform">Lab Evidence</a></li>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfoUpqgoX4b5vrxKjHyu_VbzhqRMpVYIh3zoVEu0639oKYOUg/viewform">Exit Ticket</a></li>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfgt3IdelWJcUFijNId2Gp8VWCCZ4IukIiAz7Ouj12zRZFrxA/viewform">Homework Submission</a></li>
+<li><code>REP</code> — Representation</li>
+<li><code>TRC</code> — Tracing</li>
+<li><code>CTL</code> — Control flow</li>
+<li><code>DEC</code> — Decomposition</li>
+<li><code>DBG</code> — Debugging</li>
+<li><code>TRN</code> — Transfer</li>
 </ul>
-</section>
-<section id="exit-reflection" class="level2">
-<h2 class="anchored" data-anchor-id="exit-reflection">Exit reflection</h2>
-<p>Complete:</p>
-<blockquote class="blockquote">
-<p>“I do not trust a program merely because it runs. I trust it more when …”</p>
-</blockquote>
-</section>
-<section id="homework-portfolio-close" class="level2">
-<h2 class="anchored" data-anchor-id="homework-portfolio-close">Homework / Portfolio close</h2>
-<p>Submit one revised program from Weeks 8–14 with:</p>
-<ul>
-<li>the original problem;</li>
-<li>the algorithm;</li>
-<li>the final code;</li>
-<li>one bug or weakness you found;</li>
-<li>the test that exposed it;</li>
-<li>the corrected version;</li>
-<li>a 100–150 word verification reflection.</li>
-</ul>
-<p>This is the final TRACE evidence package for the course.</p>
 
 
 </section>

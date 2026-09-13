@@ -17,8 +17,8 @@ The examination covers the material developed in Weeks 1–6:
 
 - problem solving, algorithms, and Input → Process → Output;
 - executable Python statements and tracing;
-- variables and data types;
-- operators and expressions;
+- variables, meaningful names, and data types;
+- operators and readable expressions;
 - input, output, and type conversion;
 - comparisons and conditional logic;
 - testing, debugging, and boundary reasoning.

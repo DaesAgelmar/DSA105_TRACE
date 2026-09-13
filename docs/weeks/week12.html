@@ -315,21 +315,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#todays-problem" id="toc-todays-problem" class="nav-link active" data-scroll-target="#todays-problem">Today’s problem</a>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#connection" id="toc-connection" class="nav-link" data-scroll-target="#connection">Connection</a></li>
+  <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class">In class</a>
   <ul class="collapse">
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#open-the-student-notebook" id="toc-open-the-student-notebook" class="nav-link" data-scroll-target="#open-the-student-notebook">Open the student notebook</a></li>
   </ul></li>
-  <li><a href="#open-the-notebooks" id="toc-open-the-notebooks" class="nav-link" data-scroll-target="#open-the-notebooks">Open the notebooks</a></li>
-  <li><a href="#part-a-core-concept" id="toc-part-a-core-concept" class="nav-link" data-scroll-target="#part-a-core-concept">Part A — Core concept</a></li>
-  <li><a href="#clean-line-data" id="toc-clean-line-data" class="nav-link" data-scroll-target="#clean-line-data">Clean line data</a></li>
-  <li><a href="#write-output" id="toc-write-output" class="nav-link" data-scroll-target="#write-output">Write output</a></li>
-  <li><a href="#debug-this" id="toc-debug-this" class="nav-link" data-scroll-target="#debug-this">Debug This</a></li>
-  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a></li>
-  <li><a href="#domain-application" id="toc-domain-application" class="nav-link" data-scroll-target="#domain-application">Domain application</a></li>
-  <li><a href="#independent-check-lab-evidence" id="toc-independent-check-lab-evidence" class="nav-link" data-scroll-target="#independent-check-lab-evidence">Independent check / Lab Evidence</a></li>
-  <li><a href="#weekly-evidence" id="toc-weekly-evidence" class="nav-link" data-scroll-target="#weekly-evidence">Weekly evidence</a></li>
-  <li><a href="#exit-question" id="toc-exit-question" class="nav-link" data-scroll-target="#exit-question">Exit question</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
+  <li><a href="#ai-verify" id="toc-ai-verify" class="nav-link" data-scroll-target="#ai-verify">AI Verify</a>
+  <ul class="collapse">
+  <li><a href="#evidence-tasks" id="toc-evidence-tasks" class="nav-link" data-scroll-target="#evidence-tasks">Evidence tasks</a></li>
+  </ul></li>
+  <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class">After class</a></li>
+  <li><a href="#concepts-to-keep" id="toc-concepts-to-keep" class="nav-link" data-scroll-target="#concepts-to-keep">Concepts to keep</a></li>
+  <li><a href="#portfolio-evidence-this-week" id="toc-portfolio-evidence-this-week" class="nav-link" data-scroll-target="#portfolio-evidence-this-week">Portfolio evidence this week</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/blob/main/weeks/week12.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/DaesAgelmar/DSA105_TRACE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -339,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week08.html">Part II — Computational Composition</a></li><li class="breadcrumb-item"><a href="../weeks/week12.html">Week 12 — Programs Meet Real Data</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 12 — Programs Meet Real Data</h1>
-<p class="subtitle lead">Files · Persistent Data · Cleaning Text Input</p>
+<p class="subtitle lead">Files, text cleaning, parsing, transformation pipelines, and separation of I/O from computation</p>
 </div>
 
 
@@ -356,135 +354,151 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="todays-problem" class="level2">
-<h2 class="anchored" data-anchor-id="todays-problem">Today’s problem</h2>
-<p>Programs often receive data from outside the code itself.</p>
-<blockquote class="blockquote">
-<p><strong>How do we move from temporary variables to data that already exists in a file?</strong></p>
-</blockquote>
-<section id="learning-goals" class="level3">
-<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
-<ul>
-<li>open text files safely;</li>
-<li>read line-based data;</li>
-<li>write output;</li>
-<li>use <code>with open(...)</code>;</li>
-<li>clean newline characters;</li>
-<li>test file-derived values before trusting downstream comparisons.</li>
-</ul>
-</section>
-</section>
-<section id="open-the-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="open-the-notebooks">Open the notebooks</h2>
-<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Student.ipynb" class="btn btn-primary">Open Week 12 Student Notebook in Colab</a></p>
-<p><a href="../notebooks/week12/DSA105_W12_Student.ipynb" class="btn btn-outline-primary">Download Student Notebook</a></p>
-<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Homework.ipynb" class="btn btn-secondary">Open Week 12 Homework Notebook in Colab</a></p>
-<p><a href="../notebooks/week12/DSA105_W12_Homework.ipynb" class="btn btn-outline-secondary">Download Homework Notebook</a></p>
-</section>
-<section id="part-a-core-concept" class="level2">
-<h2 class="anchored" data-anchor-id="part-a-core-concept">Part A — Core concept</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"customers.txt"</span>, <span class="st">"r"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    lines <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lines)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A file line usually contains a newline character. That character is data.</p>
-</section>
-<section id="clean-line-data" class="level2">
-<h2 class="anchored" data-anchor-id="clean-line-data">Clean line data</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> []</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> lines:</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    names.append(line.strip())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Explain what <code>.strip()</code> changes.</p>
-</section>
-<section id="write-output" class="level2">
-<h2 class="anchored" data-anchor-id="write-output">Write output</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"summary.txt"</span>, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.write(<span class="st">"Processing complete</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="debug-this" class="level2">
-<h2 class="anchored" data-anchor-id="debug-this">Debug This</h2>
-<p>Why can this comparison fail?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>name_from_file <span class="op">=</span> <span class="st">"Ayşe</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name_from_file <span class="op">==</span> <span class="st">"Ayşe"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="ai-verify" class="level2">
-<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Verification rule
+<span class="screen-reader-only">Tip</span>This week’s central question
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The code below is syntactically valid and produces plausible output.<br>
-<strong>Do not run it immediately.</strong> First decide what you expect it to do.</p>
+<p><strong>How do we move from temporary variables to data that already exists in a file?</strong></p>
 </div>
 </div>
-<p><strong>Scenario:</strong> A text file contains a header followed by one customer name per line. The program should return clean names.</p>
-<p><strong>An AI assistant wrote:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_customer_names(filepath):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filepath, <span class="st">"r"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> []</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines[<span class="dv">1</span>:]:</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        names.append(line)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> names</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Sample case:</strong> A file containing <code>name\nAyşe\nMert\n</code> should produce <code>['Ayşe', 'Mert']</code>.</p>
-<p>Your verification sequence:</p>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of this week, you should be able to:</p>
 <ol type="1">
-<li><strong>Predict</strong> — What exact strings do you think are stored in the returned list?</li>
-<li><strong>Run</strong> — Create a small file and inspect <code>repr()</code> of each returned value.</li>
-<li><strong>Diagnose</strong> — Explain why the data looks correct when printed but can fail in later equality checks.</li>
-<li><strong>Fix &amp; verify</strong> — Repair with explicit cleaning and verify by comparing a returned name with <code>'Ayşe'</code>.</li>
+<li>open text files safely with <code>with open(...)</code>;</li>
+<li>read and inspect line-based data;</li>
+<li>clean newline and surrounding whitespace;</li>
+<li>convert cleaned text into computational values;</li>
+<li>separate file I/O from reusable transformation functions;</li>
+<li>compose a small <code>load → clean → parse → summarize</code> pipeline;</li>
+<li>test file-derived values before trusting downstream comparisons.</li>
 </ol>
-<p>This is not a prompting exercise. The target skill is <strong>verification of executable logic</strong>.</p>
 </section>
-<section id="domain-application" class="level2">
-<h2 class="anchored" data-anchor-id="domain-application">Domain application</h2>
-<p>Create a text file containing five daily revenue values, one per line. Read the file, convert the lines to numbers, and calculate the total.</p>
+<section id="connection" class="level2">
+<h2 class="anchored" data-anchor-id="connection">Connection</h2>
+<p>Week 11 organized many values in collections. Week 12 asks where those collections come from.</p>
+<p>The program is easier to test when reading a file and transforming its contents are separate responsibilities.</p>
 </section>
-<section id="independent-check-lab-evidence" class="level2">
-<h2 class="anchored" data-anchor-id="independent-check-lab-evidence">Independent check / Lab Evidence</h2>
-<p>Create <code>expenses.txt</code> with a header and five expense values.</p>
-<p>Your program must:</p>
+<section id="in-class" class="level2">
+<h2 class="anchored" data-anchor-id="in-class">In class</h2>
+<section id="open-the-student-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="open-the-student-notebook">Open the student notebook</h3>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Student.ipynb" class="btn btn-primary">Open Week 12 Student Notebook in Colab</a></p>
+<p><a href="../notebooks/week12/DSA105_W12_Student.ipynb">Download the notebook</a></p>
+<p>You will repeatedly use:</p>
+<p><strong>Predict → Run → Modify → Explain → Build → Test</strong></p>
+<p>The class includes:</p>
 <ul>
-<li>skip the header;</li>
-<li>clean each line;</li>
-<li>convert to <code>float</code>;</li>
-<li>calculate total and average;</li>
-<li>verify one value using <code>repr()</code> before conversion;</li>
-<li>complete AI Verify evidence.</li>
+<li>safe file opening;</li>
+<li>raw line inspection with <code>repr()</code>;</li>
+<li>text cleaning;</li>
+<li>numeric parsing;</li>
+<li>small transformation functions;</li>
+<li>I/O versus computation;</li>
+<li>AI verification of hidden newline characters;</li>
+<li>file-to-summary pipeline.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Separate reading from transformation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_lines(lines):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return stripped, non-empty lines."""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    cleaned_lines <span class="op">=</span> []</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        cleaned_line <span class="op">=</span> line.strip()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cleaned_line:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            cleaned_lines.append(cleaned_line)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cleaned_lines</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A function like this can be tested without opening a file. File I/O remains at the boundary of the program.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="ai-verify" class="level2">
+<h2 class="anchored" data-anchor-id="ai-verify">AI Verify</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_customer_names(file_path):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return customer names from a one-name-per-line text file."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(file_path, <span class="st">"r"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    customer_names <span class="op">=</span> []</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines[<span class="dv">1</span>:]:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        customer_names.append(line)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> customer_names</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A file containing <code>name\nAyşe\nMert\n</code> should produce <code>["Ayşe", "Mert"]</code>.</p>
+<ol type="1">
+<li><strong>Predict</strong> the exact strings actually stored.</li>
+<li><strong>Run</strong> and inspect each item with <code>repr()</code>.</li>
+<li><strong>Diagnose</strong> why printed names can look correct while equality checks fail.</li>
+<li><strong>Fix &amp; verify</strong> by cleaning each line before returning it.</li>
+</ol>
+<section id="evidence-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="evidence-tasks">Evidence tasks</h3>
+</section>
+<div class="action-grid">
+<section id="weekly-quiz" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="weekly-quiz">Weekly Quiz</h3>
+<p>Individual retrieval and diagnostic check.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd6v-bKyDM-jhCdVBpHKgNEpLMDFAVDlkvWuVf2M33QSpGHeg/viewform" class="btn btn-primary">Start Week 12 Quiz</a></p>
+</section>
+<section id="lab-evidence" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="lab-evidence">Lab Evidence</h3>
+<p>Submit the selected in-class evidence task.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSepk6VF_XG_UgiPeFmgpnwiXvA-o4l1DSv5zHXe_Q-d-zqMUA/viewform" class="btn btn-primary">Submit Lab Evidence</a></p>
+</section>
+<section id="exit-ticket" class="level3 action-card">
+<h3 class="anchored" data-anchor-id="exit-ticket">Exit Ticket</h3>
+<p>Concept check, difficulty signal, and confidence rating.</p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLScrQqBWHtld9IwWREV2LTg5AQu67W-MQetmPLMxu6Db9OPgUQ/viewform" class="btn btn-primary">Complete Exit Ticket</a></p>
+</section>
+</div>
+</section>
+<section id="after-class" class="level2">
+<h2 class="anchored" data-anchor-id="after-class">After class</h2>
+<p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week12/DSA105_W12_Homework.ipynb" class="btn btn-primary">Open Week 12 Homework in Colab</a></p>
+<p><a href="../notebooks/week12/DSA105_W12_Homework.ipynb">Download the homework notebook</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfKHfrx0_zwwbTnQZSrPBCy0GV7kk2EytEOpIF-kxXaa-UBCA/viewform" class="btn btn-primary">Submit Week 12 Homework</a></p>
+</section>
+<section id="concepts-to-keep" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-keep">Concepts to keep</h2>
+<ul>
+<li>file;</li>
+<li><code>with open(...)</code>;</li>
+<li><code>readlines()</code>;</li>
+<li>whitespace;</li>
+<li><code>.strip()</code>;</li>
+<li>parsing;</li>
+<li>transformation;</li>
+<li>pipeline;</li>
+<li>verification.</li>
 </ul>
 </section>
-<section id="weekly-evidence" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-evidence">Weekly evidence</h2>
-<p>Complete these after the corresponding activities:</p>
+<section id="portfolio-evidence-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="portfolio-evidence-this-week">Portfolio evidence this week</h2>
 <ul>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd6v-bKyDM-jhCdVBpHKgNEpLMDFAVDlkvWuVf2M33QSpGHeg/viewform">Weekly Quiz</a></li>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSepk6VF_XG_UgiPeFmgpnwiXvA-o4l1DSv5zHXe_Q-d-zqMUA/viewform">Lab Evidence</a></li>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLScrQqBWHtld9IwWREV2LTg5AQu67W-MQetmPLMxu6Db9OPgUQ/viewform">Exit Ticket</a></li>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfKHfrx0_zwwbTnQZSrPBCy0GV7kk2EytEOpIF-kxXaa-UBCA/viewform">Homework Submission</a></li>
+<li><code>REP</code> — Representation</li>
+<li><code>DEC</code> — Decomposition</li>
+<li><code>DBG</code> — Data/debug reasoning</li>
+<li><code>TRN</code> — Transfer</li>
 </ul>
-</section>
-<section id="exit-question" class="level2">
-<h2 class="anchored" data-anchor-id="exit-question">Exit question</h2>
-<p>Why can whitespace be a <strong>data-quality</strong> problem rather than merely a display problem?</p>
-</section>
-<section id="homework" class="level2">
-<h2 class="anchored" data-anchor-id="homework">Homework</h2>
-<p>Read a simple <code>transactions.txt</code> file containing one numeric amount per line and write a second file containing:</p>
-<ul>
-<li>transaction count;</li>
-<li>total;</li>
-<li>average.</li>
-</ul>
-<p>Include one paragraph explaining why <code>with open(...)</code> is preferable to leaving file handles unmanaged.</p>
 
 
 </section>

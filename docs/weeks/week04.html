@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -281,12 +316,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#connection-to-week-3" id="toc-connection-to-week-3" class="nav-link" data-scroll-target="#connection-to-week-3">Connection to Week 3</a></li>
+  <li><a href="#connection" id="toc-connection" class="nav-link" data-scroll-target="#connection">Connection</a></li>
   <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class">In class</a>
   <ul class="collapse">
-  <li><a href="#open-the-student-notebook" id="toc-open-the-student-notebook" class="nav-link" data-scroll-target="#open-the-student-notebook">1. Open the student notebook</a></li>
-  <li><a href="#active-cycle" id="toc-active-cycle" class="nav-link" data-scroll-target="#active-cycle">2. Active cycle</a></li>
-  <li><a href="#evidence-tasks" id="toc-evidence-tasks" class="nav-link" data-scroll-target="#evidence-tasks">3. Evidence tasks</a></li>
+  <li><a href="#open-the-student-notebook" id="toc-open-the-student-notebook" class="nav-link" data-scroll-target="#open-the-student-notebook">Open the student notebook</a></li>
+  <li><a href="#evidence-tasks" id="toc-evidence-tasks" class="nav-link" data-scroll-target="#evidence-tasks">Evidence tasks</a></li>
   </ul></li>
   <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class">After class</a></li>
   <li><a href="#concepts-to-keep" id="toc-concepts-to-keep" class="nav-link" data-scroll-target="#concepts-to-keep">Concepts to keep</a></li>
@@ -336,29 +370,25 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>distinguish a <strong>value</strong>, an <strong>operator</strong>, and an <strong>expression</strong>;</li>
 <li>use arithmetic operators to transform numeric data;</li>
-<li>predict the result of simple expressions before running code;</li>
+<li>predict the result of expressions before running code;</li>
 <li>explain how assignment stores the result of an expression;</li>
 <li>use parentheses to make evaluation order explicit;</li>
-<li>identify and repair simple expression errors.</li>
+<li>write readable expressions with standard spacing and descriptive result names;</li>
+<li>identify and repair incorrect formulas.</li>
 </ol>
 </section>
-<section id="connection-to-week-3" class="level2">
-<h2 class="anchored" data-anchor-id="connection-to-week-3">Connection to Week 3</h2>
-<p>Last week, we represented information using variables and data types.</p>
-<p>This week we ask:</p>
-<blockquote class="blockquote">
-<p><strong>How do we transform those represented values into new information?</strong></p>
-</blockquote>
+<section id="connection" class="level2">
+<h2 class="anchored" data-anchor-id="connection">Connection</h2>
+<p>Week 3 gave values meaningful names and representations. Week 4 combines those values into new information.</p>
+<p>A readable expression should make the domain relationship visible, not merely produce the right number.</p>
 </section>
 <section id="in-class" class="level2">
 <h2 class="anchored" data-anchor-id="in-class">In class</h2>
 <section id="open-the-student-notebook" class="level3">
-<h3 class="anchored" data-anchor-id="open-the-student-notebook">1. Open the student notebook</h3>
+<h3 class="anchored" data-anchor-id="open-the-student-notebook">Open the student notebook</h3>
 <p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week04/DSA105_W04_Student.ipynb" class="btn btn-primary">Open Week 4 Student Notebook in Colab</a></p>
 <p><a href="../notebooks/week04/DSA105_W04_Student.ipynb">Download the notebook</a></p>
-</section>
-<section id="active-cycle" class="level3">
-<h3 class="anchored" data-anchor-id="active-cycle">2. Active cycle</h3>
+<p>You will repeatedly use:</p>
 <p><strong>Predict → Run → Modify → Explain → Build → Test</strong></p>
 <p>The class includes:</p>
 <ul>
@@ -367,25 +397,48 @@ ul.task-list li input[type="checkbox"] {
 <li>expression tracing;</li>
 <li>assignment from expressions;</li>
 <li>parentheses and precedence;</li>
+<li>readable formula construction;</li>
 <li>domain transformations;</li>
 <li>debugging incorrect formulas;</li>
 <li>independent lab evidence.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Make the relationship visible
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prefer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>total_revenue <span class="op">=</span> quantity_sold <span class="op">*</span> unit_price</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>profit_margin <span class="op">=</span> profit <span class="op">/</span> revenue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>over compressed forms such as:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>r<span class="op">=</span>q<span class="op">*</span>p</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>p<span class="op">/</span>r</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Python ignores most of the visual difference. Human readers do not.</p>
+</div>
+</div>
 </section>
 <section id="evidence-tasks" class="level3">
-<h3 class="anchored" data-anchor-id="evidence-tasks">3. Evidence tasks</h3>
+<h3 class="anchored" data-anchor-id="evidence-tasks">Evidence tasks</h3>
 </section>
 <div class="action-grid">
 <section id="weekly-quiz" class="level3 action-card">
 <h3 class="anchored" data-anchor-id="weekly-quiz">Weekly Quiz</h3>
+<p>Individual retrieval and diagnostic check.</p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkqJKsXg-GKBHoIXCmcG63WZLxJYLl7bbmGMyAtZ1Ybghwcw/viewform" class="btn btn-primary">Start Week 4 Quiz</a></p>
 </section>
 <section id="lab-evidence" class="level3 action-card">
 <h3 class="anchored" data-anchor-id="lab-evidence">Lab Evidence</h3>
+<p>Submit the selected in-class evidence task.</p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc5brfnMh-TLszrDowrf_ZuOBTX_B2zQzcH5JRKPkVVIl9rSw/viewform" class="btn btn-primary">Submit Lab Evidence</a></p>
 </section>
 <section id="exit-ticket" class="level3 action-card">
 <h3 class="anchored" data-anchor-id="exit-ticket">Exit Ticket</h3>
+<p>Concept check, difficulty signal, and confidence rating.</p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfRmSDb3kMapJIieaGpDJg7HwI4ynDIuOPkWlYIN7o3RsyXNA/viewform" class="btn btn-primary">Complete Exit Ticket</a></p>
 </section>
 </div>
@@ -395,23 +448,6 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://colab.research.google.com/github/DaesAgelmar/DSA105_TRACE/blob/main/notebooks/week04/DSA105_W04_Homework.ipynb" class="btn btn-primary">Open Week 4 Homework in Colab</a></p>
 <p><a href="../notebooks/week04/DSA105_W04_Homework.ipynb">Download the homework notebook</a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFqId6JpYDULNhXuoQGYpTnn8oXbzPgSekv5FzxPCBqznUPg/viewform" class="btn btn-primary">Submit Week 4 Homework</a></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Midterm connection
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This week develops two skills that may be assessed in the midterm:</p>
-<ul>
-<li>translating a quantitative relationship into a correct Python expression;</li>
-<li>diagnosing and repairing an incorrect formula or evaluation order.</li>
-</ul>
-</div>
-</div>
 </section>
 <section id="concepts-to-keep" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-to-keep">Concepts to keep</h2>
